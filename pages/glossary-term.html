@@ -1,0 +1,74 @@
+<!--
+  The four hundred glossary term pages.
+
+  A fragment, not a document: `tools/build.js` wraps this in the document skeleton, the masthead, the
+  contextual band and the footer. One template behind four hundred paths, and the difference between
+  them is which term the route is about — the same argument the 118 element pages make.
+
+  Four markers, and this header contains none of them.
+
+  The reference's term page carries the term, a badge, and one sentence, and then offers to send the
+  reader to a Learn page and to Flash cards — two of its three boxes pointing at sections this project
+  does not build. Its first section is replaced here with an explanation written for the term, because a
+  sentence is a definition and not an explanation, and because "where this comes up" is better answered
+  by pointing at the elements the term is about than at a course we do not host.
+
+  So the sections are:
+
+    1. The term, its badge, and its definition — the one sentence that answers "what does this word
+       mean" and which is also what the index row shows.
+    2. The explanation, which is the written prose for this term and the reason the page is worth more
+       than its own definition. The marker is bare because the section is not always there: a term whose
+       definition is the whole story gets no explanation section at all, and the page module is what
+       decides, by filling the marker with the complete section or with nothing. It cannot be a section
+       written here, because a heading over an empty section is worse than no heading.
+    3. The elements it is about, and the terms it sits beside. Both are generated from the records, so
+       a term that is about iron lists iron and a term that is about nothing in particular says so
+       rather than listing four strangers.
+    4. The glossary index, for the reader who came here to find a word and now wants the other ones.
+
+  Every link out of here points at a page this project builds. That is the whole reason this family
+  exists — the plan calls it the internal-link backbone, and a link to a course we do not host is the
+  opposite of a backbone.
+-->
+
+<article class="term">
+  <div class="shell">
+    <nav class="term__breadcrumb" aria-label="Breadcrumb">
+      <a href="/glossary/">Glossary</a>
+      <span aria-hidden="true">·</span>
+      <!-- letter-link -->
+    </nav>
+
+    <header class="term__header">
+      <h1 class="term__name"><!-- name --></h1>
+      <!-- badge -->
+    </header>
+
+    <p class="term__definition"><!-- definition --></p>
+  </div>
+</article>
+
+<!-- explanation -->
+
+<section class="term-related section" aria-labelledby="term-related-heading">
+  <div class="shell">
+    <h2 class="section__title" id="term-related-heading">Where it comes up</h2>
+
+    <div class="term-related__grid">
+      <div class="term-related__panel">
+        <h3 class="term-related__panel-title">Elements it is about</h3>
+        <!-- elements -->
+      </div>
+
+      <div class="term-related__panel">
+        <h3 class="term-related__panel-title">Terms it sits beside</h3>
+        <!-- related -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="shell">
+  <!-- others -->
+</div>

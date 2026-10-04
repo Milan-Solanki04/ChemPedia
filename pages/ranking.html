@@ -1,0 +1,32 @@
+<!--
+  The property ranking pages: melting point, boiling point, orbital configuration.
+
+  A fragment, not a document: `tools/build.js` wraps this in the document skeleton, the masthead, the
+  contextual band and the footer.
+
+  Two markers, and this header contains neither — a marker written inside a comment is still a marker,
+  and filling it puts the whole block into the comment and gives the page two elements with one id.
+
+  The heading and the sentence under it are not here. Which sentence explains a table of melting
+  points is not the same sentence that explains a table of electron configurations, so the copy comes
+  from the page module along with the columns. Everything that is the same on all three pages — the
+  filter, and the shape of what follows it — is here.
+-->
+
+<section class="rank-hero">
+  <div class="shell">
+    <h1><!-- heading --></h1>
+    <p class="lead"><!-- lede --></p>
+    <p class="rank-hero__hint">
+      Filter by name, symbol or atomic number. The rows are already in order; nothing on this page
+      re-sorts them. On a narrow screen the table scrolls sideways rather than reflowing.
+    </p>
+    <div class="rank-hero__filter">
+      <!-- filter -->
+    </div>
+  </div>
+</section>
+
+<div class="shell" id="rank-tables">
+  <!-- rankings -->
+</div>

@@ -1,0 +1,55 @@
+/* The property list.
+
+   A two-column list of label and reading, and the reason it is a list rather than a table of figures
+   is that two of the readings are not numbers: "Shells" reads 2, 8, 14, 2 and "State at 293 K"
+   reads Solid. A layout that only had to hold numbers would have had to invent a second arrangement
+   for those two.
+
+   Rows are omitted when the record does not carry the fact, which is why there is no placeholder and
+   no dash anywhere in here. */
+
+.properties__heading,
+.faq__heading {
+  font-size: var(--step-1);
+  color: var(--ink);
+}
+
+.properties__list {
+  margin-block-start: var(--sp-4);
+}
+
+.property {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  padding-block: var(--sp-2);
+  border-top: var(--rule-hairline);
+}
+
+.property__label {
+  flex: 0 1 auto;
+  color: var(--ink-soft);
+  font-size: var(--step--1);
+}
+
+.property__value {
+  /* `0 1 auto`, not `0 0 auto`. With no shrink the reading could never give ground to the label, and
+     the longest reading in the data — oganesson's electron configuration, "[Rn]7s2 7p6 5f14 6d10
+     (predicted)" — pushed the element pages 3px past a 375px viewport. `min-width: 0` is what lets a
+     flex item shrink below its content, and the break is a safety net: the longest unbreakable run
+     in any reading is fourteen characters ("Praseodymium"), so the spaces are where it wraps in
+     practice. */
+  flex: 0 1 auto;
+  min-width: 0;
+  overflow-wrap: break-word;
+  text-align: end;
+  font-variant-numeric: tabular-nums;
+}
+
+.properties__note,
+.faq__note {
+  margin-block-start: var(--sp-4);
+  color: var(--ink-faint);
+  font-size: var(--step--1);
+}

@@ -1,0 +1,61 @@
+<!--
+  The eleven element group pages.
+
+  A fragment, not a document: `tools/build.js` wraps this in the document skeleton, the masthead, the
+  contextual band and the footer.
+
+  Eight markers, and this header contains none of them.
+
+  The hero's first three markers are filled from the category and the group's written copy: the name is
+  singular because a page about a group is titled by that group, and the lede is the sentence this
+  project wrote for it. The fourth is the four facts, which are counted from the records rather than
+  written here — a member count stored in a template is a number that rots.
+
+  The table below carries its isolation in the markup rather than waiting for a script: a page whose
+  whole subject is "these are the ones" has to say so to a reader whose scripts never ran.
+
+  The miniature table panel the design reference puts beside its hero is not reproduced. The table with
+  the group lit is the same information at full size further down the page, and a second copy of the
+  table in miniature is the kind of thing this project removed from the element page's foot.
+-->
+
+<section class="group-hero">
+  <div class="shell">
+    <p class="group-hero__eyebrow">Element group</p>
+    <h1><!-- heading --></h1>
+    <p class="group-hero__lede"><!-- lede --></p>
+    <!-- facts -->
+  </div>
+</section>
+
+<section class="group-table-section" aria-labelledby="group-table-heading">
+  <div class="shell">
+    <h2 class="visually-hidden" id="group-table-heading">Where they sit</h2>
+    <!-- legend -->
+    <!-- table -->
+    <p class="group__note">
+      The highlighted cells are this group's members; press the chip to see the whole table again.
+      Narrow screens scroll the table sideways.
+    </p>
+  </div>
+</section>
+
+<section class="group-about section">
+  <!-- Not `.prose` on the shell: the shell centres itself with `margin-inline: auto`, so narrowing it
+       with a measure's max-width would centre the paragraph instead of leaving it at the content
+       edge where the hero above it starts. The paragraph's own rule carries the measure. -->
+  <div class="shell">
+    <!-- character -->
+  </div>
+</section>
+
+<section class="group-members-section" aria-labelledby="group-members-heading">
+  <div class="shell">
+    <h2 class="section__title" id="group-members-heading"><!-- members-heading --></h2>
+    <!-- members -->
+  </div>
+</section>
+
+<div class="shell">
+  <!-- others -->
+</div>

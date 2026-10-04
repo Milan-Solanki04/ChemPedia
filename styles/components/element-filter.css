@@ -1,0 +1,48 @@
+/* The field that narrows a list already on the page.
+
+   A form rather than a bare input, because a field with no form is a field that cannot be submitted,
+   and a reader whose scripts have not run still needs to be able to say what they are looking for.
+   The status line under the field is the count of what came back; it is a live region in the markup,
+   not something the script adds, so the count is announced even when it is styled out of the way.
+
+   The field is built from the same tokens as the home page's find field, so the two filters on the
+   site are recognisably the same control rather than two that happen to look alike. It carries no
+   button of its own: filtering is not an action a reader takes, it is a thing that happens as they
+   type, and a button would imply the field does nothing until it is pressed. */
+
+.filter__form {
+  display: grid;
+  gap: var(--gap-find);
+  /* Stretch, not start: the row below carries the declared width, and a grid that packs its items to
+     their content would shrink the field to the length of its placeholder and no further. */
+  justify-items: stretch;
+}
+
+.filter__row {
+  display: flex;
+  gap: var(--gap-find);
+  width: min(100%, var(--width-find));
+}
+
+.filter__input {
+  flex: 1 1 auto;
+  min-width: 0;
+  height: var(--height-field);
+  padding-inline: var(--sp-3);
+  border: var(--rule-width) solid var(--line-strong);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--ink-body);
+  font: inherit;
+  font-size: var(--step-0);
+}
+
+/* The count is set small and in the soft ink: it answers a question the reader has already asked, so
+   it should be findable rather than loud. It keeps a line of height even when empty, so the page does
+   not jump as the count appears and disappears under the field. */
+.filter__status {
+  margin: 0;
+  min-height: 1lh;
+  color: var(--ink-soft);
+  font-size: var(--step--1);
+}

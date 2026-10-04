@@ -1,0 +1,119 @@
+/* The find-an-element field.
+
+   A form that submits on its own, with a list of results beneath it that appears once there is
+   something to say. The results are links rather than a custom listbox, which means Tab reaches every
+   one of them, they can be opened in a new tab, and the browser's own find-in-page can see them —
+   three things a hand-rolled dropdown gives up for a look the design does not need.
+
+   The field is not a rounded pill. This design's corners are nearly square, its controls are
+   rectangular, and a search box that borrows the legend chip's shape would read as a filter rather
+   than as somewhere to type. */
+
+.find__form {
+  position: relative;
+}
+
+.find__row {
+  display: flex;
+  gap: var(--gap-find);
+  max-width: var(--width-find);
+}
+
+.find__input {
+  flex: 1 1 auto;
+  min-width: 0;
+  height: var(--height-field);
+  padding-inline: var(--sp-3);
+  border: var(--rule-width) solid var(--line-strong);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--ink-body);
+  font: inherit;
+  font-size: var(--step-0);
+}
+
+.find__input::placeholder {
+  color: var(--ink-faint);
+}
+
+.find__input:focus-visible {
+  border-color: var(--ink);
+  outline: var(--focus-width) solid var(--ink);
+  outline-offset: var(--focus-offset);
+}
+
+.find__button {
+  flex: none;
+  width: var(--width-find-button);
+  border: var(--rule-width) solid var(--ink);
+  border-radius: var(--radius);
+  background: var(--ink);
+  color: var(--on-accent);
+  font: inherit;
+  font-size: var(--step--1);
+  font-weight: var(--weight-medium);
+  cursor: pointer;
+  transition: background var(--dur-fast) var(--ease-out);
+}
+
+.find__button:hover {
+  background: var(--ink-body);
+}
+
+/* Below the breakpoint the button moves under the field rather than beside it. A field squeezed to
+   half a phone's width beside a fixed-width button cannot show what it is for, and the placeholder
+   is the only thing that says so. */
+@media (max-width: 40rem) {
+  .find__row {
+    flex-direction: column;
+  }
+
+  .find__button {
+    width: 100%;
+    height: var(--height-field);
+  }
+}
+
+.find__status {
+  min-height: 1lh;
+  margin-block-start: var(--sp-2);
+  color: var(--ink-soft);
+  font-size: var(--step--1);
+}
+
+/* The results sit in the page flow rather than floating over it. A list that
+   overlays the text below it hides that text, and this site is a page of
+   reference material a reader may want to scroll past while typing. */
+.find__results {
+  max-width: var(--width-find);
+  margin-block-start: var(--sp-2);
+  border-top: var(--rule-hairline);
+  list-style: none;
+}
+
+.find__results[hidden] {
+  display: none;
+}
+
+.find__result a {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  padding: var(--pad-find-result);
+  border-bottom: var(--rule-hairline);
+  color: var(--ink-body);
+  text-decoration: none;
+}
+
+.find__result a:hover,
+.find__result a:focus-visible {
+  background: var(--surface-sunk);
+  color: var(--ink);
+}
+
+.find__result-symbol {
+  color: var(--ink-faint);
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+}

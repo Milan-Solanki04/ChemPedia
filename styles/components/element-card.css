@@ -1,0 +1,67 @@
+/* The index card: a tile, and the three lines of text that go with it.
+
+   The card is a box with a hairline border rather than a raised panel, because a hundred and
+   eighteen of them are on the page at once and eighteen shadows would be noise where a hundred and
+   eighteen borders are structure. The tile keeps the group colour and the text stays in the ink, so
+   the colour is a label on the card rather than a field behind it.
+
+   The whole card is the link, and the tile inside it gives up being one — an anchor inside an anchor
+   is invalid markup that browsers and screen readers disagree about. That is why `.card` is the
+   anchor and `.tile` inside it is a span.
+
+   The grid is one column below 40rem, two above it and four from 56rem, which is what the reference
+   does: four across at 1280px, and one down the page on a phone, where a card is the only thing in
+   the column and a pair of them side by side would leave both too narrow for a name. */
+
+.card {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+  padding: var(--pad-card);
+  border: var(--rule-hairline);
+  border-radius: var(--radius);
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.card:hover .card__name {
+  text-decoration: underline;
+  text-underline-offset: var(--underline-offset);
+}
+
+/* The tile is the picture of the element, not the link, so it neither takes focus nor reports a
+   title of its own — the card is one link and must read as one thing. */
+.card .tile {
+  flex: none;
+  width: var(--card-tile-size);
+  height: var(--card-tile-size);
+  font-size: var(--step--1);
+}
+
+.card__meta {
+  display: grid;
+  gap: var(--sp-1);
+  min-width: 0;
+}
+
+.card__name {
+  font-size: var(--step-0);
+  line-height: var(--leading-tight);
+  overflow-wrap: break-word;
+}
+
+/* The group and the two figures are both set a step smaller and in the softer ink: they are context
+   for the name rather than part of it, and the name is what a card is scanned for. */
+.card__group,
+.card__figures {
+  color: var(--ink-soft);
+  font-size: var(--step--1);
+  line-height: var(--leading-tight);
+  overflow-wrap: break-word;
+}
+
+/* The figures are numbers a reader compares down the column, so they take the tabular figures the
+   properties sidebar uses. */
+.card__figures {
+  font-variant-numeric: tabular-nums;
+}

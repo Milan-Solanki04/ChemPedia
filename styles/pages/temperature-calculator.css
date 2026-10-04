@@ -1,0 +1,69 @@
+/* The temperature calculator page: where the converter sits, and the reference points beneath it.
+
+   The converter's own rules — the fields, the scale headings, the warning region — are in
+   `components/converter-input.css`, beside the component that renders them, as every other component on
+   this site is. What is left here is the page: the space around the converter and the table of
+   temperatures worth knowing.
+
+   **The table scrolls sideways rather than compressing.** Four columns of numbers in a narrow column
+   would either wrap every figure onto two lines or shrink below the size anybody can read, and a table
+   of temperatures is the one thing on this page that must be legible at a glance. The figures are set
+   with tabular numerals so the columns line up digit by digit, which is what makes a table of
+   temperatures readable as a table rather than as a list. */
+
+.converter-section {
+  padding-block: var(--sp-5) var(--sp-6);
+}
+
+/* --- The reference points --- */
+
+.points {
+  overflow-x: auto;
+}
+
+.points__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+
+.points__table th,
+.points__table td {
+  padding: var(--sp-3) var(--sp-3);
+  border-block-end: var(--rule-hairline);
+  text-align: start;
+  line-height: var(--leading-body);
+}
+
+.points__table thead th {
+  border-block-end: var(--rule-solid);
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.points__table tbody th {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.points__value {
+  color: var(--ink-body);
+  white-space: nowrap;
+}
+
+/* The flag drops below its number rather than sitting on the same line, so a narrow column does not
+   have to fit both. It is not hidden from the accessibility tree — "the limit" is the only thing on the
+   row that says absolute zero is a boundary and not just another temperature. */
+.points__flag {
+  display: block;
+  color: var(--ink-faint);
+  font-size: var(--step--1);
+  font-style: italic;
+}
+
+.converter__note {
+  max-width: 46rem;
+  margin-block-start: var(--sp-5);
+  color: var(--ink-soft);
+  line-height: var(--leading-prose);
+}

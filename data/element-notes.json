@@ -1,0 +1,829 @@
+{
+  "note": "The written part of each element record, keyed by symbol. Kept apart from elements.json so that rerunning the build cannot overwrite writing. Every sentence here is written for this project and copied from nowhere.",
+  "H": {
+    "pronunciation": "HY-druh-jen",
+    "nameOrigin": "Greek: hydro, water, and genes, forming, because burning it makes water",
+    "summary": "The lightest element and the simplest atom, one proton and one electron, and by a wide margin the most abundant substance in the universe.",
+    "uses": "Ammonia for fertiliser, the refining of petroleum, the hardening of fats, and the fuel cell that turns it back into water.",
+    "sources": "Bound into water, into every hydrocarbon, and into every living thing; almost none of it exists on Earth as a free gas."
+  },
+  "He": {
+    "pronunciation": "HEE-lee-um",
+    "nameOrigin": "Greek: helios, the sun, where it was detected before it was found on Earth",
+    "summary": "A colourless, odourless gas that will not burn, will not react, and will not freeze at any temperature a laboratory has reached.",
+    "uses": "Cooling superconducting magnets in MRI scanners, lifting balloons, and shielding a weld from the air around it.",
+    "sources": "Extracted from a few natural gas fields where it has accumulated from the radioactive decay of heavy elements."
+  },
+  "Li": {
+    "pronunciation": "LITH-ee-um",
+    "nameOrigin": "Greek: lithos, stone, because it was first found in a mineral rather than in a plant",
+    "summary": "The lightest metal, soft enough to cut with a knife and light enough to float on water, which it then reacts with.",
+    "uses": "Rechargeable batteries, heat-resistant glass and ceramics, and a carbonate that steadies mood.",
+    "sources": "Brine beneath salt flats and a handful of hard minerals such as spodumene."
+  },
+  "Be": {
+    "pronunciation": "buh-RIL-ee-um",
+    "nameOrigin": "Greek: beryllos, the mineral beryl, which also gives emerald and aquamarine",
+    "summary": "A light, stiff, steel-grey metal that is transparent to X-rays and poisonous as dust.",
+    "uses": "Windows for X-ray tubes, aerospace alloys, and the springs and mirrors of instruments where stiffness matters more than cost.",
+    "sources": "The minerals beryl and bertrandite, in amounts small enough that the metal stays expensive."
+  },
+  "B": {
+    "pronunciation": "BOR-on",
+    "nameOrigin": "From borax, the mineral it was first isolated from",
+    "summary": "A metalloid that forms some of the hardest known materials and some of the softest, depending on how its atoms are arranged.",
+    "uses": "Borosilicate glass that survives a temperature change, detergents, and the boron rods that absorb neutrons in a reactor.",
+    "sources": "Evaporated lake beds, chiefly in Turkey and California, where it is mined as borax."
+  },
+  "C": {
+    "pronunciation": "KAR-bun",
+    "nameOrigin": "Latin: carbo, charcoal",
+    "summary": "The element that forms more compounds than all the others together, and appears as graphite, diamond, and the framework of every living thing.",
+    "uses": "Steel, and therefore almost everything made of steel; graphite electrodes; and diamond, which is carbon arranged to be the hardest natural substance.",
+    "sources": "Coal, petroleum, limestone, the atmosphere as carbon dioxide, and every organism alive or fossilised."
+  },
+  "N": {
+    "pronunciation": "NY-truh-jen",
+    "nameOrigin": "Greek: nitron and genes, soda forming, from its presence in saltpetre",
+    "summary": "A colourless, nearly inert gas that makes up four fifths of the air, and the element every protein and every strand of DNA is built around.",
+    "uses": "Fertiliser through the Haber process, refrigeration as liquid nitrogen, and an inert atmosphere for food packaging and welding.",
+    "sources": "The air, which is 78 per cent nitrogen by volume; on Earth it is otherwise locked into minerals and living tissue."
+  },
+  "O": {
+    "pronunciation": "OK-suh-jen",
+    "nameOrigin": "Greek: oxys and genes, acid forming, from the mistaken belief that it was in every acid",
+    "summary": "The most abundant element in the Earth's crust and the one that makes combustion and breathing possible.",
+    "uses": "Steelmaking, medical breathing support, rocket oxidiser, and the treatment of wastewater.",
+    "sources": "The air, one fifth by volume; water; and the silicate rocks that make up most of the planet's mass."
+  },
+  "F": {
+    "pronunciation": "FLOR-een",
+    "nameOrigin": "Latin: fluere, to flow, from a mineral used to make molten metal flow",
+    "summary": "The most reactive of all the elements, a pale yellow gas that attacks glass and will not be tamed by anything else for long.",
+    "uses": "Uranium enrichment, fluoropolymers such as the coating on a frying pan, and the fluoride that hardens tooth enamel.",
+    "sources": "Fluorite and cryolite, and as a trace in apatite; never as the free element, which would react with whatever it touched."
+  },
+  "Ne": {
+    "pronunciation": "NEE-on",
+    "nameOrigin": "Greek: neos, new",
+    "summary": "An inert gas that glows a deep red-orange when a current is passed through it, which is the only reason most people have heard of it.",
+    "uses": "Discharge lighting and signs, and a cryogenic refrigerant.",
+    "sources": "The air, at eighteen parts per million, separated out by cooling air until it liquefies."
+  },
+  "Na": {
+    "pronunciation": "SO-dee-um",
+    "nameOrigin": "English: soda, and Latin natrium, from the salt it was first extracted from",
+    "summary": "A soft silvery metal that reacts violently with water and has to be stored under oil, and one half of ordinary table salt.",
+    "uses": "Sodium vapour street lamps, the coolant in some nuclear reactors, and, as a compound, soap, glass and salt itself.",
+    "sources": "Rock salt, sea water, and the mineral feldspar that makes up much of the Earth's crust."
+  },
+  "Mg": {
+    "pronunciation": "mag-NEE-zee-um",
+    "nameOrigin": "From Magnesia, a district of Greece where its mineral was found",
+    "summary": "A light structural metal that burns with a blinding white flame, and the atom at the centre of every chlorophyll molecule.",
+    "uses": "Lightweight alloys for cars and aircraft, fireworks, and a compound that calms an unsettled stomach.",
+    "sources": "Sea water, dolomite, and the mineral carnallite; it is the eighth most abundant element in the crust."
+  },
+  "Al": {
+    "pronunciation": "al-yoo-MIN-ee-um",
+    "nameOrigin": "Latin: alumen, alum, the salt it was first isolated from",
+    "summary": "The most abundant metal in the Earth's crust, light and corrosion-resistant, and impossible to extract cheaply until the 1880s.",
+    "uses": "Drinks cans, foil, window frames, aircraft, and the electrical cables of overhead power lines.",
+    "sources": "Bauxite ore, which is refined into alumina and then broken down by electrolysis."
+  },
+  "Si": {
+    "pronunciation": "SIL-ih-kon",
+    "nameOrigin": "Latin: silex, flint, its most familiar mineral form",
+    "summary": "A metalloid that makes up most of the rock and sand of the planet, and the material every computer chip is carved from.",
+    "uses": "Semiconductor devices, glass, concrete, and the silicone that seals a bathroom.",
+    "sources": "Sand and quartz, and the silicate minerals that form most of the Earth's mantle and crust."
+  },
+  "P": {
+    "pronunciation": "FOS-fuh-rus",
+    "nameOrigin": "Greek: phosphoros, light bearer, because white phosphorus glows in the dark",
+    "summary": "A non-metal that will burst into flame in air, and the element that carries energy around every living cell.",
+    "uses": "Fertiliser, detergents, and the strike plate of a matchbox.",
+    "sources": "Phosphate rock, and the bones and teeth of every vertebrate."
+  },
+  "S": {
+    "pronunciation": "SUL-fur",
+    "nameOrigin": "Sanskrit: sulvere, and Latin sulphurium",
+    "summary": "A yellow non-metal that burns with a blue flame and a choking smell, known since antiquity as brimstone.",
+    "uses": "Sulphuric acid, the most produced industrial chemical; vulcanising rubber; and fungicides.",
+    "sources": "Recovered from natural gas and petroleum, and found pure around volcanoes and hot springs."
+  },
+  "Cl": {
+    "pronunciation": "KLOR-een",
+    "nameOrigin": "Greek: chloros, pale green, the colour of the gas",
+    "summary": "A green-yellow gas that will bleach and disinfect and, in a high enough concentration, kill; the other half of table salt.",
+    "uses": "Disinfecting drinking water and swimming pools, making plastics, and bleaching paper.",
+    "sources": "Sea water and rock salt, from which it is released by electrolysis."
+  },
+  "Ar": {
+    "pronunciation": "AR-gon",
+    "nameOrigin": "Greek: argos, idle, because it takes part in nothing",
+    "summary": "An inert gas that is the third most abundant in the air, and the one that was discovered by noticing a leftover fraction that would not react.",
+    "uses": "A shielding gas for welding, the fill in a double-glazed window, and the inert atmosphere inside a filament lamp.",
+    "sources": "The air, at just under one per cent, separated by fractional distillation of liquid air."
+  },
+  "K": {
+    "pronunciation": "po-TASS-ee-um",
+    "nameOrigin": "English: potash, and Latin kalium, from the ash it was first extracted from",
+    "summary": "A soft metal that ignites on contact with water, and the ion whose movement along a nerve carries every thought you have.",
+    "uses": "Fertiliser, and as a compound, glass, soap and a salt substitute.",
+    "sources": "Sylvite and carnallite deposits, and every sea and every soil."
+  },
+  "Ca": {
+    "pronunciation": "KAL-see-um",
+    "nameOrigin": "Latin: calx, lime, the material it was isolated from",
+    "summary": "A reactive metal that is the fifth most abundant element in the crust, and the one your bones and teeth are mostly built from.",
+    "uses": "Cement and mortar, steelmaking, and dietary supplements.",
+    "sources": "Limestone, chalk, gypsum, and the shells and skeletons of marine life."
+  },
+  "Sc": {
+    "pronunciation": "SKAN-dee-um",
+    "nameOrigin": "Latin: Scandia, Scandinavia, where its ore was found",
+    "summary": "A light, rare, silvery metal whose existence was predicted before it was found, the first element to be discovered that way.",
+    "uses": "Aluminium alloys light enough for bicycle frames and aerospace parts, and very bright lamps.",
+    "sources": "Rare minerals such as thortveitite, and as a by-product of refining uranium and tungsten."
+  },
+  "Ti": {
+    "pronunciation": "tih-TAY-nee-um",
+    "nameOrigin": "The Titans of Greek myth",
+    "summary": "A strong, light, corrosion-proof metal with an excellent reputation and a price to match, named for beings of enormous strength.",
+    "uses": "Aircraft, replacement joints, and the frame of a racing bicycle; and, as the oxide, a white pigment.",
+    "sources": "The minerals rutile and ilmenite, which are common in beach sand."
+  },
+  "V": {
+    "pronunciation": "vuh-NAY-dee-um",
+    "nameOrigin": "Vanadis, a name of the Norse goddess Freyja",
+    "summary": "A hard silver-grey metal whose compounds come in an unusually wide range of bright colours.",
+    "uses": "Strengthening steel for tools and springs, and a catalyst for making sulphuric acid.",
+    "sources": "Vanadinite and patronite, and as a trace in crude oil."
+  },
+  "Cr": {
+    "pronunciation": "KROH-mee-um",
+    "nameOrigin": "Greek: chroma, colour, from the colours of its compounds",
+    "summary": "A hard, lustrous metal that takes a mirror polish and refuses to tarnish, and the reason stainless steel is stainless.",
+    "uses": "Chrome plating, stainless steel, leather tanning, and pigments in paints and glass.",
+    "sources": "Chromite ore; almost all of it goes into alloys."
+  },
+  "Mn": {
+    "pronunciation": "MAN-guh-nees",
+    "nameOrigin": "Latin: magnes, magnet, from the magnetic ore it was found in",
+    "summary": "A brittle grey metal that is essential to steelmaking and, in trace amounts, essential to life.",
+    "uses": "Deoxidising and desulphurising steel, dry-cell batteries, and the violet colour in glass.",
+    "sources": "Pyrolusite and other oxide ores, and nodules on the deep ocean floor."
+  },
+  "Fe": {
+    "pronunciation": "EYE-urn",
+    "nameOrigin": "Anglo-Saxon: iren; the symbol is from Latin ferrum",
+    "summary": "The most-used metal on Earth, the main ingredient of the planet's core, and the atom that carries oxygen in your blood.",
+    "uses": "Steel, which is to say buildings, bridges, ships, vehicles, tools and cutlery.",
+    "sources": "Haematite and magnetite ores, and, in the core, most of the Earth's mass."
+  },
+  "Co": {
+    "pronunciation": "KOH-balt",
+    "nameOrigin": "German: kobold, goblin, for the ore that troubled Saxon miners",
+    "summary": "A hard, magnetic metal that keeps its strength when hot, which is what makes it useful in an engine.",
+    "uses": "Superalloys for jet turbines, the cobalt-blue pigments in glass and ceramics, and the cathode of a lithium-ion battery.",
+    "sources": "Cobaltite and skutterudite, mostly extracted as a by-product of copper and nickel."
+  },
+  "Ni": {
+    "pronunciation": "NIK-ul",
+    "nameOrigin": "German: kupfernickel, Old Nick's copper, for an ore that promised copper and gave none",
+    "summary": "A hard, silvery metal that resists corrosion, is magnetic, and is the element at the heart of the Earth's core alongside iron.",
+    "uses": "Stainless steel, rechargeable batteries, coins, and electroplating.",
+    "sources": "Laterite and sulphide ores, and, in an unusually pure form, in iron meteorites."
+  },
+  "Cu": {
+    "pronunciation": "KOP-ur",
+    "nameOrigin": "Latin: cuprum, from the island of Cyprus",
+    "summary": "A reddish metal that conducts electricity better than anything except silver, and the first metal people learned to work.",
+    "uses": "Electrical wiring, plumbing, roofing, and alloys such as brass and bronze.",
+    "sources": "Chalcopyrite and malachite ores, and occasionally as native metal."
+  },
+  "Zn": {
+    "pronunciation": "ZINK",
+    "nameOrigin": "German: zink, of uncertain origin",
+    "summary": "A bluish-white metal that is a poor conductor and a good protector, since it corrodes in place of the steel beneath it.",
+    "uses": "Galvanising steel, brass, die-castings, and sunscreen as the oxide.",
+    "sources": "Sphalerite, and as a trace in almost every ore of lead and copper."
+  },
+  "Ga": {
+    "pronunciation": "GAL-ee-um",
+    "nameOrigin": "Latin: Gallia, France",
+    "summary": "A soft silvery metal that melts in the palm of a hand and then refuses to boil until well past a thousand degrees.",
+    "uses": "Light-emitting diodes, high-speed and high-frequency electronics, and solar cells.",
+    "sources": "Never mined for itself; recovered as a trace from bauxite and zinc ore."
+  },
+  "Ge": {
+    "pronunciation": "jer-MAY-nee-um",
+    "nameOrigin": "Latin: Germania, Germany",
+    "summary": "A metalloid whose prediction preceded its discovery, and the material the first transistor was made from before silicon took over.",
+    "uses": "Fibre-optic cables, infrared optics, and polymerisation catalysts.",
+    "sources": "By-product of zinc refining, and in a handful of rare minerals."
+  },
+  "As": {
+    "pronunciation": "AR-suh-nik",
+    "nameOrigin": "Greek: arsenikon, yellow orpiment, the pigment it was found in",
+    "summary": "A metalloid notorious as a poison and useful as a semiconductor, with a smell of garlic when it is heated.",
+    "uses": "Gallium arsenide in high-frequency electronics, wood preservatives, and alloy hardening.",
+    "sources": "Arsenopyrite and realgar, and as a contaminant in copper and lead ores."
+  },
+  "Se": {
+    "pronunciation": "suh-LEE-nee-um",
+    "nameOrigin": "Greek: selene, the moon",
+    "summary": "A non-metal whose electrical resistance falls when light falls on it, which is the property a photocopier was built on.",
+    "uses": "Glassmaking to remove the green tint of iron, photocopier drums, and a trace nutrient.",
+    "sources": "By-product of copper refining, and in the soils of a few regions in quantities that are toxic rather than nourishing."
+  },
+  "Br": {
+    "pronunciation": "BROH-meen",
+    "nameOrigin": "Greek: bromos, stench, for its smell",
+    "summary": "The only non-metal that is liquid at room temperature, a deep red-brown liquid that gives off an irritating vapour.",
+    "uses": "Flame retardants, water treatment, and photographic film as silver bromide.",
+    "sources": "Sea water and brine wells, extracted by displacement with chlorine."
+  },
+  "Kr": {
+    "pronunciation": "KRIP-ton",
+    "nameOrigin": "Greek: kryptos, hidden",
+    "summary": "An inert gas discovered by looking for what was left over, and the one the length of a metre was once defined by.",
+    "uses": "High-performance lighting, photographic flash, and insulating gas in some windows.",
+    "sources": "The air, at one part per million, separated by cooling air until it liquefies."
+  },
+  "Rb": {
+    "pronunciation": "roo-BID-ee-um",
+    "nameOrigin": "Latin: rubidus, deepest red, the colour of the lines in its spectrum",
+    "summary": "A soft silver-white metal that melts just above room temperature and catches fire in air.",
+    "uses": "Atomic clocks, and research rather than industry.",
+    "sources": "A minor component of the minerals lepidolite and carnallite."
+  },
+  "Sr": {
+    "pronunciation": "STRON-shee-um",
+    "nameOrigin": "Strontian, a village in Scotland",
+    "summary": "A soft, reactive metal whose salts burn crimson, which is why it is in every red firework.",
+    "uses": "Red colour in fireworks and flares, and ferrite magnets.",
+    "sources": "The minerals celestine and strontianite."
+  },
+  "Y": {
+    "pronunciation": "IT-ree-um",
+    "nameOrigin": "Ytterby, a village in Sweden, which gave its name to four elements",
+    "summary": "A soft silvery metal used in small amounts in a wide range of materials that would otherwise not work.",
+    "uses": "Phosphors in older televisions, the stabiliser in cubic zirconia, and superconductors.",
+    "sources": "Monazite and bastnasite, alongside the rare earths it is always found with."
+  },
+  "Zr": {
+    "pronunciation": "zur-KOH-nee-um",
+    "nameOrigin": "Persian: zargun, gold-like, from the mineral zircon",
+    "summary": "A corrosion-resistant metal that lets neutrons pass through it, which is precisely what a reactor needs of its cladding.",
+    "uses": "Nuclear fuel rod cladding, corrosion-proof chemical piping, and cubic zirconia as a gemstone.",
+    "sources": "Zircon sand, a common by-product of mining heavy mineral sands."
+  },
+  "Nb": {
+    "pronunciation": "ny-OH-bee-um",
+    "nameOrigin": "Niobe, daughter of Tantalus in Greek myth, because it is found with tantalum",
+    "summary": "A soft grey metal that becomes superconducting at unusually high temperatures and is found, invariably, alongside tantalum.",
+    "uses": "Superconducting magnets for MRI scanners and particle accelerators, and microalloyed steels for pipelines.",
+    "sources": "The mineral columbite, and as a by-product of tin smelting."
+  },
+  "Mo": {
+    "pronunciation": "muh-LIB-duh-num",
+    "nameOrigin": "Greek: molybdos, lead, because its ore was mistaken for a lead ore",
+    "summary": "A hard silvery metal with one of the highest melting points of any commercial metal.",
+    "uses": "High-strength steel, furnace parts that must hold their shape when glowing, and a catalyst for refining petroleum.",
+    "sources": "Molybdenite, and as a by-product of copper mining."
+  },
+  "Tc": {
+    "pronunciation": "tek-NEE-shee-um",
+    "nameOrigin": "Greek: technetos, artificial, because it was the first element made rather than found",
+    "summary": "The lightest element with no stable isotope, so every atom of it on Earth has been made by someone.",
+    "uses": "A short-lived isotope that images bones, hearts and kidneys in nuclear medicine.",
+    "sources": "Produced in reactors and extracted from the fission products of uranium."
+  },
+  "Ru": {
+    "pronunciation": "roo-THEE-nee-um",
+    "nameOrigin": "Latin: Ruthenia, Russia",
+    "summary": "A hard, brittle platinum-group metal that is one of the rarest on Earth and unusually good at hardening other metals.",
+    "uses": "Electrical contacts, wear-resistant plating, and catalysts.",
+    "sources": "Platinum ores, and as a by-product of nickel refining."
+  },
+  "Rh": {
+    "pronunciation": "ROH-dee-um",
+    "nameOrigin": "Greek: rhodon, rose, from the colour of one of its salts",
+    "summary": "A silvery-white metal, rarer than gold and far more expensive, that keeps its shine and speeds up reactions.",
+    "uses": "Catalytic converters, the reflective coating on laboratory mirrors, and electrical contacts.",
+    "sources": "Platinum ores, chiefly in South Africa."
+  },
+  "Pd": {
+    "pronunciation": "puh-LAY-dee-um",
+    "nameOrigin": "The asteroid Pallas",
+    "summary": "A soft platinum-group metal that soaks up hydrogen like a sponge, taking in hundreds of times its own volume.",
+    "uses": "Catalytic converters, electronics, dentistry, and the purification of hydrogen.",
+    "sources": "Nickel and platinum ores, chiefly in Russia and South Africa."
+  },
+  "Ag": {
+    "pronunciation": "SIL-vur",
+    "nameOrigin": "Anglo-Saxon: seolfor; the symbol is from Latin argentum",
+    "summary": "The best electrical and thermal conductor of any metal, and the one whose antimicrobial property people noticed long before they understood it.",
+    "uses": "Electrical contacts, brazing alloys, photography, solar panels and jewellery.",
+    "sources": "Argentite and horn silver, and alongside lead, zinc and copper ores."
+  },
+  "Cd": {
+    "pronunciation": "KAD-mee-um",
+    "nameOrigin": "Latin: cadmia, calamine, the zinc ore it was found in",
+    "summary": "A soft, bluish-white metal that absorbs neutrons and is highly toxic, which is why its use is being retired.",
+    "uses": "Rechargeable batteries, control rods in older reactors, and pigments.",
+    "sources": "Almost always a by-product of zinc refining."
+  },
+  "In": {
+    "pronunciation": "IN-dee-um",
+    "nameOrigin": "The indigo line in its spectrum",
+    "summary": "A very soft metal that wets glass, which is what makes it possible to make a transparent electrical contact.",
+    "uses": "Indium tin oxide, the invisible conductor in a touchscreen and a flat panel display.",
+    "sources": "A trace in zinc and tin ores, which is the only way it is obtained."
+  },
+  "Sn": {
+    "pronunciation": "TIN",
+    "nameOrigin": "Anglo-Saxon: tin; the symbol is from Latin stannum",
+    "summary": "A soft metal that has been alloyed with copper to make bronze since prehistory, and whose cold crystalline form crumbles.",
+    "uses": "Solder, tinplate for food cans, and bronze.",
+    "sources": "Cassiterite, the ore that made the Bronze Age possible."
+  },
+  "Sb": {
+    "pronunciation": "AN-tuh-moh-nee",
+    "nameOrigin": "Greek: anti and monos, not alone, because it is never found uncombined",
+    "summary": "A brittle metalloid that makes other materials harder and refuses to catch fire.",
+    "uses": "Flame retardants, lead-acid battery plates, and semiconductors.",
+    "sources": "Stibnite, a striking needle-shaped mineral."
+  },
+  "Te": {
+    "pronunciation": "tuh-LOOR-ee-um",
+    "nameOrigin": "Latin: tellus, earth",
+    "summary": "A metalloid that is rarer than platinum, and that changes its electrical behaviour when light shines on it.",
+    "uses": "Thin-film solar panels, and alloying to make steel easier to machine.",
+    "sources": "Recovered from the anode slimes left behind by copper refining."
+  },
+  "I": {
+    "pronunciation": "EYE-uh-dyne",
+    "nameOrigin": "Greek: iodes, violet-coloured, from the colour of its vapour",
+    "summary": "A dark solid that sublimes straight to a violet vapour, and an element the human body cannot do without.",
+    "uses": "Disinfectants, photographic film as silver iodide, and the small dietary supplement that keeps a thyroid working.",
+    "sources": "Brine and seaweed, and the caliche deposits of Chile."
+  },
+  "Xe": {
+    "pronunciation": "ZEE-non",
+    "nameOrigin": "Greek: xenon, stranger, for the unfamiliar gas left in a sample",
+    "summary": "A heavy inert gas that, despite the name it was given, does form compounds when pushed hard enough.",
+    "uses": "Car headlamps, ion thrusters for spacecraft, and a general anaesthetic.",
+    "sources": "The air, at less than one part in ten million, separated by cooling air until it liquefies."
+  },
+  "Cs": {
+    "pronunciation": "SEE-zee-um",
+    "nameOrigin": "Latin: caesius, sky blue, from the colour of its spectrum lines",
+    "summary": "A soft golden metal that melts at room temperature and reacts with water explosively; the second is the standard unit of time.",
+    "uses": "Atomic clocks, which define the second; photoelectric cells; and drilling fluids.",
+    "sources": "Pollucite, and as a by-product of lithium refining."
+  },
+  "Ba": {
+    "pronunciation": "BARE-ee-um",
+    "nameOrigin": "Greek: barys, heavy, because its minerals are unusually dense",
+    "summary": "A soft, reactive metal whose insoluble sulphate is swallowed by patients because it blocks X-rays and passes straight through.",
+    "uses": "A contrast medium for medical imaging, drilling mud, and green colour in fireworks.",
+    "sources": "Barite, a common mineral that is also the main source of the barium used in oil wells."
+  },
+  "La": {
+    "pronunciation": "LAN-thuh-num",
+    "nameOrigin": "Greek: lanthanein, to lie hidden",
+    "summary": "The first of the lanthanides, a soft metal that gives the group its name and was hidden in a mixture of rare earths for years.",
+    "uses": "Camera lenses with low dispersion, hybrid car batteries, and fluid catalytic cracking.",
+    "sources": "Bastnasite and monazite, the two main rare earth ores."
+  },
+  "Ce": {
+    "pronunciation": "SEER-ee-um",
+    "nameOrigin": "The asteroid Ceres",
+    "summary": "The most abundant of the rare earths, and a metal that will strike a spark when scraped.",
+    "uses": "Polishing powders for glass, catalytic converters, and lighter flints.",
+    "sources": "Bastnasite and monazite, where it is the commonest rare earth present."
+  },
+  "Pr": {
+    "pronunciation": "PRAY-zee-oh-dym-ee-um",
+    "nameOrigin": "Greek: prasios and didymos, green twin, from the colour of its salt",
+    "summary": "A soft silvery metal that tints glass and enamel a clear yellow-green.",
+    "uses": "Colouring glass and enamel, and very strong permanent magnets when alloyed with neodymium.",
+    "sources": "Monazite and bastnasite, separated from the other rare earths with some difficulty."
+  },
+  "Nd": {
+    "pronunciation": "NEE-oh-dym-ee-um",
+    "nameOrigin": "Greek: neos and didymos, new twin",
+    "summary": "A rare earth metal that gives the strongest permanent magnets in commercial use.",
+    "uses": "Magnets in headphones, hard drives, wind turbines and electric motors; and a violet colour in glass.",
+    "sources": "Monazite and bastnasite."
+  },
+  "Pm": {
+    "pronunciation": "pruh-MEE-thee-um",
+    "nameOrigin": "Prometheus, who stole fire from the gods",
+    "summary": "A radioactive rare earth with no stable isotope, and the only lanthanide that takes a long search to find in nature.",
+    "uses": "Nuclear batteries, and luminous paint in the past.",
+    "sources": "Produced in reactors from the fission of uranium; only traces occur in nature."
+  },
+  "Sm": {
+    "pronunciation": "suh-MARE-ee-um",
+    "nameOrigin": "The mineral samarskite, named after a Russian mine official",
+    "summary": "A rare earth metal that stays magnetic at high temperatures, which is what makes it useful in a motor.",
+    "uses": "Samarium-cobalt magnets that work when hot, and neutron absorbers in reactors.",
+    "sources": "Monazite and bastnasite."
+  },
+  "Eu": {
+    "pronunciation": "yoo-ROH-pee-um",
+    "nameOrigin": "Europe",
+    "summary": "A soft rare earth metal that glows red when it is energized, which is the basis of every bright red phosphor.",
+    "uses": "Red phosphors in displays and fluorescent lamps, and anti-counterfeiting marks on banknotes.",
+    "sources": "Bastnasite and monazite."
+  },
+  "Gd": {
+    "pronunciation": "GAD-uh-lin-ee-um",
+    "nameOrigin": "Johan Gadolin, the Finnish chemist who first isolated a rare earth",
+    "summary": "A rare earth metal that is unusually good at catching neutrons and unusual in that it warms up when it enters a magnetic field.",
+    "uses": "A contrast agent for MRI scans, neutron shielding, and magnetic refrigeration research.",
+    "sources": "Monazite and bastnasite."
+  },
+  "Tb": {
+    "pronunciation": "TUR-bee-um",
+    "nameOrigin": "Ytterby, the Swedish village that named four elements",
+    "summary": "A soft, silvery rare earth metal whose alloys change shape when magnetized.",
+    "uses": "Green phosphors in lamps and displays, and magnetostrictive alloys for sonar.",
+    "sources": "Monazite, bastnasite and xenotime."
+  },
+  "Dy": {
+    "pronunciation": "DIS-proh-zee-um",
+    "nameOrigin": "Greek: dysprositos, hard to get at",
+    "summary": "A rare earth metal that keeps a magnet working at the temperatures inside an electric motor.",
+    "uses": "High-temperature permanent magnets, and control rods in reactors.",
+    "sources": "Xenotime and monazite."
+  },
+  "Ho": {
+    "pronunciation": "HOH-mee-um",
+    "nameOrigin": "Latin: Holmia, Stockholm",
+    "summary": "A rare earth metal with the strongest magnetic moment of any element.",
+    "uses": "The strongest magnets known when its moment is concentrated; and glass that filters certain wavelengths.",
+    "sources": "Monazite and gadolinite."
+  },
+  "Er": {
+    "pronunciation": "UR-bee-um",
+    "nameOrigin": "Ytterby, the Swedish village that named four elements",
+    "summary": "A soft rare earth metal whose ions amplify light, which is what makes a long-distance optical cable possible.",
+    "uses": "Optical fibre amplifiers, and pink colouring in glass.",
+    "sources": "Xenotime and euxenite."
+  },
+  "Tm": {
+    "pronunciation": "THOO-lee-um",
+    "nameOrigin": "Thule, the ancient name for the far north",
+    "summary": "The rarest of the stable rare earths, soft and silvery, and in demand for one specific job.",
+    "uses": "A portable X-ray source, and the highest-temperature superconductor behaviour known.",
+    "sources": "Monazite, in very small quantities."
+  },
+  "Yb": {
+    "pronunciation": "ih-TUR-bee-um",
+    "nameOrigin": "Ytterby, the Swedish village that named four elements",
+    "summary": "A soft rare earth metal that has become the standard way of measuring time with light.",
+    "uses": "Optical atomic clocks, the most accurate timekeepers built; and stainless steel.",
+    "sources": "Monazite, euxenite and xenotime."
+  },
+  "Lu": {
+    "pronunciation": "loo-TEE-shee-um",
+    "nameOrigin": "Lutetia, the Latin name for Paris",
+    "summary": "The last and densest of the lanthanides, and the element whose placing in the table is still argued over.",
+    "uses": "A catalyst for refining petroleum, and detectors in PET scanners.",
+    "sources": "Monazite, and the only rare earth that is difficult to separate for a second reason: it is rarer than the rest."
+  },
+  "Hf": {
+    "pronunciation": "HAF-nee-um",
+    "nameOrigin": "Hafnia, the Latin name for Copenhagen",
+    "summary": "A corrosion-resistant metal that absorbs neutrons readily, which is exactly the opposite of what zirconium, its constant companion, does.",
+    "uses": "Control rods in reactors, and superalloys for jet engines.",
+    "sources": "Zircon, where it always accompanies zirconium and has to be separated from it."
+  },
+  "Ta": {
+    "pronunciation": "TAN-tuh-lum",
+    "nameOrigin": "Tantalus of Greek myth, because the metal refuses to absorb acid",
+    "summary": "A hard, blue-grey metal that is almost completely immune to attack by acid.",
+    "uses": "Capacitors small enough for a phone, surgical implants, and chemical plant vessels.",
+    "sources": "The mineral tantalite, found with niobium."
+  },
+  "W": {
+    "pronunciation": "TUNG-sten",
+    "nameOrigin": "Swedish: tung sten, heavy stone; the symbol is from wolframite",
+    "summary": "The metal with the highest melting point of all, and the one that stays solid when everything else has run.",
+    "uses": "Cutting tools, drill bits, the filament of an incandescent lamp, and radiation shielding.",
+    "sources": "Wolframite and scheelite."
+  },
+  "Re": {
+    "pronunciation": "REE-nee-um",
+    "nameOrigin": "Latin: Rhenus, the Rhine",
+    "summary": "One of the rarest elements in the crust, and the one with the highest boiling point of any element known.",
+    "uses": "Superalloys for the hottest parts of a jet engine, and platinum-rhenium catalysts.",
+    "sources": "Recovered from the flue dust of molybdenum roasting, which is the only practical source."
+  },
+  "Os": {
+    "pronunciation": "OZ-mee-um",
+    "nameOrigin": "Greek: osme, smell, from the pungent oxide it forms",
+    "summary": "The densest naturally occurring element, and dense enough that a litre of it weighs more than twenty kilograms.",
+    "uses": "Fountain pen nibs and instrument pivots, where hardness matters more than cost; electrical contacts.",
+    "sources": "Platinum ores, and the residue left after refining them."
+  },
+  "Ir": {
+    "pronunciation": "ih-RID-ee-um",
+    "nameOrigin": "Latin: iris, rainbow, from the many colours of its salts",
+    "summary": "The most corrosion-resistant metal known, and the marker in the clay layer that records the impact that ended the dinosaurs.",
+    "uses": "Spark plugs, crucibles for growing crystals, and the standard kilogram of old.",
+    "sources": "Platinum ores, and as a trace in meteorites, which is how it was found in that clay."
+  },
+  "Pt": {
+    "pronunciation": "PLAT-uh-num",
+    "nameOrigin": "Spanish: platina, little silver, a term of contempt for a metal that would not melt",
+    "summary": "A dense, unreactive precious metal that is unusually good at making a chemical reaction go faster.",
+    "uses": "Catalytic converters, laboratory equipment, jewellery, and the electrodes of a fuel cell.",
+    "sources": "Native metal in river gravels, and in sulphide ores with nickel and copper."
+  },
+  "Au": {
+    "pronunciation": "GOLD",
+    "nameOrigin": "Anglo-Saxon: gold; the symbol is from Latin aurum",
+    "summary": "A dense yellow metal that does not tarnish, can be beaten thinner than a wavelength of light, and has been money for six thousand years.",
+    "uses": "Jewellery and reserves, electrical contacts, and the reflective coating on a spacecraft.",
+    "sources": "Native metal in quartz veins and river gravels, and recovered from copper refining."
+  },
+  "Hg": {
+    "pronunciation": "MER-kyoo-ree",
+    "nameOrigin": "The planet Mercury, and Latin hydrargyrum, water-silver",
+    "summary": "The only metal that is liquid at room temperature, dense enough to float iron, and poisonous in a way that took centuries to notice.",
+    "uses": "Historically thermometers and barometers, and now mostly in compact fluorescent lamps and chemical manufacture.",
+    "sources": "Cinnabar, from which it is roasted out as a vapour."
+  },
+  "Tl": {
+    "pronunciation": "THAL-ee-um",
+    "nameOrigin": "Greek: thallos, a green shoot, from the bright green line in its spectrum",
+    "summary": "A soft grey metal once used as a rat poison and now avoided, because it is as toxic to people as to rats.",
+    "uses": "Historically rat poison and ant bait; now infrared detectors and high-temperature superconductors.",
+    "sources": "As a trace in lead, zinc and copper ores."
+  },
+  "Pb": {
+    "pronunciation": "LED",
+    "nameOrigin": "Anglo-Saxon: lead; the symbol is from Latin plumbum",
+    "summary": "A heavy, soft, easily worked metal that is pleasant to use and damages the nervous system, which is why it has been removed from petrol and paint.",
+    "uses": "Lead-acid batteries, radiation shielding, and the ballast of a keel.",
+    "sources": "Galena, which is mostly lead sulphide and very easy to smelt."
+  },
+  "Bi": {
+    "pronunciation": "BIZ-muth",
+    "nameOrigin": "German: weisse Masse, white mass",
+    "summary": "A brittle pinkish-white metal that forms the most spectacular crystals of any element as it cools.",
+    "uses": "A replacement for lead in plumbing and shot, and stomach medicine; and, as bismuth telluride, thermoelectric cooling.",
+    "sources": "Native metal, and as a by-product of refining lead, copper and tin."
+  },
+  "Po": {
+    "pronunciation": "puh-LOH-nee-um",
+    "nameOrigin": "Poland, the birthplace of Marie Curie",
+    "summary": "A radioactive metal so intensely radioactive that a sample glows blue and warms itself, discovered in pitchblende.",
+    "uses": "An alpha source for antistatic devices, and, historically, a heat source for spacecraft.",
+    "sources": "In uranium ores, at about one part in ten thousand billion; made in reactors."
+  },
+  "At": {
+    "pronunciation": "ASS-tuh-teen",
+    "nameOrigin": "Greek: astatos, unstable",
+    "summary": "The rarest naturally occurring element, and so radioactive that a visible sample has never existed.",
+    "uses": "Research, and investigation into targeted cancer therapy.",
+    "sources": "Fleeting decay products in uranium and thorium ores; less than a gram exists in the whole crust at any moment."
+  },
+  "Rn": {
+    "pronunciation": "RAD-on",
+    "nameOrigin": "From radium, the element it is produced by",
+    "summary": "A heavy radioactive gas that seeps out of the ground and concentrates indoors, and the leading cause of lung cancer after smoking.",
+    "uses": "Historic use in cancer treatment; now a hazard to be ventilated away rather than a tool.",
+    "sources": "Produced by the decay of radium in soil, rock and building stone."
+  },
+  "Fr": {
+    "pronunciation": "FRAN-see-um",
+    "nameOrigin": "France",
+    "summary": "The most unstable of the first 101 elements, with a half-life of twenty-two minutes, so no one has ever seen a piece of it.",
+    "uses": "Research only; its most commonly quoted use is as an example of something that exists only fleetingly.",
+    "sources": "Decay product in uranium ores, where a few thousand atoms exist at a time."
+  },
+  "Ra": {
+    "pronunciation": "RAY-dee-um",
+    "nameOrigin": "Latin: radius, ray, for the radiation it gives off",
+    "summary": "A radioactive metal that glows faintly and was once considered a health tonic, before the people who painted watch dials with it began to die.",
+    "uses": "Historically luminous paint and cancer therapy, both abandoned when the harm became clear.",
+    "sources": "Pitchblende and other uranium ores at a few parts per million."
+  },
+  "Ac": {
+    "pronunciation": "ak-TIN-ee-um",
+    "nameOrigin": "Greek: aktis, ray, from its radioactivity",
+    "summary": "A soft, silvery radioactive metal that glows blue in the dark and gives the actinides their name.",
+    "uses": "A neutron source, and targeted alpha therapy in research.",
+    "sources": "Trace amounts in uranium ores; made in reactors for practical use."
+  },
+  "Th": {
+    "pronunciation": "THOR-ee-um",
+    "nameOrigin": "Thor, the Norse god of thunder",
+    "summary": "A weakly radioactive metal that is three times as abundant as uranium and has been proposed as a safer nuclear fuel.",
+    "uses": "Gas mantles, high-refractive-index glass, and experimental reactor fuel.",
+    "sources": "Monazite sand, where it is the main radioactive component."
+  },
+  "Pa": {
+    "pronunciation": "PRO-tak-TIN-ee-um",
+    "nameOrigin": "Greek: protos, first, and actinium, because it decays into actinium",
+    "summary": "A dense, silvery, highly radioactive metal that is rarer than radium and difficult to handle.",
+    "uses": "Research, and dating sediments and rock by its decay.",
+    "sources": "Uranium ores, at about one part in ten million."
+  },
+  "U": {
+    "pronunciation": "yoo-RAY-nee-um",
+    "nameOrigin": "The planet Uranus, discovered shortly before the element",
+    "summary": "A dense, weakly radioactive metal whose heaviest natural isotope splits under a neutron, releasing energy in a chain that either powers a city or does something much worse.",
+    "uses": "Fuel for nuclear reactors, and the source of the plutonium used in weapons; also, because it is dense, armour and counterweights.",
+    "sources": "Pitchblende and uraninite, at a few parts per million in the crust, and dissolved in sea water."
+  },
+  "Np": {
+    "pronunciation": "NEP-too-nee-um",
+    "nameOrigin": "The planet Neptune",
+    "summary": "The first transuranium element to be made, and the first produced in quantity rather than in traces.",
+    "uses": "A neutron detector, and the precursor from which plutonium is made.",
+    "sources": "Produced in reactors from uranium; traces occur naturally in uranium ores."
+  },
+  "Pu": {
+    "pronunciation": "ploo-TOH-nee-um",
+    "nameOrigin": "The dwarf planet Pluto",
+    "summary": "A silvery radioactive metal that is warm to the touch from its own decay, and the element whose name most people meet in a context they would rather not.",
+    "uses": "Reactor fuel and nuclear weapons; and a long-lived isotope that powers deep-space probes.",
+    "sources": "Manufactured in reactors; only traces occur naturally."
+  },
+  "Am": {
+    "pronunciation": "am-uh-RISH-ee-um",
+    "nameOrigin": "The Americas, since it sits below europium",
+    "summary": "A synthetic radioactive metal that is mildly luminous, which is why it was once found in almost every household.",
+    "uses": "Ionisation smoke detectors, and industrial thickness gauges.",
+    "sources": "Produced in reactors from plutonium; not found in nature in meaningful amounts."
+  },
+  "Cm": {
+    "pronunciation": "KOO-ree-um",
+    "nameOrigin": "Marie and Pierre Curie",
+    "summary": "A hard, silvery radioactive metal that glows purple in the dark and is intensely dangerous to handle.",
+    "uses": "An alpha source for spectrometers on Mars rovers, and the power source of a pacemaker battery in the past.",
+    "sources": "Made in reactors; not found in nature."
+  },
+  "Bk": {
+    "pronunciation": "BURK-lee-um",
+    "nameOrigin": "Berkeley, California, where it was made",
+    "summary": "A soft, silvery radioactive metal produced one atom at a time in the first sample ever assembled.",
+    "uses": "Research, chiefly as a target for making still heavier elements.",
+    "sources": "Made in reactors; not found in nature."
+  },
+  "Cf": {
+    "pronunciation": "kal-ih-FOR-nee-um",
+    "nameOrigin": "The state and University of California",
+    "summary": "A radioactive metal that throws off neutrons so freely that a small sample is a usable neutron source.",
+    "uses": "Starting a reactor, finding water and oil underground, and detecting explosives.",
+    "sources": "Made in reactors; not found in nature."
+  },
+  "Es": {
+    "pronunciation": "ine-STY-nee-um",
+    "nameOrigin": "Albert Einstein",
+    "summary": "A synthetic radioactive metal first identified in the debris of a hydrogen bomb test.",
+    "uses": "Research only; it is made in quantities of micrograms.",
+    "sources": "Made in reactors; not found in nature."
+  },
+  "Fm": {
+    "pronunciation": "FUR-mee-um",
+    "nameOrigin": "Enrico Fermi",
+    "summary": "A synthetic radioactive metal that has never been made in a quantity anyone could see.",
+    "uses": "Research only: it is made in quantities nobody can see, so there is nothing to use it for.",
+    "sources": "Discovered in the fallout of the first hydrogen bomb test; not found in nature."
+  },
+  "Md": {
+    "pronunciation": "men-DEEL-ee-um",
+    "nameOrigin": "Dmitri Mendeleev, who arranged the table",
+    "summary": "A synthetic radioactive metal made an atom at a time, and named after the man who first predicted where it would sit.",
+    "uses": "Research only: atoms are made one at a time by bombarding einsteinium with helium nuclei.",
+    "sources": "Made by bombarding einsteinium with helium; not found in nature."
+  },
+  "No": {
+    "pronunciation": "NO-bee-lee-um",
+    "nameOrigin": "Alfred Nobel",
+    "summary": "A synthetic radioactive metal whose most stable isotopes last about an hour.",
+    "uses": "Research only: it is made by firing carbon ions at curium, a few atoms per experiment.",
+    "sources": "Made by bombarding curium with carbon ions; not found in nature."
+  },
+  "Lr": {
+    "pronunciation": "law-REN-see-um",
+    "nameOrigin": "Ernest Lawrence, inventor of the cyclotron",
+    "summary": "The last of the actinides, and the element whose position in group three is the most argued-over question in the table.",
+    "uses": "Research only: it settles a long argument about which element belongs in group three.",
+    "sources": "Made by bombarding californium with boron ions; not found in nature."
+  },
+  "Rf": {
+    "pronunciation": "ruth-er-FORD-ee-um",
+    "nameOrigin": "Ernest Rutherford, who first split an atom",
+    "summary": "The first of the transactinides, and an element whose chemistry has been studied only a handful of atoms at a time.",
+    "uses": "Research only: it exists for seconds, and is studied to see whether it behaves like hafnium.",
+    "sources": "Made by fusing plutonium with neon nuclei; not found in nature."
+  },
+  "Db": {
+    "pronunciation": "dub-NEE-um",
+    "nameOrigin": "Dubna, the Russian town with a heavy-element laboratory",
+    "summary": "A synthetic radioactive metal whose longest-lived isotope lasts about a day, longer than most of its neighbours.",
+    "uses": "Research only: its chemistry has been examined a few atoms at a time, in solution.",
+    "sources": "Made by fusing americium with neon nuclei; not found in nature."
+  },
+  "Sg": {
+    "pronunciation": "see-BOR-gee-um",
+    "nameOrigin": "Glenn Seaborg, who made ten of the transuranium elements",
+    "summary": "A synthetic radioactive metal, and the one element named for a person while that person was still alive.",
+    "uses": "Research only: it is made by fusing lighter nuclei and studied for under a minute.",
+    "sources": "Made by fusing californium with oxygen nuclei; not found in nature."
+  },
+  "Bh": {
+    "pronunciation": "BOR-ee-um",
+    "nameOrigin": "Niels Bohr",
+    "summary": "A synthetic radioactive metal produced only a few atoms at a time, with a half-life measured in seconds.",
+    "uses": "Research only: a few atoms at a time, from a machine that runs for weeks to make them.",
+    "sources": "Made by fusing bismuth with chromium nuclei; not found in nature."
+  },
+  "Hs": {
+    "pronunciation": "HASS-ee-um",
+    "nameOrigin": "Hesse, the German state where it was made",
+    "summary": "A synthetic radioactive metal whose chemistry has been shown to resemble osmium, which was not a given.",
+    "uses": "Research only: it is used to test whether the heaviest elements still follow the table.",
+    "sources": "Made by fusing lead with iron nuclei; not found in nature."
+  },
+  "Mt": {
+    "pronunciation": "mite-NEER-ee-um",
+    "nameOrigin": "Lise Meitner, who explained nuclear fission",
+    "summary": "A synthetic radioactive metal made a few atoms at a time, with no measured chemistry to place it by.",
+    "uses": "Research only: no use is possible for an element that exists for a few seconds.",
+    "sources": "Made by fusing bismuth with iron nuclei; not found in nature."
+  },
+  "Ds": {
+    "pronunciation": "darm-STAT-ee-um",
+    "nameOrigin": "Darmstadt, the German city where it was made",
+    "summary": "A synthetic radioactive metal whose heaviest known isotopes survive for seconds.",
+    "uses": "Research only: identified by the trail of alpha particles its decay leaves behind.",
+    "sources": "Made by fusing lead with nickel nuclei; not found in nature."
+  },
+  "Rg": {
+    "pronunciation": "rent-GEN-ee-um",
+    "nameOrigin": "Wilhelm Röntgen, who discovered X-rays",
+    "summary": "A synthetic radioactive metal, and one of the last whose expected behaviour is a prediction rather than a measurement.",
+    "uses": "Research only: studied to see whether relativity changes how the heaviest metals behave.",
+    "sources": "Made by fusing bismuth with nickel nuclei; not found in nature."
+  },
+  "Cn": {
+    "pronunciation": "kop-er-NISH-ee-um",
+    "nameOrigin": "Nicolaus Copernicus",
+    "summary": "A synthetic radioactive metal that may behave like a gas rather than a metal, which is a strange thing to say about the element under mercury.",
+    "uses": "Research only: it may be a gas at room temperature, which no other metal is.",
+    "sources": "Made by fusing lead with zinc nuclei; not found in nature."
+  },
+  "Nh": {
+    "pronunciation": "nih-HOH-nee-um",
+    "nameOrigin": "Nihon, a Japanese name for Japan, the country where it was made",
+    "summary": "The first element discovered in Asia, and one whose every property is an extrapolation from the column above it.",
+    "uses": "Research only: made a few atoms at a time in a heavy-ion accelerator.",
+    "sources": "Made by fusing bismuth with zinc nuclei; not found in nature."
+  },
+  "Fl": {
+    "pronunciation": "flair-OH-vee-um",
+    "nameOrigin": "The Flerov Laboratory in Dubna",
+    "summary": "A synthetic radioactive metal that is expected to be a volatile metal, which would set it apart from every other member of its group.",
+    "uses": "Research only: its volatility is the property worth measuring, and there is barely enough to measure.",
+    "sources": "Made by fusing plutonium with calcium nuclei; not found in nature."
+  },
+  "Mc": {
+    "pronunciation": "moss-KOH-vee-um",
+    "nameOrigin": "Moscow, and the region around Dubna",
+    "summary": "A synthetic radioactive metal with a half-life of a fraction of a second and no measured chemistry at all.",
+    "uses": "Research only: its atoms last a fraction of a second, long enough to identify and no longer.",
+    "sources": "Made by fusing americium with calcium nuclei; not found in nature."
+  },
+  "Lv": {
+    "pronunciation": "liv-er-MOR-ee-um",
+    "nameOrigin": "The Lawrence Livermore National Laboratory",
+    "summary": "A synthetic radioactive metal whose atoms survive for milliseconds, so almost nothing about it is more than predicted.",
+    "uses": "Research only: it is identified by its decay products rather than by anything it does.",
+    "sources": "Made by fusing curium with calcium nuclei; not found in nature."
+  },
+  "Ts": {
+    "pronunciation": "TEN-uh-seen",
+    "nameOrigin": "Tennessee, the American state with a heavy-element laboratory",
+    "summary": "The heaviest halogen, and probably not really a halogen: relativity is expected to pull it towards behaving like a metal.",
+    "uses": "Research only: its chemistry would settle whether it is a halogen, and there is too little to try.",
+    "sources": "Made by fusing berkelium with calcium nuclei; not found in nature."
+  },
+  "Og": {
+    "pronunciation": "oh-GAN-uh-son",
+    "nameOrigin": "Yuri Oganessian, who made several of the heaviest elements",
+    "summary": "The heaviest element yet made, a noble gas that is predicted not to behave like one, and probably a solid rather than a gas.",
+    "uses": "Research only: a few atoms have ever existed, which leaves nothing to use.",
+    "sources": "Made by fusing californium with calcium nuclei; only a few atoms have ever existed."
+  }
+}

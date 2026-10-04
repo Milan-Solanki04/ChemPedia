@@ -1,0 +1,13 @@
+[
+  { "slug": "transition-metals", "name": "Transition metal", "plural": "Transition metals", "token": "--g-transition-metals", "count": 35 },
+  { "slug": "actinides", "name": "Actinide", "plural": "Actinides", "token": "--g-actinides", "count": 15 },
+  { "slug": "lanthanides", "name": "Lanthanide", "plural": "Lanthanides", "token": "--g-lanthanides", "count": 15 },
+  { "slug": "post-transition-metals", "name": "Post-transition metal", "plural": "Post-transition metals", "token": "--g-post-transition-metals", "count": 8 },
+  { "slug": "unknown", "name": "Unknown", "plural": "unknown elements", "token": "--g-unknown", "count": 8 },
+  { "slug": "noble-gases", "name": "Noble gas", "plural": "Noble gases", "token": "--g-noble-gases", "count": 7 },
+  { "slug": "non-metals", "name": "Non-metal", "plural": "Non-metals", "token": "--g-non-metals", "count": 7 },
+  { "slug": "alkali-metals", "name": "Alkali metal", "plural": "Alkali metals", "token": "--g-alkali-metals", "count": 6 },
+  { "slug": "alkaline-earth-metals", "name": "Alkaline earth metal", "plural": "Alkaline earth metals", "token": "--g-alkaline-earth-metals", "count": 6 },
+  { "slug": "metalloids", "name": "Metalloid", "plural": "Metalloids", "token": "--g-metalloids", "count": 6 },
+  { "slug": "halogens", "name": "Halogen", "plural": "Halogens", "token": "--g-halogens", "count": 5 }
+]

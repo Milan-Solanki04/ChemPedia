@@ -1,0 +1,41 @@
+/* The search field.
+
+   The design is deliberately bare: an icon, a placeholder and no box. What
+   makes it findable is the focus ring, which every interactive element in the
+   project draws, rather than a border that would add a second kind of edge to
+   the masthead.
+
+   The field is pushed to the end of the masthead row by its own auto margin. */
+
+.search-field {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  margin-inline-start: auto;
+}
+
+.search-field__icon {
+  flex: none;
+  color: var(--ink-faint);
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.search-field__input {
+  width: var(--width-search);
+  padding-block: var(--sp-1);
+  font-family: var(--font-body);
+  font-size: var(--step--1);
+  color: var(--ink);
+  background: transparent;
+  border: 0;
+  appearance: none;
+}
+
+.search-field__input::placeholder {
+  color: var(--ink-faint);
+  opacity: 1;
+}
+
+.search-field:focus-within .search-field__icon {
+  color: var(--ink);
+}

@@ -1,0 +1,67 @@
+/* The masthead.
+
+   One row on a wide screen: the lockup, the primary navigation, the search
+   field. The navigation and the search each carry an auto margin, so the free
+   space is split between them and the navigation settles in the middle of the
+   band rather than hugging the lockup.
+
+   On a narrow screen the row wraps instead of collapsing into a menu. Nothing
+   is hidden, which means nothing has to be discovered, and a keyboard user has
+   the same navigation available as anyone else. The search field moves to its
+   own line, and the 32px gap becomes the row gap.
+
+   It sticks to the top on scroll because the navigation is the way back to
+   everything else, and the page below it can be very long. */
+
+.masthead {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--bg);
+  border-bottom: var(--rule-hairline);
+}
+
+.masthead__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--gap-masthead);
+  min-height: var(--height-masthead);
+}
+
+.masthead__nav {
+  margin-inline-start: auto;
+}
+
+.masthead__nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap-nav);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.masthead__link {
+  display: inline-block;
+  padding-block: var(--sp-2);
+  /* Tighter than body copy: a navigation link carries its own padding, so the
+     leading it would inherit from the page only makes the masthead taller. */
+  line-height: var(--leading-ui);
+  font-size: var(--step-0);
+  font-weight: var(--weight-bold);
+  color: var(--ink);
+  text-decoration: none;
+  /* The rule is always there, and transparent until the link is the current
+     page: a border that appears would shift the label by its own width. */
+  border-bottom: var(--underline-active) solid transparent;
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.masthead__link:hover {
+  color: var(--ink-soft);
+}
+
+.masthead__link[aria-current="page"] {
+  border-bottom-color: currentColor;
+}

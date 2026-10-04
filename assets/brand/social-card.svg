@@ -1,0 +1,27 @@
+<!-- The social card, at the 1.91:1 that Open Graph recommends.
+
+     Hand-written rather than generated: the build has no image library and no font to draw with, and
+     a card is a fixed piece of artwork. The PNG beside this file is what the pages reference, because
+     the crawlers that read og:image do not render SVG. Regenerate it with the command in README.md
+     after changing anything here. -->
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#fdfbfa"/>
+  <rect width="1200" height="14" fill="#15403d"/>
+  <g fill="none" stroke="#15403d" stroke-width="3" opacity="0.5">
+    <path d="M40 96 h44 M40 144 h44 M40 192 h44 M40 240 h44 M40 288 h44 M40 336 h44 M40 384 h44"/>
+  </g>
+  <text x="120" y="150" font-family="Georgia, 'Times New Roman', serif" font-size="104" fill="#15403d">ChemiPedia</text>
+  <text x="120" y="232" font-family="Helvetica, Arial, sans-serif" font-size="44" fill="#24312f">Every element, the table that arranges them,</text>
+  <text x="120" y="292" font-family="Helvetica, Arial, sans-serif" font-size="44" fill="#24312f">and the words for what they do.</text>
+  <g font-family="Helvetica, Arial, sans-serif" font-size="26" fill="#566461">
+    <text x="120" y="470">118 elements &#183; 440 glossary terms &#183; eleven groups</text>
+    <text x="120" y="512">Facts from an openly licensed dataset. The explanations are written for this site.</text>
+  </g>
+  <g>
+    <rect x="1000" y="90" width="120" height="120" rx="10" fill="#f9aa62"/>
+    <rect x="880" y="226" width="120" height="120" rx="10" fill="#559982"/>
+    <rect x="1000" y="226" width="120" height="120" rx="10" fill="#d473a2"/>
+    <rect x="880" y="362" width="120" height="120" rx="10" fill="#6e58ac"/>
+    <rect x="1000" y="362" width="120" height="120" rx="10" fill="#e57860"/>
+  </g>
+</svg>

@@ -1,0 +1,312 @@
+/* The print stylesheet.
+
+   **One stylesheet, applied by the media type, rather than a second set of pages.** The plan is explicit
+   that the printable periodic table and the element cards "print from the stylesheet rules introduced
+   here and shared with Phase 11, rather than from a separate rendering path", and that turns out to be
+   the whole reason this project can do it at all: ADR-001 renders the table *into* the page, so the page
+   a reader is already looking at is the page that prints, and every colour, figure and label on the print
+   is the one that was on screen.
+
+   There is no print-only markup anywhere in this project. There does not need to be, and if some were
+   added the two renderings would start disagreeing and only one of them would be tested.
+
+   **The page size is not declared.** `@page { size: … }` would pin A4 or Letter and break the other, and
+   the criterion is that the table fits a single sheet at *both*. So the margins are set, the size is left
+   to the printer, and the table is made to fit whatever width it is given.
+
+   **The chrome goes and the content stays.** Masthead, submenu, footer, search, filter and every
+   "press this to do a thing" control are removed, because a printed page should be the thing itself and
+   not a photograph of a website. What is left is the heading, the content, and whatever identifies it —
+   so each page prints with the URL in the footer rather than as an anonymous sheet of paper.
+
+   Colours are forced to their printed equivalents rather than left to the browser's discretion. A
+   background printed by default is a full page of toner, and the element tiles and table cells carry
+   their category colour as a background — so they keep it, because in this project that colour *is* the
+   information, and `print-color-adjust: exact` is what makes that survive.
+
+   The one thing deliberately *not* removed is the table. It is the content. */
+
+@media print {
+  /* --- The sheet --- */
+
+  @page {
+    /* A margin rather than a size. Pinning the size here would satisfy one paper size and break the
+       other, and the criterion is that the printable table fits a single sheet at both. */
+    margin: 10mm;
+  }
+
+  html,
+  body {
+    /* Page-break-inside on a grid does not reliably keep a block together, so backgrounds are painted on
+       the element's own box instead — `box-decoration-break: clone` — which is what stops a cell split
+       across two sheets leaving half a background behind. */
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  body {
+    background: var(--surface);
+    color: var(--ink-body);
+    font-size: 10pt;
+    line-height: 1.4;
+  }
+
+  /* --- What comes off --- */
+
+  .masthead,
+  .submenu,
+  .skip-link,
+  .find,
+  .filter__form,
+  .legend,
+  .index-hero__filter,
+  .others,
+  .group-tiles,
+  .strip,
+  .ptable--compact,
+  .element__mini-caption,
+  .element__shell,
+  .glossary__row:hover,
+  .converter__fields,
+  .alphabet {
+    display: none !important;
+  }
+
+  /* `main` and `.shell` both carry screen padding — 3rem and 2rem — which is a third of a Letter
+     sheet's usable height spent on air. The paper's own margin does that job. */
+  main,
+  .shell {
+    padding-block: 0;
+    margin-block: 0;
+  }
+
+  /* --- The content column --- */
+
+  .shell {
+    /* The screen column is capped at 1100px and centred; on paper the margin does the centring and the
+       cap would leave a wide empty gutter on A4 landscape. */
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    width: auto;
+  }
+
+  /* --- Print identification --- */
+
+  /* A printed periodic table with no reference to where it came from is not much use, and the footer is
+     exactly where a reader looks for it. Not a link, because a printed link cannot be followed. */
+  .print-only {
+    display: block !important;
+  }
+
+  /* --- Headings --- */
+
+  h1,
+  h2,
+  h3 {
+    color: var(--ink);
+    page-break-after: avoid;
+    break-after: avoid-page;
+  }
+
+  h1 {
+    font-size: 16pt;
+  }
+
+  h2 {
+    font-size: 12pt;
+  }
+
+  p,
+  li,
+  dt,
+  dd,
+  tr,
+  figure {
+    /* The rule that does the actual work: nothing splits across a sheet boundary unless it is longer
+       than a sheet, which is exactly the behaviour a printed table needs. */
+    page-break-inside: avoid;
+    break-inside: avoid-page;
+  }
+
+  /* --- Links --- */
+
+  /* A URL in the text is noise on a page about chemistry, so links are shown as their own text and the
+     address is left out — except for the site itself, which is printed in the footer below. */
+  .prose a[href^="http"]::after {
+    content: "";
+  }
+
+  /* --- The periodic table --- */
+
+  /* The hero's lede is explanation for a reader deciding whether to keep reading, and a printed sheet
+     has already been decided on. The heading stays — a table with no title on it is not much use — and
+     the lede goes. This is what brings the table views inside one sheet: the lede was 237px of a
+     1123px page. */
+  .index-hero .lead,
+  .view-hero .lead,
+  .index-hero__filter,
+  .converter__note {
+    display: none;
+  }
+
+  /* The hint that tells a reader the table scrolls sideways on a narrow screen. On paper there is no
+     narrow screen and no sideways, so it is the one sentence on the page that is actively wrong. */
+  .view-hint {
+    display: none;
+  }
+
+  .view-hero,
+  .index-hero {
+    padding-block: 0 0.5rem;
+  }
+
+  /* --- The periodic table --- */
+
+  .ptable {
+    /* The screen width is `min(96vw, 1520px)` with a negative-margin trick to centre it on its
+       container, and it carries 1rem of inline padding for the focus ring. On paper the margin already
+       centres the content column and the cap would leave a wide empty gutter, so the cap is dropped, the
+       centring is left to the margin, and the padding goes — with it the grid overflowed the sheet by
+       20px and the eighteenth column was clipped off the right edge. */
+    --ptable-width: 100%;
+    margin-inline: 0;
+    padding-inline: 0;
+    width: 100%;
+    max-width: 100%;
+    overflow: visible;
+  }
+
+  .tile {
+    /* The tile's font sizes are clamped in container-query units, which resolve against the table's
+       width. On paper the table is narrower and the clamp lands on its floor, so the floor is lowered
+       here rather than left to produce a tile too large to hold its own symbol. These are absolute
+       lengths and they are the only ones in the project: a print scale is not a design decision. */
+    --tile-size-number: 5pt;
+    --tile-size-symbol: 8pt;
+    --tile-size-name: 4.5pt;
+    /* The tile carries 0.15rem of inline padding, which on paper is 4.8px against a 44.6px column — more
+       than "Darmstadtium" needs at 6pt, and the shortfall pushed the whole grid 4px past the sheet and
+       clipped the eighteenth column off the right edge of every printed table. The padding is for the
+       focus ring, and a printed page has no focus ring. */
+    padding-inline: 0;
+    box-shadow: none !important;
+    border-color: var(--ink) !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .ptable__grid {
+    gap: 1px;
+    /* The screen floor is 51.25rem — 820px, the width at which the tiles stay readable on a monitor,
+       and it is what makes the table scroll sideways on a narrow screen. On paper there is no
+       sideways to scroll: 820px is wider than both A4 and Letter, so the floor held the grid past the
+       sheet and the eighteenth column was clipped off every printed table. Released here, with the
+       tile's inline padding gone and its names one step smaller, the tiles still fit at 44px. */
+    min-width: 0;
+  }
+
+  /* The timeline.
+
+     Thirty decades listed one per row is 1200px of paper, which is a second sheet and a half — and the
+     evolution view is the one view where the timeline *is* the content, so hiding it would throw away
+     the reason the page exists. In columns it is 300px, and the whole view comes to one sheet.
+
+     Three columns because each row is a decade, a count and a list of names, and at paper width one
+     column can hold all three without the names truncating. `column-fill: auto` with a fixed height is
+     what balances them; without it the columns fill top-to-bottom and the decades read in the wrong
+     order. */
+  .timeline__list {
+    /* A fixed height with `column-fill: auto`, not the balanced default. Balancing equalises the columns
+       by row count and gave a 673px timeline; a fixed height gives the printer a hard edge and 348px.
+       Four columns was tried and is worse than three here — 30 decades over four is 8 rows of content
+       that then wraps, which is taller than 10 unwrapped rows over three. */
+    columns: 3;
+    column-fill: auto;
+    height: 88mm;
+    gap: var(--sp-4);
+    font-size: 7pt;
+  }
+
+  .timeline__row {
+    /* A break inside a decade's row would split a decade from its own count. */
+    page-break-inside: avoid;
+    break-inside: avoid-page;
+  }
+
+  .timeline__hint {
+    display: none;
+  }
+
+  /* --- The element page, printed as a card --- */
+
+  /* The miniature table and the shell diagram are how the page *navigates*. On a card they are 118
+     tiles and a diagram of something invisible, taking up the whole sheet.
+
+     The rule originally hid `.element__mini-table`, a class nothing renders — the mini table is the
+     compact table plus its caption — so 118 tiles went onto every printed element card and nothing
+     looked wrong in a stylesheet. A test now checks that every class the print rules hide is a class
+     something actually renders, which is how this was found. */
+  .ptable--compact,
+  .element__mini-caption,
+  .element__shell {
+    display: none !important;
+  }
+
+  /* The property list is the longest thing on an element card and the thing most worth having on paper,
+     so it is the one block allowed to break across sheets. Everything else avoids a break. */
+  .properties__list {
+    page-break-inside: auto;
+    break-inside: auto;
+  }
+
+  /* --- Tables of data --- */
+
+  table {
+    width: 100%;
+    font-variant-numeric: tabular-nums;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+
+  /* --- The footer, replaced by a line of provenance --- */
+
+  .footer {
+    border-block-start: var(--rule-solid);
+    font-size: 8pt;
+    margin-block-start: 0.5rem;
+    padding-block: 0.25rem 0;
+  }
+
+  /* The footer's navigation is a screen affordance; on paper it is a list of pages that are not in the
+     reader's hand. The provenance line replaces it. */
+  .footer__inner,
+  .footer__base {
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer__cols,
+  .footer__brand {
+    display: none !important;
+  }
+
+  .footer__printed {
+    margin: 0;
+  }
+}
+
+/* The provenance line, printed and not shown on screen. Declared outside the media query so that a
+   browser which does not understand `display: none` in print still hides it rather than printing it on
+   every page. */
+.print-only {
+  display: none;
+}
+
+@media print {
+  .print-only {
+    display: block;
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "note": "How a stored field is turned into a reading. 'significant' is for values that span many orders of magnitude and would round to zero under a fixed number of decimals; 'decimals' is for values measured to a chosen precision. A field with no unit is a count or a ratio.",
+  "fields": {
+    "atomicNumber": { "unit": null, "decimals": 0 },
+    "atomicWeight": { "unit": "u", "significant": 5 },
+    "valence": { "unit": null, "decimals": 0 },
+    "electronegativity": { "unit": null, "decimals": 2 },
+    "meltingPoint": { "unit": "°C", "decimals": 2 },
+    "boilingPoint": { "unit": "°C", "decimals": 2 },
+    "density": { "unit": "g/cm³", "significant": 4 },
+    "atomicRadius": { "unit": "Å", "decimals": 2 },
+    "covalentRadius": { "unit": "Å", "decimals": 2 },
+    "atomicVolume": { "unit": "cm³/mol", "decimals": 2 },
+    "heatOfFusion": { "unit": "kJ/mol", "decimals": 3 },
+    "heatOfVaporization": { "unit": "kJ/mol", "decimals": 3 },
+    "specificHeat": { "unit": "J/g·K", "decimals": 3 },
+    "thermalConductivity": { "unit": "W/cm·K", "significant": 4 },
+    "thermalExpansion": { "unit": "10⁻⁶/K", "decimals": 3 },
+    "electricalConductivity": { "unit": "MS/m", "significant": 4 },
+    "ionizationEnergies": { "unit": "V", "decimals": 3 },
+    "latticeParameters": { "unit": "Å", "decimals": 4 }
+  }
+}

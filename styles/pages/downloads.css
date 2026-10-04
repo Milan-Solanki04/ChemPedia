@@ -1,0 +1,103 @@
+/* The downloads page: a list of what prints, and how each one prints.
+
+   **Cards, not a table of file names.** The reference's downloads page is four thumbnails leading to
+   stubs; ours is a set of cards that say what each page prints and whether it fits on one sheet. That is
+   the information a reader actually has when they are about to press print, and a row of filenames never
+   answered it.
+
+   The whole card is one anchor rather than a title with a link in it, because a reader scanning eleven
+   cards is aiming at the card and not at the words in it — the same argument as the element card and the
+   glossary row, and for the same reason.
+
+   The "fits one sheet" line is a fact about the layout, measured in the browser with print emulation
+   on at both paper sizes. It is not an estimate and it is not a hope, which is why it can be stated
+   plainly rather than hedged. */
+
+.downloads-section {
+  padding-block: var(--sp-5) var(--sp-6);
+}
+
+.downloads__intro {
+  max-width: 46rem;
+  margin-block-end: var(--sp-5);
+  color: var(--ink-body);
+  line-height: var(--leading-prose);
+}
+
+.downloads__list {
+  display: grid;
+  gap: var(--sp-4);
+  margin: 0 0 var(--sp-6);
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 48rem) {
+  .downloads__list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--sp-4);
+  }
+}
+
+.downloads__item {
+  margin: 0;
+}
+
+.downloads__card {
+  display: grid;
+  gap: var(--sp-1);
+  height: 100%;
+  padding: var(--sp-4);
+  border: var(--rule-hairline);
+  border-radius: var(--sp-1);
+  color: var(--ink-body);
+  text-decoration: none;
+}
+
+.downloads__card:hover {
+  background: var(--wash-rank-bar);
+}
+
+/* The kind is a small caps label above the title, so a reader scanning the page can tell a table from a
+   card set without reading either. */
+.downloads__kind {
+  color: var(--ink-faint);
+  font-size: var(--step--1);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.downloads__title {
+  color: var(--ink);
+  font-size: var(--step-1);
+  font-weight: 600;
+  line-height: var(--leading-tight);
+}
+
+.downloads__detail,
+.downloads__extra {
+  font-size: var(--step--1);
+  line-height: var(--leading-body);
+}
+
+.downloads__extra {
+  color: var(--ink-faint);
+}
+
+/* The fit line. The one that matters is set in the ink, and the one that does not is in the faint
+   colour, because the reader's decision is whether the first is true. */
+.downloads__fit {
+  margin-block-start: var(--sp-1);
+  color: var(--ink);
+  font-size: var(--step--1);
+  font-weight: 600;
+}
+
+.downloads__fit--many {
+  color: var(--ink-soft);
+  font-weight: 400;
+}
+
+.downloads__notes {
+  padding-block: var(--sp-6) var(--sp-8);
+}

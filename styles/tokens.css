@@ -1,0 +1,418 @@
+/* ===========================================================================
+   Tokens — every design value in the project.
+
+   This is the only stylesheet that contains a literal colour, size, radius,
+   duration or easing. Everything else references these custom properties, so a
+   change to the design is a change in one file, and a review can check the
+   whole visual language by reading one screen.
+
+   The values are the ones measured from the design reference and recorded in
+   workspace/docs/DESIGN_SYSTEM.md and docs/research/01-reference-site-audit.md.
+   The reference declares its light palette at the root and switches to a dark
+   variant at runtime; we adopt the palette it declares at the root and ship it
+   as the only theme (ADR-006).
+
+   One consequence worth stating: the token names are semantic rather than
+   descriptive of one palette, and no component reads a literal colour, so a
+   second theme would be a second set of values under a root attribute rather
+   than a refactor.
+
+   Where the boundary sits: a token is a decision a designer would make and a
+   reviewer would want to change in one place — a colour, a size, a rhythm, a
+   duration, a corner. Structural idioms that are not design decisions stay
+   where they are used: the single pixel of an off-screen box, the half of a
+   clip path, the near-zero duration that disables motion for someone who has
+   asked for it. Those are not values anyone will want to tune.
+   =========================================================================== */
+
+:root {
+  /* -------------------------------------------------------------------------
+     1. Surfaces and ink — warm paper, pine-green ink.
+     ------------------------------------------------------------------------- */
+  --bg: #fdfbfa;
+  --surface: #ffffff;
+  --surface-sunk: #f6f2ef;
+
+  --ink: #15403d; /* brand ink: rules, headings, the dotted motif */
+  --ink-body: #24312f; /* body copy */
+  /* Secondary text. Darkened from #5d6b68 when --ink-faint had to move for AA: four steps that all
+     clear 4.5:1 cannot stay where they were and still be told apart, since the ratios bunch up as
+     they approach the threshold. The four steps now sit at 13.09, 11.11, 6.00 and 5.15 on --bg, each
+     at least 1.15:1 from the next. */
+  --ink-soft: #566461;
+  /* Captions, placeholders and tertiary text. This was #8a938f, which measures 3.06:1 on --bg and
+     2.84:1 on --surface-sunk — below AA everywhere, and it paints real text in twenty-three places
+     across sixteen stylesheets, so a Phase 11 contrast audit found it by arithmetic rather than by
+     looking. Darkening it to the lightest same-hue value that clears 4.5:1 on the *worst* surface
+     gives 4.78:1 here. The ramp is consequently flatter than a designer would draw it, and that is
+     the right way round: de-emphasis belongs in size and weight, never in contrast. */
+  --ink-faint: #656d6a;
+  --ink-inverse: #fdfbfa; /* text on an ink-coloured surface */
+
+  --line: #e4ddd7;
+  --line-strong: #cfc5bc;
+
+  --accent: var(--ink);
+  --on-accent: var(--ink-inverse);
+
+  /* -------------------------------------------------------------------------
+     2. Element group colours — eleven fixed values, one per category.
+
+     These are load-bearing data, not decoration: they encode which category an
+     element belongs to, and they are reused by every surface that shows a
+     category. Each one is paired with a foreground that reaches WCAG AA
+     against it; the pairing is derived in scripts/lib/contrast.js rather than
+     written per component, so there is one rule and one test.
+     ------------------------------------------------------------------------- */
+  --g-transition-metals: #f9aa62; /* orange */
+  --g-actinides: #559982; /* sage */
+  --g-lanthanides: #d473a2; /* pink */
+  --g-post-transition-metals: #97c0aa; /* pale green */
+  --g-unknown: #efce69; /* yellow */
+  --g-noble-gases: #e57860; /* coral */
+  --g-non-metals: #a6c6d5; /* pale blue */
+  --g-alkali-metals: #456683; /* slate blue */
+  --g-alkaline-earth-metals: #15403d; /* deep pine */
+  --g-metalloids: #6e58ac; /* violet */
+  --g-halogens: #4c575a; /* grey blue */
+
+  /* -------------------------------------------------------------------------
+     3. Orbital block colours — the alternate table view.
+     ------------------------------------------------------------------------- */
+  --g-s-block: #456683;
+  --g-p-block: #97c0aa;
+  --g-d-block: #f9aa62;
+  --g-f-block: #d473a2;
+
+  /* -------------------------------------------------------------------------
+     3a. State colours, and the ramp a numeric property is shaded along.
+
+     Both sets are fills the table can paint a tile with, so both are tested
+     for contrast exactly as the category colours are. They are kept apart
+     from the category palette because they answer a different question: a
+     category colour *encodes* which group an element is in and is reused on
+     group pages, element cards and legends, whereas a state colour and a
+     ramp step only ever mean "this element is a gas" and "this element's
+     electronegativity falls in this sixth of the range".
+
+     The four state values are the same values the design reference uses for
+     its own categories rather than a second palette, and the six ramp steps
+     are its numeric scale, recovered from the fills it actually renders.
+     Both are recorded in workspace/docs/research/01-reference-site-audit.md
+     §3.9.
+     ------------------------------------------------------------------------- */
+  --state-solid: #456683;
+  --state-liquid: #559982;
+  --state-gas: #e57860;
+  --state-unknown: #efce69;
+
+  /* Six equal-width steps from palest to darkest. The widths are not chosen:
+     the scale partitions whatever domain the data actually spans, so the
+     legend cannot drift from the table when a value moves the extremes. */
+  --ramp-1: #dce9f0;
+  --ramp-2: #a6c6d5;
+  --ramp-3: #6f9fb5;
+  --ramp-4: #3f7488;
+  --ramp-5: #22525a;
+  --ramp-6: #15403d;
+
+  /* A property the sources do not carry a value for. Deliberately neutral
+     rather than the palest ramp step: "not measured" must not read as
+     "smallest of all", which is what shading it at step one would say. */
+  --value-unknown: #e8e2dc;
+
+  /* The two foregrounds a group fill may take. Which one a given fill uses is
+     derived by scripts/lib/contrast.js, which reads the better of the two —
+     pale groups take the dark, dark groups take the cream. Those two values
+     are repeated in that module because JavaScript cannot read a custom
+     property outside the DOM, and a test guards against drift. */
+  --on-fill-dark: #12211f;
+  --on-fill-light: #fdfbfa;
+
+  /* -------------------------------------------------------------------------
+     4. Typography.
+
+     The scale is fluid: every step is a clamp() between a small-screen and a
+     large-screen size, so a heading grows with the viewport instead of jumping
+     at a breakpoint. Measured against the reference: the primary navigation
+     sits on --step-0 and the search field on --step--1.
+     ------------------------------------------------------------------------- */
+  --font-body: "Inter", "Work Sans", ui-sans-serif, system-ui, "Helvetica Neue", Arial, sans-serif;
+  --font-display: var(--font-body);
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+
+  --step--1: clamp(0.79rem, 0.77rem + 0.1vw, 0.85rem);
+  --step-0: clamp(1rem, 0.96rem + 0.18vw, 1.1rem);
+  --step-1: clamp(1.25rem, 1.18rem + 0.35vw, 1.45rem);
+  --step-2: clamp(1.56rem, 1.44rem + 0.62vw, 1.94rem);
+  --step-3: clamp(1.95rem, 1.74rem + 1.05vw, 2.58rem);
+  --step-4: clamp(2.44rem, 2.08rem + 1.78vw, 3.43rem);
+  --step-5: clamp(3.05rem, 2.45rem + 2.98vw, 4.58rem);
+
+  --leading-tight: 1.08; /* display headings */
+  --leading-ui: 1.2; /* navigation links, which carry their own padding */
+  --leading-body: 1.6;
+  --leading-prose: 1.7;
+  --measure: 68ch; /* maximum prose width */
+
+  --weight-body: 400;
+  --weight-medium: 500;
+  --weight-bold: 700;
+
+  /* -------------------------------------------------------------------------
+     5. Space, shape and layout.
+     ------------------------------------------------------------------------- */
+  --sp-1: 0.25rem;
+  --sp-2: 0.5rem;
+  --sp-3: 0.75rem;
+  --sp-4: 1rem;
+  --sp-5: 1.5rem;
+  --sp-6: 2rem;
+  --sp-7: 3rem;
+  --sp-8: 4rem;
+  --sp-9: 6rem;
+
+  --radius: 2px; /* the default: near-square */
+  --radius-lg: 8px; /* raised panels only */
+  --radius-pill: 999px;
+
+  --shell: 1100px; /* maximum content width */
+  --pad-shell: var(--sp-5); /* horizontal page padding */
+
+  /* Breakpoints: 40rem, 56rem, 72rem. They cannot be custom properties — a
+     media query does not resolve var() — so they are recorded here as the one
+     place the design states them, and the queries that use them are echoes of
+     this line rather than separate decisions. */
+
+  --rule-width: 1px;
+  --rule-solid: var(--rule-width) solid var(--ink);
+  --rule-dotted: var(--rule-width) dotted var(--ink); /* the signature motif */
+  --rule-hairline: var(--rule-width) solid var(--line);
+
+  --shadow-sm: 0 1px 2px #15403d0f;
+  --shadow-md: 0 4px 16px #15403d14;
+
+  /* -------------------------------------------------------------------------
+     6. Motion.
+
+     Short, decelerating, upward. Nothing bouncy, nothing longer than --dur-slow.
+     ------------------------------------------------------------------------- */
+  --dur-fast: 0.16s;
+  --dur-base: 0.3s;
+  --dur-slow: 0.62s;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-soft: cubic-bezier(0.33, 1, 0.68, 1);
+
+  --rise: 14px; /* entrance offset */
+  --rise-sm: 8px;
+  --stagger: 70ms;
+  --stagger-sm: 45ms;
+
+  /* -------------------------------------------------------------------------
+     7. Chrome.
+
+     The shell — masthead, contextual submenu and footer — has a few measurements
+     of its own. They are here rather than in the component stylesheets because
+     they are design values, and because the masthead's gap and the submenu's
+     band are part of the same visual rhythm as the spacing scale.
+     ------------------------------------------------------------------------- */
+  --gap-masthead: var(--sp-6); /* between wordmark, navigation and search */
+  --gap-nav: var(--sp-5); /* between primary navigation items */
+  --gap-submenu: var(--sp-4); /* between contextual submenu items */
+  --gap-legend: var(--sp-2); /* between legend chips */
+  --pad-submenu: var(--sp-1); /* the band's vertical padding */
+  --gap-footer-cols: var(--sp-5); /* between footer columns */
+  --gap-footer-rows: var(--sp-2); /* between entries in one footer column */
+
+  --height-masthead: 58px; /* one-row masthead, before its 1px rule */
+  --height-submenu: var(--sp-6); /* the band's row, used as a minimum so it keeps its
+                                    measured 33px including the rule while still growing
+                                    when the items wrap on a narrow screen */
+  --width-search: 9rem;
+  --width-footer-brand: 17rem; /* the brand block's column in the footer */
+  --measure-note: 32ch; /* the short paragraphs beside the footer's columns */
+
+  --underline-active: 2px; /* the active navigation item's rule */
+  --wordmark-size: 0.95rem; /* the measured lockup size */
+  --wordmark-leading: 1.05;
+
+  /* -------------------------------------------------------------------------
+     7b. The table's tile.
+
+     The tile's type is measured against the *table*, not the viewport, because the table is the
+     one element of this interface that does not resize with the window: it holds its eighteen
+     columns and scrolls sideways instead. A viewport-relative symbol would shrink to nothing on a
+     phone while the tile it sits in stayed perfectly legible.
+
+     That is what the `cqw` unit is for — one query container on the table's wrapper, and these three
+     sizes resolve against it. Each is a clamp, so the tile still has a floor and a ceiling: the
+     floor is what keeps a two-letter symbol readable when the table is scrolled to its narrowest,
+     and the ceiling is what stops the tile growing past the point where the name is the widest thing
+     in it. The measured values are the design reference's, which is where the geometry came from.
+     ------------------------------------------------------------------------- */
+  --tile-size-number: clamp(0.55rem, 0.85cqw, 0.95rem);
+  --tile-size-symbol: clamp(1rem, 2.15cqw, 2.2rem);
+  --tile-size-name: clamp(0.5rem, 0.8cqw, 0.88rem);
+
+  --tile-radius: 3px;
+  --tile-pad-block: 0.25rem;
+  --tile-pad-inline: 0.15rem;
+  --tile-number-gap: 0.15em; /* the number's inset from the tile's right edge */
+  --tile-opacity-number: 0.9;
+  --tile-opacity-name: 0.92;
+
+  /* Hover and focus lift a tile a little and grow it slightly, so the tile under the pointer is
+     unambiguous without a border the design does not otherwise use. */
+  --tile-lift: -2px;
+  --tile-grow: 1.04;
+  --tile-shadow: var(--shadow-md);
+  --tile-focus-width: 2.5px;
+  --tile-focus-offset: 1px;
+
+  /* -------------------------------------------------------------------------
+     7c. The legend chip.
+
+     The chip's padding is measured in `em` rather than `rem` on purpose: the chip carries its own
+     font size, and padding that did not scale with it would look wrong at every size the chip is
+     ever rendered at. It is inset more on the leading edge than the trailing one, because the
+     label starts at that edge and the count ends at the other.
+
+     The count's wash is a mix of the chip's own foreground rather than a second colour, which is
+     what lets one rule sit on all eleven category fills, four state fills and six ramp steps.
+     ------------------------------------------------------------------------- */
+  --chip-pad-block: 0.32em;
+  --chip-pad-inline-start: 0.75em;
+  --chip-pad-inline-end: 0.6em;
+  --chip-count-pad-inline: 0.5em;
+  --chip-count-wash: 22%;
+  --chip-lift: -1px;
+
+  /* -------------------------------------------------------------------------
+     7e. The find-an-element field.
+
+     One field, a button and a list of results, so the measurements are few.
+     The field's height is set rather than inherited because it is the one control on the site that
+     has to be usable on a phone with a thumb rather than a mouse, and its hit area should not depend
+     on the line-height of the type inside it.
+     ------------------------------------------------------------------------- */
+  --height-field: 2.75rem;
+  --gap-find: var(--sp-2);
+  --width-find-button: 5.5rem;
+  --width-find: 30rem; /* the field, and the results under it */
+  --width-find-panel: 40rem; /* the sunken panel that holds both */
+  --pad-find-result: var(--sp-2) var(--sp-3);
+
+  /* -------------------------------------------------------------------------
+     7f. The element page's hero tile.
+
+     The largest thing the group colour is ever used for, and the only place it is
+     a field rather than a tint. Its symbol is set larger than any other type on the
+     site, so the step is a token rather than a literal.
+     ------------------------------------------------------------------------- */
+  --hero-tile-size: 7.5rem;
+  --hero-tile-symbol: 4.25rem;
+
+  /* The element page's two columns and the width of one sibling tile. The measurements column is
+     narrower than the reading one because a figure in a column only needs to be as wide as the
+     longest number in it, and giving it half the page would make the prose the harder column. */
+  --width-measurements: 22rem;
+  --width-mini-table: 40rem;
+  --basis-prose: 16rem;
+  --min-sibling-tile: 4.5rem;
+
+  /* -------------------------------------------------------------------------
+     7g. The index card.
+
+     The card is the one place a tile sits beside text rather than in a grid, so its size is its own
+     token rather than the table's. It matches the reference's 52px, which is the smallest a tile
+     still reads at: below about 44px the symbol and the number in its corner start to collide.
+     ------------------------------------------------------------------------- */
+  --card-tile-size: 3.25rem;
+  --gap-cards: var(--sp-4);
+  --pad-card: var(--sp-3);
+
+  /* -------------------------------------------------------------------------
+     7h. The ranking bar.
+
+     A wash of the page ink rather than of the element's group colour. The group colour would be true
+     and irrelevant — it would decorate a temperature as though the temperature were a property of the
+     category — and eleven different washes would make a column of bars look like a column of
+     categories. One wash, so the only thing that varies down the column is the length.
+     ------------------------------------------------------------------------- */
+  --wash-rank-bar: color-mix(in srgb, var(--ink) 12%, transparent);
+  /* How wide the figure column is, which is how long the longest bar is. A bar that can stretch to
+     the width of a table column is a wall, and the point of the bar is that its length is comparable
+     down the column — so the column is given a width rather than being left to the table. */
+  --width-rank-figure: 20rem;
+
+  /* The floor width of a ranking table. Below this its figures cannot be read side by side, so the
+     table keeps this width and the wrapper around it scrolls — which is the answer the periodic table
+     already gives when its content is wider than a phone. */
+  --width-rank-table: 34rem;
+
+  /* -------------------------------------------------------------------------
+     7i. The evolution timeline.
+
+     Two fixed columns for the two things a reader scans a decade row for — the decade and how many
+     elements arrived in it — with the names taking whatever is left over.
+     ------------------------------------------------------------------------- */
+  --width-timeline-decade: 5rem;
+  --width-timeline-count: 3rem;
+
+  /* The shell diagram is a fixed size whatever the element, because a diagram that grew with the     electron count would move every time the page changed and the reader would re-find it. At 10rem
+     the outermost ring and its electrons are large enough to count, which is the only thing the
+     figure is for. */
+  --shell-diagram-size: 10rem;
+
+  /* -------------------------------------------------------------------------
+     7d. The table's grid.
+
+     The gap between tiles is measured against the *table*, not the window, for the reason the tile's
+     type is: the table keeps its eighteen columns at every width and scrolls instead of reflowing,
+     so a gap measured in `vw` would stay the same size while the tiles it separates shrank — and at
+     the narrowest scroll position the gap would be wider than the tile.
+
+     The grid declares row 8 as a gap row of its own rather than leaving it empty. That is a property
+     of the grid's shape rather than a consequence of no element having been assigned to row 8, which
+     is the difference between the separation being designed and it being an accident that a future
+     data change could remove.
+
+     The narrow-screen floor is the width below which the tiles stop being legible at all. It is not a
+     breakpoint: the grid is allowed to exceed it and the wrapper is allowed to scroll.
+     ------------------------------------------------------------------------- */
+  --gap-table: clamp(1px, 0.25cqw, 4px);
+  /* The compact variant is a small diagram, and a container-relative gap on a small grid is a gap
+     that eats it. A fixed 2px is what keeps its tiles big enough to read as tiles. */
+  --gap-table-compact: 2px;
+  --ptable-gap-row: 0.6rem;
+  --ptable-min-width: 51.25rem; /* 820px: the width the tiles stay readable at */
+  --ptable-min-width-narrow: 43.75rem; /* 700px, once the names have gone */
+  --ptable-bleed-pad: var(--sp-4);
+  /* Above the narrow-screen breakpoint the table steps outside the content column and takes almost
+     the whole window, because it is the page's subject and a periodic table squeezed to a text
+     measure truncates names the reference shows in full. Capped at a width the design settles at,
+     and never wider than the window itself, so nothing can be clipped by it. */
+  --ptable-width: min(96vw, 1520px);
+  /* Full bleed means exactly the viewport, which is not a designed width so much as the edge of the
+     paper. It is a token so that the stylesheet stays free of size literals and so the one place
+     that has to know the viewport's width is a place with a name. */
+  --bleed-viewport: 100vw;
+  /* The opaque end of a mask gradient. A mask reads its colour's alpha and nothing else, so this is
+     black purely to mean "fully visible" — it is named for that, not for a hue. */
+  --mask-opaque: #000;
+
+  /* What an isolated table pushes back. Enough to read as "not this one" at a glance, not so much
+     that a tile disappears while a pointer is finding it. */
+  --ptable-dim-opacity: 0.22;
+  --ptable-dim-saturate: 0.35;
+  /* Display type is set slightly closed. Measured from the reference, where a
+     54.88px heading carries -1.0976px of tracking, which is this ratio. */
+  --tracking-tight: -0.02em;
+  --tracking-heading: 0.06em; /* the small-caps footer headings */
+  --code-scale: 0.92em;
+  --underline-offset: 0.18em;
+
+  --focus-width: 2px;
+  --focus-offset: 2px;
+  --focus-color: var(--ink);
+}

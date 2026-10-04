@@ -1,0 +1,42 @@
+/* The difficulty badge on a glossary row or a term page.
+
+   A small pill, and the one place on the site where the ramp decides something other than a colour
+   scale. Beginner sits at the palest step and Expert at the darkest, so the badge darkens as the term
+   gets harder — the direction a reader reads difficulty in without being told.
+
+   **The three levels are three ramp steps, and which steps is a contrast decision rather than a taste
+   one.** The ramp is a continuous scale, so its middle steps are almost exactly the shade that fails
+   AA against either foreground: measured against `--ink`, ramp-3 gives 3.98:1 and ramp-4 gives 2.22:1,
+   and against `--ink-inverse` ramp-3 gives 2.79:1. Neither text colour works on them, so the levels
+   skip them and take ramp-1, ramp-4 and ramp-6 — 9.25:1, 5.01:1 and 11.11:1, all passing, and still a
+   pale-to-dark progression a reader can order without being told which end is harder.
+   `tests/components/glossary-badge.test.js` measures these rather than trusting them.
+
+   Nothing here is a size or a colour of its own — every one is a token — and no page holds a variant
+   of it. */
+
+.badge {
+  display: inline-block;
+  padding-inline: var(--sp-2);
+  border-radius: 999px;
+  background: var(--ramp-1);
+  color: var(--ink);
+  font-size: var(--step--1);
+  line-height: var(--leading-ui);
+  white-space: nowrap;
+}
+
+.badge--beginner {
+  background: var(--ramp-1);
+  color: var(--ink);
+}
+
+.badge--novice {
+  background: var(--ramp-4);
+  color: var(--ink-inverse);
+}
+
+.badge--expert {
+  background: var(--ramp-6);
+  color: var(--ink-inverse);
+}

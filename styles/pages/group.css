@@ -1,0 +1,164 @@
+/* The element group pages.
+
+   A hero in the group's own colour, the table with that group lit, the paragraph about what they have
+   in common, the members as cards, and the other ten groups. Almost all of it is layout rather than
+   design, which is what a family of eleven pages that differ only in a colour should be.
+
+   The hero is a tinted band rather than a solid field, because the band's colour has to carry the page
+   without becoming the page: the heading stays in the ink and only the band's own background and the
+   lede take the group's colour. The colour itself arrives as a custom property from the token layer,
+   set on the section by the build, so this stylesheet names no group's hue and a group recoloured in
+   `tokens.css` recolours its page here.
+
+   The facts come with their own stylesheet, because they are a component's and the page is not the
+   only thing that will ever want them.
+
+   The members are the index page's cards in a grid that grows with the room — four across at the
+   widest, because a group of thirty-five in six columns is a list nobody scans and a group of five in
+   four is four very wide cards. */
+
+.group-hero {
+  padding-block: var(--sp-6);
+  border-block-end: var(--rule-solid);
+  /* The group's colour, as a wash. `--group-fill` is set by the build from the token the category
+     names; a page that somehow lacks it falls back to the page surface rather than to nothing. */
+  background: color-mix(in srgb, var(--group-fill, var(--surface)) 18%, var(--surface));
+}
+
+.group-hero__eyebrow {
+  margin: 0;
+  color: var(--ink-faint);
+  font-size: var(--step--1);
+  letter-spacing: var(--tracking-heading);
+  text-transform: uppercase;
+}
+
+.group-hero h1 {
+  margin-block: var(--sp-2) 0;
+  font-size: var(--step-3);
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--leading-tight);
+}
+
+/* The lede stays in the ink rather than in the group's colour, which is a departure from the
+   reference. Six of the eleven fills are pale — the non-metals' is a very pale blue — and a pale
+   accent on an eighteen-percent wash of itself is a lede nobody can read. The group's colour is
+   carried by the band, the chip and thirty-five tiles instead, and the ink is legible over every one
+   of the eleven. */
+.group-hero__lede {
+  margin-block: var(--sp-3) 0;
+  max-width: var(--measure);
+  color: var(--ink);
+  font-size: var(--step-1);
+}
+
+.group-table-section {
+  padding-block: var(--sp-5) var(--sp-6);
+}
+
+.group__note {
+  margin-block-start: var(--sp-4);
+  max-width: var(--measure);
+  color: var(--ink-soft);
+  font-size: var(--step--1);
+}
+
+.group__character {
+  max-width: var(--measure);
+  color: var(--ink-body);
+}
+
+/* ---------------------------------------------------------------------------
+   The members.
+   --------------------------------------------------------------------------- */
+.members {
+  display: grid;
+  gap: var(--gap-cards);
+  margin-block-start: var(--sp-4);
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 40rem) {
+  .members {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 56rem) {
+  .members {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+}
+
+.members__item {
+  display: flex;
+  min-width: 0;
+}
+
+.members__item > .card {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+/* ---------------------------------------------------------------------------
+   The other groups.
+   --------------------------------------------------------------------------- */
+.others {
+  margin-block: var(--sp-6) var(--sp-7);
+}
+
+.others__list {
+  display: grid;
+  gap: var(--gap-cards);
+  margin-block-start: var(--sp-4);
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 40rem) {
+  .others__list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 56rem) {
+  .others__list {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+
+.others__link {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding-block: var(--sp-2);
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.others__link:hover .others__label {
+  text-decoration: underline;
+  text-underline-offset: var(--underline-offset);
+}
+
+/* The group's own colour, as a square of it. The token is named in the data, so this is the one place
+   a group's colour reaches the page outside its hero and its tiles. */
+.others__swatch {
+  flex: none;
+  width: var(--card-tile-size);
+  height: var(--card-tile-size);
+  border-radius: var(--radius);
+  background: var(--fill);
+}
+
+.others__label {
+  font-size: var(--step-0);
+}
+
+.others__count {
+  margin-inline-start: auto;
+  color: var(--ink-faint);
+  font-size: var(--step--1);
+  font-variant-numeric: tabular-nums;
+}

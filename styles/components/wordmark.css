@@ -1,0 +1,32 @@
+/* The wordmark: a stacked lockup in a tall, narrow box.
+
+   Two lines, tight leading, slightly closed tracking. `display: grid` puts the
+   two spans on their own lines without a line break in the markup, so the box
+   has a predictable width and the accessible name stays one word.
+
+   Nothing else in the project styles .wordmark. */
+
+.wordmark {
+  display: inline-grid;
+  font-family: var(--font-display);
+  font-size: var(--wordmark-size);
+  font-weight: var(--weight-bold);
+  line-height: var(--wordmark-leading);
+  letter-spacing: var(--tracking-tight);
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.wordmark span {
+  display: block;
+}
+
+/* The footer repeats the lockup at the same size, as plain text. */
+.wordmark--sm {
+  margin: 0;
+}
+
+a.wordmark:hover {
+  color: var(--ink);
+  text-decoration: none;
+}

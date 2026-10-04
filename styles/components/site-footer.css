@@ -1,0 +1,104 @@
+/* The footer.
+
+   Two blocks on a wide screen: the identity and its note on the left, the five
+   link columns on the right. Below the first breakpoint the two stack, because
+   five columns of links cannot be read in 320 pixels and shrinking them is not
+   an option.
+
+   The columns go from two to three to five across the breakpoints rather than
+   wrapping arbitrarily, so no column is ever wide enough to look empty or
+   narrow enough to wrap every entry. */
+
+.footer {
+  border-top: var(--rule-dotted);
+  padding-block: var(--sp-7) var(--sp-6);
+  font-size: var(--step--1);
+}
+
+.footer__inner {
+  display: grid;
+  gap: var(--gap-masthead);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 56rem) {
+  .footer__inner {
+    grid-template-columns: var(--width-footer-brand) 1fr;
+    align-items: start;
+  }
+}
+
+.footer__tagline {
+  max-width: var(--measure-note);
+  margin-block-start: var(--sp-3);
+  color: var(--ink-soft);
+  line-height: var(--leading-body);
+}
+
+.footer__note {
+  max-width: var(--measure-note);
+  margin-block-start: var(--sp-3);
+  color: var(--ink-faint);
+  line-height: var(--leading-body);
+}
+
+.footer__cols {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--gap-footer-cols);
+}
+
+@media (min-width: 40rem) {
+  .footer__cols {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 56rem) {
+  .footer__cols {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+
+.footer__heading {
+  font-size: var(--step--1);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-heading);
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-block-end: var(--sp-3);
+}
+
+.footer__list {
+  display: grid;
+  gap: var(--gap-footer-rows);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* The links are in a list with an 8px gap, and each one adds its own 8px of
+   vertical padding. That is what gives the column its airiness, and it is also
+   what makes each link a comfortable target for a finger rather than a word to
+   be aimed at. */
+.footer__list a {
+  padding-block: var(--sp-2);
+  color: var(--ink-soft);
+  text-decoration: none;
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.footer__list a:hover {
+  color: var(--ink);
+  text-decoration: underline;
+}
+
+.footer__base {
+  border-top: var(--rule-hairline);
+  margin-block-start: var(--sp-7);
+  padding-block-start: var(--sp-4);
+}
+
+.footer__copyright {
+  color: var(--ink-faint);
+}

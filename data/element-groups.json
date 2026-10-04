@@ -1,0 +1,49 @@
+{
+  "note": "The written copy for the eleven element group pages: one sentence for the hero and a short paragraph for the group itself, both written for this project. The taxonomy is NOT here — a group's slug, display name, plural and colour live in categories.json, and its membership is derived from elements.json by that slug. Listing members in a second file would be a second place for the counts to disagree with the records, which is the one thing a group's legend has to be able to get right. Keys are category slugs, so a group this file has no entry for has no prose rather than a wrong one.",
+  "groups": {
+    "alkali-metals": {
+      "lede": "Soft, low-melting metals that react with water so violently that the hydrogen they release can set them alight.",
+      "character": "Each has a single electron in its outermost shell and gives it away readily, which is why they form +1 ions and why they are the most reactive of all metals. Going down the group that electron sits further from the nucleus and is better shielded by the layers beneath it, so caesium reacts far more violently than lithium does. None of them is found free in nature, and francium — the most reactive of them all — has never been assembled in a quantity anyone could see."
+    },
+    "alkaline-earth-metals": {
+      "lede": "Harder and denser than the metals beside them, and they react with water far more gently for it.",
+      "character": "Each has two electrons in its outermost shell and has to lose both before it is satisfied, so these metals are less eager than the alkali metals and form +2 ions instead. The same downward trend applies: barium reacts with water readily where beryllium barely reacts at all. Beryllium is the exception worth knowing about, because it is small enough, and holds its electrons tightly enough, that it forms covalent compounds rather than ionic ones and behaves more like aluminium than like its own group."
+    },
+    "transition-metals": {
+      "lede": "Hard, dense metals with the highest melting points on the table, and the source of most of its colour.",
+      "character": "What the group shares is an inner d subshell filling as the row goes on, and that is why they resemble each other so much more closely than their neighbours resemble anything. The same half-filled shell lets one element give up different numbers of electrons in different compounds, so a single metal can be several oxidation states at once, and can colour a solution. Between them they hold the densest element we know, the highest-melting element we know, and the alloys that steel and aircraft are built from."
+    },
+    "post-transition-metals": {
+      "lede": "Metals sitting between the transition metals and the metalloids: softer, lighter and easier to melt than either.",
+      "character": "Their d subshell is already full, so chemically they behave like the metals to the left of them rather than like a transition metal. That full shell is why they are comparatively soft, melt at low temperatures, and carry heat worse than their neighbours do. Going down the group the two outermost electrons are held more tightly — the inert-pair effect — so lead's hardly take part in bonding at all, which is why it is so unreactive for a metal and why bismuth, further down, behaves in several respects like its metalloid neighbours instead."
+    },
+    "metalloids": {
+      "lede": "Elements along the staircase line between metals and non-metals, each of which behaves like one or the other depending on the conditions.",
+      "character": "Their outer shells are part-way filled enough that their bonds are covalent rather than metallic, which leaves them brittle as solids, poor conductors as pure elements, and semiconductors as soon as they are doped. Boron and silicon are the two that shape the modern world: borosilicate glass that survives laboratory heat, and every transistor and integrated circuit ever made. Several of them are also outright poisons — arsenic is the best known — which is why the periodic table of one's own making usually has to be drawn with them at the bottom."
+    },
+    "non-metals": {
+      "lede": "The poorest conductors and the most brittle solids on the table, and the elements everything living is built from.",
+      "character": "They need electrons far more readily than metals do, so they form negative ions rather than positive ones, and they commonly travel in pairs — H₂, O₂, N₂ — to complete each other's shells. Carbon and nitrogen are the two that the rest of chemistry is organised around, and with hydrogen, oxygen, phosphorus and sulfur they make up almost all of living tissue. Only selenium sits low enough in the group to shade towards a metal, which is why it is arguable whether it belongs here at all."
+    },
+    "noble-gases": {
+      "lede": "A complete outer shell, which is why they very nearly never react with anything at all.",
+      "character": "Each ends its period with a full valence shell and has nothing to gain by gaining, losing or sharing an electron — the most stable arrangement an atom can have. That is why they are single atoms rather than molecules, why they are chemically inert, and why the few compounds they do form need an electric discharge or crushing pressure to exist. Three of them are used commercially for exactly this reason: argon filling light bulbs and shielding welds, xenon in flash lamps, and helium in balloons and airships because it cannot be set alight."
+    },
+    "halogens": {
+      "lede": "One electron short of a full shell, which makes them the most reactive elements that are not metals.",
+      "character": "They all sit exactly one electron short of a noble gas and they all want that electron, so they form −1 ions readily and bond with each other readily — they exist as diatomic molecules. Reactivity falls as the atom grows down the group, because the incoming electron is further from a nucleus that now has more protons pulling the other way. Fluorine is the most electronegative element known, and iodine is the only halogen still solid enough to have been sold as crystals two centuries after it was first identified."
+    },
+    "lanthanides": {
+      "lede": "The fifteen elements that fill a buried inner subshell, and the hardest group on the table to tell apart.",
+      "character": "Their electrons are going into an f subshell shielded inside the atom, so their compounds are almost identical to one another and separating them is genuinely difficult — the discovery of the last of them, promethium, took work spread across fifteen years and three laboratories. They are silvery, soft metals that tarnish in air, and they are used where a very small amount of something does a great deal: the phosphors in a screen, the neodymium in a magnet, the catalyst in every catalytic converter."
+    },
+    "actinides": {
+      "lede": "The fifteen elements filling a buried inner subshell after actinium, and the heavier half of them too crowded in the nucleus to be stable.",
+      "character": "They fill the same buried f subshell the lanthanides do, which is why the two groups behave so much alike. The difference is nuclear rather than chemical: as the nucleus grows it distorts the whole atom, and the isotopes beyond uranium become steadily shorter-lived, so only thorium and uranium exist in the earth's crust in quantities anyone has handled. Everything past them has been made atom by atom, and for the heaviest there are only a few dozen atoms alive at any moment."
+    },
+    "unknown": {
+      "lede": "Eight elements with no measured chemistry at all, because none has ever been made in a quantity anyone could weigh.",
+      "character": "These eight have been created a few atoms at a time and identified, and very little else has been done to them. No melting point has been measured, no density, no reaction with water: every property this site would use to place them is a prediction made by interpolating between their neighbours. That is why they are a category of their own here rather than filed under a real group. Putting meitnerium with the transition metals would assert a resemblance to iridium that rests on the shape of the table and not on anything anyone has watched happen."
+    }
+  }
+}

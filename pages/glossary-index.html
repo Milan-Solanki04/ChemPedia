@@ -1,0 +1,52 @@
+<!--
+  The glossary index.
+
+  A fragment, not a document: `tools/build.js` wraps this in the document skeleton, the masthead, the
+  contextual band and the footer.
+
+  Three markers, and this header contains none of them — the sentences below are headers precisely
+  because they are more than one bare word.
+
+  The page is the reference's shape, with one thing kept and one thing added:
+
+    1. The hero: the heading, the line saying what the page holds, and the filter. Search is above the
+       list because a reader who wants one term usually knows a word, and a letter is not a word.
+    2. The A–Z rail. The reference puts this down the left of the list and keeps it in view while the
+       reader scrolls, and that is kept: on a page of four hundred terms, the letter you are reading is
+       the only thing telling you where in the page you are.
+    3. The terms, grouped by letter, each letter under a heading of its own.
+
+  The added thing is the counts. A reader who opens the page wanting "something about bonding" does not
+  know whether to try B or R, and the rail answers that before they have to ask. The counts are counted
+  from the terms rather than written here, because a number written into a template is a number that
+  rots.
+
+  Every term row carries the searchable text the filter narrows by, and the definition is in the page
+  and not fetched later, so with the scripts never run the reader still gets all the terms and a field
+  that submits. That is the promise the elements index makes and this page keeps it.
+-->
+
+<section class="index-hero">
+  <div class="shell">
+    <h1>Glossary of chemistry terms</h1>
+    <p class="lead">
+      Every term we define, from absolute zero to the words that only make sense once two elements sit
+      next to each other.
+    </p>
+    <div class="index-hero__filter">
+      <!-- filter -->
+    </div>
+  </div>
+</section>
+
+<section class="glossary-section" aria-labelledby="glossary-heading">
+  <div class="shell">
+    <h2 class="visually-hidden" id="glossary-heading">Every term, by letter</h2>
+
+    <nav class="alphabet" aria-label="Jump to a letter">
+      <!-- jump -->
+    </nav>
+
+    <!-- letters -->
+  </div>
+</section>

@@ -1,0 +1,53 @@
+<!--
+  The temperature converter.
+
+  A fragment, not a document: `tools/build.js` wraps this in the document skeleton, the masthead, the
+  contextual band and the footer. Two markers, and this header contains none of them.
+
+  The page is small and self-contained, and it is the one page on this site whose content is an
+  interaction rather than a body of writing. Three things are written here as copy because they are
+  prose and should be argued with as prose:
+
+    1. The hero, saying what the page does. The reference's lede is "Use our temperature calculator to
+       convert between Fahrenheit, Celsius, and Kelvin" — a sentence describing its own interface, which
+       is not the same as telling a reader what they will get.
+    2. The converter itself, which is a component and therefore a marker. The fields are in the markup
+       and work without any script at all; the synchronising is the enhancement.
+    3. The reference points, which are the part that is genuinely useful with no script running. They
+       are filled from the module because they are computed from the same scales the converter uses, so
+       a change to a conversion cannot leave the table disagreeing with the field.
+
+  The note about absolute zero is here rather than inside the warning region, because it explains the
+  page rather than reporting on it: the warning only appears once a reader types something impossible,
+  and by then they need to have been told what absolute zero is.
+-->
+
+<section class="index-hero">
+  <div class="shell">
+    <h1>Temperature converter</h1>
+    <p class="lead">
+      Type a temperature in any scale and the other two follow. Celsius, Fahrenheit and Kelvin, to two
+      decimal places.
+    </p>
+  </div>
+</section>
+
+<section class="converter-section" aria-labelledby="converter-heading">
+  <div class="shell">
+    <h2 class="visually-hidden" id="converter-heading">Convert a temperature</h2>
+    <!-- converter -->
+  </div>
+</section>
+
+<section class="converter-points section" aria-labelledby="points-heading">
+  <div class="shell">
+    <h2 class="section__title" id="points-heading">Temperatures worth knowing</h2>
+    <!-- points -->
+
+    <p class="converter__note">
+      Absolute zero is −273.15 °C, or 0 K, and nothing can be colder. Fahrenheit reaches it at −459.67 °F,
+      which is the only point on that scale below which no temperature exists — so the converter says so
+      rather than quietly printing a number.
+    </p>
+  </div>
+</section>

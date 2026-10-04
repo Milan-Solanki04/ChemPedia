@@ -1,0 +1,45 @@
+<!--
+  The elements index.
+
+  A fragment, not a document: `tools/build.js` wraps this in the document skeleton, the masthead, the
+  contextual band and the footer. Only what is peculiar to this page is written here.
+
+  Two comments mark where generated markup goes in. Everything else is written copy, so it can be read,
+  argued with and edited as prose — which is the point of keeping it in a template rather than in a
+  string in a module. The markers are HTML comments so the file stays valid markup that renders on its
+  own in a browser.
+
+  The section order is the design reference's:
+
+    1. The hero: the heading, the line saying what the page lists, and the filter.
+    2. The grid of 118 cards.
+
+  The grid is the whole page and the hero is two lines above it, which is the reference's proportion
+  too. There is no third section: a reference has nothing after the grid that is not a footer, and
+  adding one would be inventing content rather than reproducing a structure.
+
+  The two markers are bare comments whose body is one word, and this header deliberately contains no
+  marker of its own: one written here would be filled as well, injecting the whole block into this
+  comment and giving the page two elements with the same id.
+
+  The filter is a component, so it is marked rather than written here — this template is not where
+  components live. Every card carries its own searchable text, written by the page module, so the
+  filter can narrow the grid without knowing what a card is.
+-->
+
+<section class="index-hero">
+  <div class="shell">
+    <h1>Elements in the periodic table</h1>
+    <p class="lead">All 118 elements, ordered by atomic number.</p>
+    <div class="index-hero__filter">
+      <!-- filter -->
+    </div>
+  </div>
+</section>
+
+<section class="index-grid-section" aria-labelledby="element-index">
+  <div class="shell">
+    <h2 class="visually-hidden" id="element-index">Every element</h2>
+    <!-- cards -->
+  </div>
+</section>

@@ -1,0 +1,64 @@
+<!--
+  Downloads and printables.
+
+  A fragment, not a document: `tools/build.js` wraps this in the document skeleton, the masthead, the
+  contextual band and the footer. Two markers, and this header contains none of them.
+
+  **There are no files to download, and that is the design rather than a shortfall.** The reference's
+  downloads page offers four thumbnails linking to `/printables-and-pdfs/`, which is itself a 404
+  placeholder, and every one of whose detail pages is an unmigrated stub — so there is nothing there to
+  copy but its shape. This project prints instead: ADR-001 renders the table *into* the page, so the page
+  a reader is already looking at is the page that prints, and every figure and colour on paper is the one
+  that was on screen. A stylesheet does the work a PDF would otherwise have to be regenerated for.
+
+  So the two lists below are not download links. They are links to the pages that print well, and the
+  cards say which of them fit one sheet and which do not — which is the information a reader actually
+  needs and which a row of file names never gave them.
+
+  The lists are derived from the manifest rather than written here, which is what makes the plan's
+  criterion checkable: a target that this page links to is a target the build renders, because both come
+  from the same place. Adding a table view adds a card; a route that does not exist cannot be linked.
+-->
+
+<section class="index-hero">
+  <div class="shell">
+    <h1>Print the periodic table</h1>
+    <p class="lead">
+      Everything on this site prints, and nothing here is a file. Open a page below and print it: the
+      masthead, the navigation and the buttons come off, and what is left is the content with its colours
+      intact.
+    </p>
+  </div>
+</section>
+
+<section class="downloads-section" aria-labelledby="downloads-heading">
+  <div class="shell">
+    <h2 class="section__title" id="downloads-heading">The whole table, on one sheet</h2>
+
+    <p class="downloads__intro">
+      Four colourings of all 118 elements. Three of them print on a single page at both A4 and Letter,
+      with no column cut off and nothing left to a second sheet; the fourth carries a timeline of thirty
+      decades below the table and runs onto a second. Each card says which.
+    </p>
+
+    <!-- tables -->
+  </div>
+</section>
+
+<section class="downloads-section section" aria-labelledby="cards-heading">
+  <div class="shell">
+    <h2 class="section__title" id="cards-heading">Element cards</h2>
+
+    <p class="downloads__intro">
+      Every element has a page that prints as a card: the name, the symbol, the position, the
+      properties the record holds and what the element is used for, with the diagrams and the
+      navigation left off. Pick a group to print a set of them together, or the index for all 118.
+    </p>
+
+    <!-- groups -->
+  </div>
+</section>
+
+<div class="shell">
+  <!-- notes -->
+</div>

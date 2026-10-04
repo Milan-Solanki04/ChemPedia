@@ -1,0 +1,135 @@
+/* The property ranking pages.
+
+   A table rather than a grid of cards, because a ranking is a column of numbers that have to be
+   compared with each other, and a card puts each number in its own box with its own border. The
+   figures are right-aligned and set in tabular numerals so the column lines up on the decimal rather
+   than on whatever digit happens to be last.
+
+   The bar sits behind the figure and grows from the left, in a translucent wash of the page ink
+   rather than in the element's group colour. The group colour would say something true but
+   irrelevant — it would decorate a temperature as though the temperature were a property of the
+   category. The bar's length is the claim, and the number beside it is the evidence.
+
+   A filtered-out row is hidden by the `hidden` attribute the filter sets, so it leaves the table's
+   geometry rather than leaving a gap in the middle of a column. */
+
+.rank-hero {
+  padding-block: var(--sp-6) var(--sp-5);
+  border-bottom: var(--rule-solid);
+}
+
+.rank-hero__hint {
+  margin-block-start: var(--sp-4);
+  color: var(--ink-soft);
+  font-size: var(--step--1);
+  max-width: var(--measure);
+}
+
+.rank-hero__filter {
+  margin-block-start: var(--sp-4);
+}
+
+.rank__scroll {
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-width: thin;
+}
+
+.rank {
+  width: 100%;
+  min-width: var(--width-rank-table);
+  border-collapse: collapse;
+  margin-block-start: var(--sp-5);
+}
+
+.rank__cell {
+  padding-block: var(--sp-3);
+  padding-inline: var(--sp-3);
+  border-bottom: var(--rule-hairline);
+  text-align: start;
+  font-weight: var(--weight-body);
+  vertical-align: middle;
+}
+
+/* The element cell leads with the tile, so it is the one cell that is not a figure. The row inside it
+   is what is laid out as a flex row — the cell itself must stay a table cell, because a `th` given
+   `display: flex` leaves the table's layout entirely, and the columns collapse around a tile that is
+   only constrained by its aspect ratio. */
+.rank__element {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  white-space: nowrap;
+}
+
+/* The tile is given both dimensions rather than relying on the aspect ratio, because a tile with only
+   an aspect ratio is exactly as wide as the cell it is in, which in a table is to say the whole
+   remaining table. */
+.rank__element .tile {
+  flex: none;
+  width: var(--card-tile-size);
+  height: var(--card-tile-size);
+  font-size: var(--step--1);
+}
+
+.rank__number {
+  color: var(--ink-faint);
+  font-variant-numeric: tabular-nums;
+}
+
+/* The figure cell is the only one that positions anything: the bar is a layer and the number sits on
+   top of it, right-aligned, so a short bar and a long bar are compared from the same edge. */
+.rank__cell--figure {
+  position: relative;
+  text-align: end;
+  width: var(--width-rank-figure);
+}
+
+.rank__bar {
+  position: absolute;
+  inset-block: 0;
+  inset-inline-start: 0;
+  width: var(--rank-bar);
+  max-width: 100%;
+  background: var(--wash-rank-bar);
+  /* Square ends, so a bar's length is its length and not its radius. */
+  border-radius: 0;
+}
+
+.rank__value {
+  position: relative;
+  padding-inline: var(--sp-2);
+  font-variant-numeric: tabular-nums;
+}
+
+/* A configuration is a formula, not a figure, so it is set in the monospace face and not in the
+   tabular one. */
+.rank__cell--mono {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  color: var(--ink-soft);
+}
+
+.rank__group {
+  margin-block-end: var(--sp-6);
+}
+
+/* The count sits beside the block's name rather than under it, because it is one fact about the
+   heading rather than a paragraph. */
+.rank__count {
+  margin-inline-start: var(--sp-3);
+  color: var(--ink-faint);
+  font-size: var(--step--1);
+  font-weight: var(--weight-body);
+}
+
+.rank__note,
+.rank__caveat {
+  max-width: var(--measure);
+  color: var(--ink-soft);
+  font-size: var(--step--1);
+}
+
+.rank__caveat {
+  color: var(--ink);
+}

@@ -1,0 +1,35 @@
+<!--
+  The element-groups index.
+
+  A fragment, not a document: `tools/build.js` wraps this in the document skeleton, the masthead, the
+  contextual band and the footer. One marker, and this header contains none of them.
+
+  The reference's own group section is a menu at the side of the group pages rather than a page in its
+  own right, so there is nothing here to reproduce structurally — only the decision about what this page
+  should be, which is a list of the eleven groups with their member counts and a way into each.
+
+  **The counts are counted, not written.** Every card's number is `elements.withCategory(slug).length`,
+  which is the same figure the group page itself prints and the same figure the taxonomy asserts — three
+  places, one source. A count typed into this template would be a fourth place to be wrong.
+
+  The swatch on each card is the category's own token, so a group is the same colour here as it is in
+  the table, on its own page and on the index. The card component is the one the elements index already
+  uses, so this page is a list of the same thing rather than a new thing.
+-->
+
+<section class="index-hero">
+  <div class="shell">
+    <h1>The eleven groups of the periodic table</h1>
+    <p class="lead">
+      Columns of the table whose members behave alike, because they have the same number of electrons in
+      their outermost shell. Each has a page of its own with its members and what they share.
+    </p>
+  </div>
+</section>
+
+<section class="index-grid-section" aria-labelledby="groups-heading">
+  <div class="shell">
+    <h2 class="visually-hidden" id="groups-heading">Every group</h2>
+    <!-- cards -->
+  </div>
+</section>

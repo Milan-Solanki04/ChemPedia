@@ -1,0 +1,51 @@
+/* The contextual submenu band.
+
+   Centred small links on a band of their own, closed by the project's
+   signature motif: a 1px dotted rule in the ink colour, spanning the viewport
+   while the items stay inside the content column. That contrast between the
+   full-width rule and the contained items is what makes the band read as a
+   band.
+
+   The current page is marked with aria-current, so the underline is drawn from
+   a semantic fact rather than from a class that has to be maintained. */
+
+.submenu {
+  background: var(--bg);
+  border-bottom: var(--rule-dotted);
+}
+
+.submenu__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--gap-submenu);
+  padding-block: var(--pad-submenu);
+  /* The band has a row height of its own rather than taking the height of its
+     tallest item, which is what the reference measures: 33px including the
+     dotted rule. It is a minimum and not a fixed height because the items wrap
+     to two rows on a narrow screen, and a fixed height would clip the second. */
+  min-height: var(--height-submenu);
+}
+
+.submenu__label {
+  font-size: var(--step--1);
+  color: var(--ink);
+}
+
+.submenu__item {
+  font-size: var(--step--1);
+  color: var(--ink-soft);
+  text-decoration: none;
+  border-bottom: var(--rule-width) solid transparent;
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.submenu__item:hover {
+  color: var(--ink);
+}
+
+.submenu__item[aria-current="page"] {
+  color: var(--ink);
+  border-bottom-color: currentColor;
+}

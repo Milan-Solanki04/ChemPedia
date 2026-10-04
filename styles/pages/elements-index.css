@@ -1,0 +1,58 @@
+/* The elements index: a hero, a filter, and a grid of a hundred and eighteen cards.
+
+   The hero is short on purpose. The reference gives it a heading, one line and a field, and the grid
+   is the page; a hero that grew would push the thing the reader came for below the fold.
+
+   The grid is four columns from 56rem, two from 40rem and one below that, which is what the
+   reference does at 1280px and at 375px. It fills the content column rather than stepping outside it,
+   so the cards line up with the heading above them.
+
+   A filtered-out card is hidden by the `hidden` attribute the filter sets, and needs no rule here:
+   a card that is not there takes no space, which is what narrowing a list should feel like. */
+
+.index-hero {
+  padding-block: var(--sp-6) var(--sp-5);
+  border-bottom: var(--rule-solid);
+}
+
+.index-hero__filter {
+  margin-block-start: var(--sp-4);
+}
+
+/* The filter's own status line sits under the field, and the grid starts below both, so the count of
+   what came back is never confused with the count of what is there. */
+.index-grid-section {
+  padding-block: var(--sp-6);
+}
+
+.cards {
+  display: grid;
+  gap: var(--gap-cards);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 40rem) {
+  .cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 56rem) {
+  .cards {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* A card is a flex row, so a filtered card and a visible one are the same height whether or not the
+   filter has run — the grid decides that, not the card. */
+.cards__item {
+  display: flex;
+  min-width: 0;
+}
+
+.cards__item > .card {
+  flex: 1 1 auto;
+  min-width: 0;
+}

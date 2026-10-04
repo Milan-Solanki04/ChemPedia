@@ -1,0 +1,73 @@
+{
+  "note": "Departures from the dataset, each with the reason, because a correction without a reason is indistinguishable from a mistake. Two kinds: a category this project assigns differently, and an atomic weight the source states as a whole number where the standard value has decimals.",
+  "categories": [
+    {
+      "atomicNumber": 84,
+      "symbol": "Po",
+      "category": "post-transition-metals",
+      "reason": "Polonium is a metal by every property that has been measured: it is a soft, silvery, electrically conducting solid. Its usual listing as a metalloid is a convention inherited from older tables rather than an observation, and this project follows the observation."
+    },
+    {
+      "atomicNumber": 109,
+      "symbol": "Mt",
+      "category": "unknown",
+      "reason": "No chemical property of meitnerium has been measured. Placing it among the transition metals asserts a similarity to iridium that rests on a trend in the periodic table and not on an experiment."
+    },
+    {
+      "atomicNumber": 110,
+      "symbol": "Ds",
+      "category": "unknown",
+      "reason": "Darmstadtium has been produced in quantities of a few atoms. Its chemistry is predicted from its neighbours in the table, not observed, so it is filed as unknown."
+    },
+    {
+      "atomicNumber": 111,
+      "symbol": "Rg",
+      "category": "unknown",
+      "reason": "Roentgenium's placement among the transition metals is an extrapolation. Nothing about its reactivity has been measured."
+    },
+    {
+      "atomicNumber": 113,
+      "symbol": "Nh",
+      "category": "unknown",
+      "reason": "Nihonium's classification as a post-transition metal follows its position in group 13 and not its behaviour, which has not been measured."
+    },
+    {
+      "atomicNumber": 114,
+      "symbol": "Fl",
+      "category": "unknown",
+      "reason": "Flerovium is expected to be a volatile metal, which would be unusual for group 14. An expectation that goes against the trend is exactly the case for recording that the property is unknown."
+    },
+    {
+      "atomicNumber": 115,
+      "symbol": "Mc",
+      "category": "unknown",
+      "reason": "Moscovium has no measured chemistry. Its classification is a prediction from periodicity."
+    },
+    {
+      "atomicNumber": 116,
+      "symbol": "Lv",
+      "category": "unknown",
+      "reason": "Livermorium has no measured chemistry; the classification is an extrapolation along group 16."
+    },
+    {
+      "atomicNumber": 117,
+      "symbol": "Ts",
+      "category": "unknown",
+      "reason": "Tennessine is placed in the halogens by its group, but relativistic effects are predicted to make it behave more like a metal. Even the prediction is contested, so the honest category is unknown."
+    }
+  ],
+  "atomicWeights": [
+    {
+      "atomicNumber": 3,
+      "symbol": "Li",
+      "atomicWeight": 6.94,
+      "reason": "The source states lithium's standard atomic weight as 7, which is its mass number rather than its atomic weight and is the one value in the table where the two differ enough to be visible. The CIAAW conventional value is 6.94, and a card that printed 7 for one element out of a hundred and eighteen would be a rounding error a reader could not explain."
+    },
+    {
+      "atomicNumber": 82,
+      "symbol": "Pb",
+      "atomicWeight": 207.2,
+      "reason": "The source states lead's standard atomic weight as 207. Lead is the heaviest element whose weight is still commonly quoted as a whole number, because its isotopes are so close in mass that the interval is wide; the CIAAW conventional value is 207.2 and 207 asserts a precision the measurement does not have."
+    }
+  ]
+}

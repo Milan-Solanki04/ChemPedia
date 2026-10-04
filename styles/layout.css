@@ -1,0 +1,117 @@
+/* ===========================================================================
+   Layout — the primitives every page is assembled from.
+
+   Three ideas, and nothing else:
+
+     .shell   the page's single content column, capped at --shell and centred,
+              with the horizontal padding that keeps text off the screen edge
+     rules    the 1px dotted ink rule is the signature motif; sections and
+              panels are separated by it rather than by whitespace alone
+     .stack   vertical rhythm, so a page never invents its own margins
+
+   A page template uses these; it does not define its own widths or spacing.
+   =========================================================================== */
+
+/* ---------------------------------------------------------------------------
+   The shell.
+
+   Width is `viewport - 2 x padding`, capped at --shell. That single line gives
+   the page its behaviour at every size: full width with breathing room on a
+   phone, a fixed comfortable column on a desktop, no breakpoints involved.
+   --------------------------------------------------------------------------- */
+.shell {
+  width: min(100% - (2 * var(--pad-shell)), var(--shell));
+  margin-inline: auto;
+}
+
+/* The page body, between the submenu band and the footer. */
+main {
+  display: block;
+  padding-block: var(--sp-7) var(--sp-9);
+}
+
+/* ---------------------------------------------------------------------------
+   Sections.
+   --------------------------------------------------------------------------- */
+.section {
+  border-top: var(--rule-dotted);
+  padding-block: var(--sp-6);
+}
+
+.section:first-child {
+  border-top: 0;
+  padding-block-start: 0;
+}
+
+.section__title {
+  font-size: var(--step-1);
+  margin-block-end: var(--sp-4);
+}
+
+/* The dotted rule as a standalone separator, for pages that need one without
+   a section's padding. */
+.rule-dotted {
+  border-top: var(--rule-dotted);
+}
+
+.rule-solid {
+  border-top: var(--rule-solid);
+}
+
+/* ---------------------------------------------------------------------------
+   Vertical rhythm.
+
+   `.stack` gives every child except the first a top margin, which is what makes
+   a page of prose look deliberate rather than accumulated. The wider variant is
+   for a page whose top-level blocks are sections rather than paragraphs.
+   --------------------------------------------------------------------------- */
+.stack > * + * {
+  margin-block-start: var(--sp-4);
+}
+
+.stack--lg > * + * {
+  margin-block-start: var(--sp-6);
+}
+
+/* A row that wraps, for chips, labels and short links. */
+.cluster {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sp-3);
+}
+
+/* Prose is limited by the measure, never by the viewport: a line of body text
+   past about 70 characters is where reading starts to hurt. */
+.prose {
+  max-width: var(--measure);
+}
+
+.prose > * + * {
+  margin-block-start: var(--sp-4);
+}
+
+/* A lead paragraph, one step larger than body copy. */
+.lead {
+  font-size: var(--step-1);
+  line-height: var(--leading-body);
+  color: var(--ink);
+}
+
+/* ---------------------------------------------------------------------------
+   Page heading block.
+
+   Most page families open the same way: a heading and a line of context, then a
+   dotted rule before the content. Defining it once is what stops eight page
+   stylesheets from each inventing their own version.
+   --------------------------------------------------------------------------- */
+.page-head {
+  padding-block-end: var(--sp-5);
+  border-bottom: var(--rule-dotted);
+  margin-block-end: var(--sp-6);
+}
+
+.page-head .lead {
+  margin-block-start: var(--sp-3);
+  color: var(--ink-soft);
+}

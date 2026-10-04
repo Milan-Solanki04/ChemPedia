@@ -1,0 +1,172 @@
+/* The home page.
+
+   Four blocks, and the stylesheet is arranged in the order they appear so that reading it top to
+   bottom is reading the page.
+
+   The one thing here that is not obvious is the spacing around the table. The table itself steps
+   outside the content column — that is its own stylesheet's decision, and the reason is there — so
+   the section that holds it must not clip it, must not draw a rule across it, and must let its
+   legend sit inside the measure while the table itself does not. A section border on either side of
+   a full-bleed table would draw a line through the whitespace beside it, which is the most common
+   way a full-bleed element gets broken. */
+
+.intro {
+  padding-block: var(--sp-7) var(--sp-6);
+}
+
+/* No maximum width. The heading is sized to sit on one line inside the content
+   column at desktop and to wrap where it must on a narrow screen, which is what
+   the reference's own hero does; capping it at a character count forces a wrap
+   that costs the page a line of vertical space above the table for no gain. */
+.intro h1 {
+  font-size: var(--step-4);
+  font-weight: var(--weight-body);
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--leading-tight);
+}
+
+.intro .lead {
+  margin-block-start: var(--sp-4);
+  max-width: var(--measure);
+  color: var(--ink-soft);
+}
+
+/* ---------------------------------------------------------------------------
+   The table section.
+
+   No top rule and no clipping: the legend is the heading of this block and the
+   table runs past the measure on both sides.
+   --------------------------------------------------------------------------- */
+.table-section {
+  padding-block-end: var(--sp-6);
+}
+
+.table-section > .shell > .legend {
+  margin-block-end: var(--sp-4);
+}
+
+.legend-hint {
+  margin-block-end: var(--sp-4);
+  color: var(--ink-soft);
+  font-size: var(--step--1);
+}
+
+/* ---------------------------------------------------------------------------
+   Reading the table — two panels side by side.
+
+   They are articles rather than divisions because each carries a heading of its
+   own, and two panels with headings is a list of two things a reader can
+   navigate to. One column on a narrow screen and two from 56rem, which is where
+   the measure of a paragraph in each half stops being comfortable.
+   --------------------------------------------------------------------------- */
+.section__lede {
+  max-width: var(--measure);
+  color: var(--ink-soft);
+}
+
+.panels {
+  display: grid;
+  gap: var(--sp-5);
+  margin-block-start: var(--sp-6);
+}
+
+@media (min-width: 56rem) {
+  .panels {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--sp-6);
+  }
+}
+
+.panel {
+  border-top: var(--rule-solid);
+  padding-block-start: var(--sp-3);
+}
+
+.panel__title {
+  font-size: var(--step-1);
+  color: var(--ink);
+}
+
+.panel__label {
+  margin-block: var(--sp-1) var(--sp-3);
+  color: var(--ink-faint);
+  font-family: var(--font-condensed);
+  font-size: var(--step--1);
+}
+
+.panel p:last-child {
+  max-width: var(--measure);
+}
+
+/* ---------------------------------------------------------------------------
+   Where to go next — four teasers in place of the reference's learning block.
+
+   Each is a bordered card rather than a link with a line under it, because these
+   are four destinations of equal weight and a row of four identical pills reads
+   as a menu rather than as a set of things to read. The title is the link, not
+   the whole card: a card-sized link has a hit area the reader cannot see, and
+   the card carries a sentence that is not the link's destination.
+   --------------------------------------------------------------------------- */
+.teasers {
+  display: grid;
+  gap: var(--sp-4);
+  margin: var(--sp-6) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 40rem) {
+  .teasers {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--sp-5);
+  }
+}
+
+@media (min-width: 72rem) {
+  .teasers {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.teaser {
+  border: var(--rule-hairline);
+  border-radius: var(--radius);
+  padding: var(--sp-4);
+}
+
+.teaser__title {
+  font-size: var(--step-0);
+  font-weight: var(--weight-medium);
+}
+
+.teaser__title a {
+  color: var(--ink);
+  text-decoration-color: var(--line-strong);
+  text-underline-offset: var(--underline-offset);
+}
+
+.teaser__title a:hover {
+  text-decoration-color: var(--ink);
+}
+
+.teaser__text {
+  margin-block-start: var(--sp-2);
+  color: var(--ink-soft);
+  font-size: var(--step--1);
+}
+/* ---------------------------------------------------------------------------
+   Jump to an element.
+
+   A sunken panel, because it is the one block on the page that asks for input
+   rather than offering content, and a page of flat sections gives a reader
+   nothing to notice the difference. The panel is inside the content column; the
+   table above is not, and the two different widths are the point — one is a
+   control you aim at, the other is the page's subject.
+   --------------------------------------------------------------------------- */
+.find__panel {
+  max-width: var(--width-find-panel);
+  padding: var(--sp-5);
+  border: var(--rule-hairline);
+  border-radius: var(--radius-lg);
+  background: var(--surface-sunk);
+}

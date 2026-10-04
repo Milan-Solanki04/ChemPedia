@@ -1,0 +1,135 @@
+/* The term page: the definition, the explanation, and the two panels of links.
+
+   **The definition is set larger than body copy and is the page's first job.** On the index it is one
+   column of three short lines beside a term; here it is what the reader arrived to read, and it is the
+   sentence they would otherwise have to accept from a list. Everything below it — the explanation, the
+   elements, the neighbouring terms — is there because a definition alone is a dead end.
+
+   **The badge sits beside the heading rather than above it**, which is the one place it is not a row
+   ending. It reads as a qualification on the term rather than as one more item in a list, and it is
+   right-aligned on wide screens so that it hangs off the end of the term the way a subscript does.
+
+   **The two panels are equal and side by side, and either may be empty.** A term can be about four
+   elements and no neighbours, or about none of either — and when a panel has nothing to list it says so
+   in a sentence rather than sitting there as a heading over nothing. They stay the same size whichever
+   way it falls, because a panel that changed width depending on its contents would make two pages of
+   this family feel like different pages. */
+
+.term {
+  padding-block: var(--sp-6) var(--sp-5);
+  border-block-end: var(--rule-hairline);
+}
+
+.term__breadcrumb {
+  display: flex;
+  gap: var(--sp-2);
+  margin-block-end: var(--sp-4);
+  color: var(--ink-soft);
+  font-size: var(--step--1);
+}
+
+.term__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--sp-3);
+}
+
+.term__name {
+  margin: 0;
+  color: var(--ink);
+  font-size: var(--step-4);
+  line-height: var(--leading-tight);
+  overflow-wrap: break-word;
+}
+
+.term__definition {
+  max-width: 46rem;
+  margin-block-start: var(--sp-4);
+  margin-block-end: 0;
+  font-size: var(--step-1);
+  line-height: var(--leading-body);
+  overflow-wrap: break-word;
+}
+
+.term__explanation-lede {
+  max-width: 46rem;
+  line-height: var(--leading-prose);
+}
+
+/* --- The two link panels --- */
+
+.term-related__grid {
+  display: grid;
+  gap: var(--sp-6);
+}
+
+@media (min-width: 56rem) {
+  .term-related__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.term-related__panel-title {
+  margin-block-end: var(--sp-3);
+  padding-block-end: var(--sp-2);
+  border-block-end: var(--rule-dotted);
+  color: var(--ink);
+  font-size: var(--step-0);
+  line-height: var(--leading-tight);
+}
+
+.term-related__list {
+  display: grid;
+  gap: var(--sp-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.term-related__link {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  padding: var(--sp-2);
+  border: var(--rule-hairline);
+  color: var(--ink-body);
+  text-decoration: none;
+}
+
+.term-related__link:hover {
+  background: var(--wash-rank-bar);
+}
+
+.term-related__name {
+  color: var(--ink);
+  font-weight: 600;
+  overflow-wrap: break-word;
+}
+
+.term-related__meta {
+  color: var(--ink-faint);
+  font-size: var(--step--1);
+  font-variant-numeric: tabular-nums;
+}
+
+.term-related__none {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: var(--step--1);
+  line-height: var(--leading-body);
+  text-wrap: pretty;
+}
+
+/* --- The way back --- */
+
+.term__back {
+  padding-block: var(--sp-6) var(--sp-8);
+  margin: 0;
+}
+
+.term__back-link {
+  color: var(--ink);
+  font-weight: 600;
+}

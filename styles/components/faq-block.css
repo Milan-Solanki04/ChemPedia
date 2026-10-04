@@ -1,0 +1,34 @@
+/* The generated questions.
+
+   A question and its answer, with the answer set in the ink rather than the body colour because these
+   are the numbers a reader came for. The note underneath says where the answers come from, which is
+   the one thing worth saying about a block nobody wrote. */
+
+.faq {
+  /* The note underneath is the last thing in the block and it is set a step smaller than the body,
+     so it needs room to end before whatever the page puts next — a section title carries no margin of
+     its own above it and would otherwise sit against this note. */
+  margin-block-end: var(--sp-5);
+}
+
+.faq__list {
+  margin-block-start: var(--sp-4);
+}
+
+.faq__item {
+  padding-block: var(--sp-3);
+  border-top: var(--rule-hairline);
+}
+
+.faq__question {
+  color: var(--ink-soft);
+  font-size: var(--step--1);
+}
+
+.faq__answer {
+  margin-block-start: var(--sp-1);
+  max-width: var(--measure);
+  color: var(--ink);
+  font-size: var(--step-0);
+  font-variant-numeric: tabular-nums;
+}

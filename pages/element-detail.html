@@ -1,0 +1,75 @@
+<!--
+  The element detail page.
+
+  One template for 118 pages. Everything that differs between them is the slug the route carries, and
+  this file is written in terms of the layout rather than the element: the block that shows where an
+  element sits, the block that shows it, the blocks that describe it, and the block of numbers beside
+  them. The section order is the design reference's, and is recorded in
+  `workspace/progress/PHASE_LOG.md`.
+
+    1. The previous / current / next strip.
+    2. The miniature table, with this element marked, captioned with where it sits.
+    3. The hero: a large tile in the group's colour, the name, the pronunciation, the summary.
+    4. The questions this element's own record answers.
+    5. Where it comes from, what it is used for, how it was found.
+    6. Discovery, as a definition list.
+    7. The property list and the shell diagram, in the column beside them.
+    8. The other members of its group.
+
+  The reference also repeats the previous/next links at the foot of the page. Ours does not: the strip
+  at the top is the navigation, and a second copy of it at the other end is a second thing to scroll
+  past rather than a second way to move.
+
+  Only four markers, and each is filled by the page module from the record. Everything else here is
+  structure and written copy, so the file stays valid markup that renders on its own.
+-->
+
+<div class="strip-slot">
+  <!-- strip -->
+</div>
+
+<div class="shell element">
+  <div class="element__top">
+    <figure class="element__mini">
+      <!-- mini-table -->
+    </figure>
+
+    <div class="element__hero">
+      <!-- hero -->
+      <div class="element__prose prose">
+        <h1 class="element__name">
+          <!-- name -->
+        </h1>
+        <!-- pronunciation -->
+        <p class="element__summary lead">
+          <!-- summary -->
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="element__columns">
+    <div class="element__main">
+      <!-- faq -->
+      <!-- uses-and-sources -->
+      <!-- discovery -->
+    </div>
+
+    <aside class="element__aside" aria-label="Measurements">
+      <!-- properties -->
+      <figure class="element__shells">
+        <!-- shell-diagram -->
+        <figcaption class="element__shells-caption">
+          <!-- shell-caption -->
+        </figcaption>
+      </figure>
+    </aside>
+  </div>
+
+  <section class="element__group section" aria-labelledby="group-heading">
+    <h2 class="section__title" id="group-heading">
+      <!-- group-heading -->
+    </h2>
+    <!-- siblings -->
+  </section>
+</div>

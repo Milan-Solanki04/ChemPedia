@@ -1,0 +1,31 @@
+/* The electron shell diagram.
+
+   Drawn in the element's own foreground over the group's fill, so the figure belongs to the element
+   it describes rather than sitting on the page as a separate grey object. Everything scales from the
+   viewBox: the rings are circles in a 100-unit square, and the box is the only size declared.
+
+   The rings are hairlines and the electrons are solid, because the electrons are the fact and the
+   rings are only there to hold them. */
+
+.shell-diagram {
+  display: block;
+  color: var(--on-fill);
+  background: var(--fill);
+  border-radius: var(--radius-lg);
+  width: min(100%, var(--shell-diagram-size));
+  height: auto;
+}
+
+.shell-diagram__ring {
+  stroke: currentColor;
+  stroke-width: 0.6;
+  opacity: 0.45;
+}
+
+/* The electrons sit on top of the rings in the strong ink, so a reader counting them is not counting
+   against a faded line. */
+.shell-diagram__electron,
+.shell-diagram__nucleus {
+  fill: currentColor;
+  stroke: none;
+}

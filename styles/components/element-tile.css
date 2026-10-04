@@ -1,0 +1,97 @@
+/* The element tile.
+
+   One square of the periodic table: atomic number top right, symbol centred, name beneath.
+
+   Two things about it are not obvious and both matter.
+
+   The tile is square because of `aspect-ratio: 1`, not because of a height. Nothing declares how
+   tall it is, so it is exactly as tall as it is wide at every width the table can take, and the
+   whole table's geometry comes from one line in the grid's own stylesheet.
+
+   The type inside is measured against the table, not the window, because the table is the one part
+   of this interface that does not resize with the viewport — it holds its eighteen columns and
+   scrolls sideways. A viewport-relative symbol would shrink to nothing on a phone while the tile it
+   sits in stayed perfectly legible. The tile therefore reads `cqw` units, which resolve against the
+   query container the grid declares. Used outside a container they fall back to the viewport, which
+   is why the clamps carry rem bounds at both ends: the fallback is a worse fit, not a broken one.
+
+   The colour is never named here. A tile takes `--fill` and `--on-fill` from whatever laid it out,
+   which is what lets the same tile carry a group colour, a block colour, a state colour or a point
+   on a ramp without a single extra class. */
+
+.tile {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  align-content: center;
+  justify-items: center;
+  aspect-ratio: 1;
+  min-width: 0;
+  padding-block: var(--tile-pad-block);
+  padding-inline: var(--tile-pad-inline);
+  border-radius: var(--tile-radius);
+  background: var(--fill);
+  color: var(--on-fill);
+  line-height: 1.05;
+  text-decoration: none;
+  transition:
+    transform var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-fast) var(--ease-out);
+}
+
+.tile__z {
+  place-self: start end;
+  padding-right: var(--tile-number-gap);
+  font-size: var(--tile-size-number);
+  opacity: var(--tile-opacity-number);
+}
+
+.tile__sym {
+  font-family: var(--font-display);
+  font-size: var(--tile-size-symbol);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-tight);
+}
+
+/* The longest names — rutherfordium, darmstadtium — are wider than the tile at the narrowest
+   scroll position. They are clipped rather than wrapped, because a wrapped name makes the tile
+   taller than its square and breaks the grid's alignment; the full name is in the link's label and
+   its title, and the tile carries the symbol for the reader who is looking at it. */
+.tile__name {
+  max-width: 100%;
+  overflow: hidden;
+  font-size: var(--tile-size-name);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  opacity: var(--tile-opacity-name);
+}
+
+/* The compact variant drops the name rather than shrinking it, which is what a mini table and any
+   small tile wants. */
+.tile--compact .tile__name {
+  display: none;
+}
+
+/* And so does a table that has been scrolled narrow enough to make the name illegible. This is a
+   query on the *table's* width rather than a media query on the window, because the table does not
+   resize with the window: it holds its eighteen columns and scrolls. Measured against the viewport,
+   a 375px phone would strip the names off a 700px-wide table that is perfectly able to show them. */
+@container ptable (max-width: 40rem) {
+  .tile__name {
+    display: none;
+  }
+}
+
+.tile:hover,
+.tile:focus-visible {
+  z-index: 2;
+  box-shadow: var(--tile-shadow);
+  transform: translateY(var(--tile-lift)) scale(var(--tile-grow));
+}
+
+/* The element a mini table is showing: the one the page is about. Drawn as an outline in the ink
+   rather than as a border, so it reads at a size where a border would disappear. */
+.tile.is-on {
+  z-index: 3;
+  outline: var(--tile-focus-width) solid var(--ink);
+  outline-offset: var(--tile-focus-offset);
+}

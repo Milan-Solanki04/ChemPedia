@@ -1,0 +1,66 @@
+/* The temperature converter's own component: the fields, and the warning region.
+
+   Split from the page's stylesheet the way the rest of this site splits components out, so that a page
+   rendering the converter and a page only describing it do not both load the same rules for nothing.
+   Here there is only the one page, and the split is for the reason every other component split on this
+   site: a component's stylesheet belongs to the component, not to the page that happens to use it first.
+
+   **No colour or size literal of its own.** Every value is a token, and the surface is `--surface`
+   rather than a hex value, so the converter cannot drift from the rest of the site if the palette is
+   ever changed. */
+
+.converter__fields {
+  display: grid;
+  gap: var(--sp-4);
+}
+
+@media (min-width: 40rem) {
+  .converter__fields {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.converter__field {
+  display: grid;
+  gap: var(--sp-2);
+}
+
+.converter__scale {
+  margin: 0;
+  color: var(--ink);
+  font-size: var(--step-0);
+  line-height: var(--leading-tight);
+}
+
+/* The symbol is the heading's visible text and the full name is its title, so the abbreviation is not
+   marked up as an abbreviation — which would put a dotted underline under it and suggest it is an
+   acronym. */
+.converter__scale abbr {
+  text-decoration: none;
+}
+
+.converter__input {
+  width: 100%;
+  padding: var(--sp-3);
+  border: var(--rule-solid);
+  border-radius: var(--sp-1);
+  background: var(--surface);
+  color: var(--ink-body);
+  font-size: var(--step-1);
+  font-variant-numeric: tabular-nums;
+  line-height: var(--leading-body);
+}
+
+/* The warning region takes no space when it has nothing to say, which is most of the time. It is a live
+   region rather than a strip that is always present, because a permanently visible empty box is a box
+   nobody reads and a reader who has been told nothing is worse off than one who has not looked. */
+.converter__warn {
+  margin-block: var(--sp-4) 0;
+  color: var(--ink);
+  font-size: var(--step--1);
+  line-height: var(--leading-body);
+}
+
+.converter__warn:empty {
+  margin-block-start: 0;
+}

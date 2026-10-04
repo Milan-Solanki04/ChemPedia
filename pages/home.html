@@ -1,0 +1,140 @@
+<!--
+  The home page.
+
+  A fragment, not a document: `tools/build.js` wraps this in the document skeleton, the masthead, the
+  contextual band and the footer. Only what is peculiar to this page is written here.
+
+  Three comments mark where generated markup goes in. Everything else on this page is written copy,
+  so it can be read, argued with and edited as prose — which is the point of keeping it in a template
+  rather than in a string in a module. The markers are HTML comments so the file stays valid markup
+  that renders on its own in a browser.
+
+  The section order is the design reference's, and the differences from it are recorded in
+  `workspace/progress/PHASE_LOG.md`:
+
+    1. The hero.
+    2. The legend and the table.
+    3. Reading the table — the two panels the reference splits into three sections.
+    4. Where to go next — in place of the reference's learning block, which is out of scope (ADR-002).
+    5. Jump to an element — the reference's find field.
+
+  The fifth reference section, its band of learning-track chips, has no replacement and gets no
+  placeholder: it existed to sell courses, and the absence of courses is a product decision rather
+  than an unfinished task.
+
+  The "Explore Periodic Tables" strip the reference puts above its hero is not written here. That is
+  our contextual submenu band, built by the shell in Phase 1, and it already carries that label and
+  those four links. Writing it twice would mean two things to keep in step.
+-->
+
+<section class="intro">
+  <div class="shell">
+    <h1>The periodic table, element by element</h1>
+    <p class="lead">
+      One hundred and eighteen elements, set out by atomic number and by the chemistry they share.
+      Choose any tile to read its properties, its electron configuration, where it comes from, and
+      what it is used for.
+    </p>
+  </div>
+</section>
+
+<section class="table-section" aria-labelledby="element-groups">
+  <div class="shell">
+    <h2 class="visually-hidden" id="element-groups">Element groups</h2>
+    <!-- legend -->
+    <p class="legend-hint">
+      Each chip filters the table as well as naming it, and works from the keyboard. On a narrow
+      screen the table scrolls sideways.
+    </p>
+    <!-- table -->
+  </div>
+</section>
+
+<section class="reading section">
+  <div class="shell">
+    <h2 class="section__title">Reading the table</h2>
+    <p class="section__lede">
+      The table's shape is not a convenience. A row and a column each mean one thing, and once you
+      can see what they mean, most of the chemistry can be read off the page.
+    </p>
+
+    <div class="panels">
+      <article class="panel">
+        <h3 class="panel__title">Periods</h3>
+        <p class="panel__label">Across a row</p>
+        <p>
+          A period is every element between two successive closed shells, and it runs from the first
+          element to add an electron to a new shell to the last. Elements in one period differ by one
+          proton, so the row fills left to right while the number of electrons in the outermost shell
+          stays the same. That is why an element's radius barely changes across its row, while how
+          strongly it pulls on shared electrons changes a great deal.
+        </p>
+      </article>
+
+      <article class="panel">
+        <h3 class="panel__title">Groups</h3>
+        <p class="panel__label">Down a column</p>
+        <p>
+          A group is a column, and the elements in it share the same arrangement of electrons in
+          their outermost shell. Almost all of a group's chemistry is the chemistry of that one
+          shell: which elements they are, and how far each is from filling it. Going down a group
+          adds shells without adding a position in the outer one, so the elements get larger and
+          hold on to their outer electrons less tightly.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="further section">
+  <div class="shell">
+    <h2 class="section__title">Where to go next</h2>
+    <ul class="teasers">
+      <li class="teaser">
+        <h3 class="teaser__title">
+          <a href="/glossary/">Glossary of terms</a>
+        </h3>
+        <p class="teaser__text">
+          The vocabulary the table assumes, from atomic number and valency to why a row of elements
+          ends where it does.
+        </p>
+      </li>
+      <li class="teaser">
+        <h3 class="teaser__title">
+          <a href="/element-groups/">Element groups</a>
+        </h3>
+        <p class="teaser__text">
+          The eleven groups one at a time: what their members have in common, and why two elements
+          in the same column react alike.
+        </p>
+      </li>
+      <li class="teaser">
+        <h3 class="teaser__title">
+          <a href="/properties/melting-point/">Melting points</a>
+        </h3>
+        <p class="teaser__text">
+          Every element ranked by where it freezes, from helium at the bottom of the list to the
+          metals that hold out longest, and a note on the one element that never melts at all.
+        </p>
+      </li>
+      <li class="teaser">
+        <h3 class="teaser__title">
+          <a href="/calculators/temperature/">Temperature calculator</a>
+        </h3>
+        <p class="teaser__text">
+          Celsius, Fahrenheit and kelvin, converted in both directions as you type.
+        </p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="find section">
+  <div class="shell">
+    <div class="find__panel">
+      <h2 class="section__title">Jump to an element</h2>
+      <p class="section__lede">Type a name, a symbol or an atomic number.</p>
+      <!-- search -->
+    </div>
+  </div>
+</section>

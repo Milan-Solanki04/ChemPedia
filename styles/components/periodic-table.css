@@ -1,0 +1,121 @@
+/* The periodic table.
+
+   Eighteen columns and ten rows, of which row 8 is a gap and about half the rest are deliberately
+   empty — the d block has not started yet in periods 1 to 3, column 3 is empty in periods 6 and 7
+   because the f block was pulled out of the body of the table, and there is nothing at all in the
+   first two rows between the alkaline earth metals and the halogens.
+
+   Those empties are the table's shape, so they are expressed as the shape of the grid rather than as
+   anything to do with the tiles. Row 8 is declared as a gap row of its own rather than left empty:
+   a separation designed into the template survives a change to the data, and one that depends on
+   nothing being assigned there does not.
+
+   Two rules here are about the window rather than the table, and they are the whole of the
+   narrow-screen behaviour:
+
+   At desktop the table fills the content column and needs nothing from anyone.
+
+   Below 56rem it goes full-bleed and scrolls sideways. Full-bleed because a scroller with page
+   padding on both sides gives the reader a visible edge to drag from; scrolling because an
+   eighteen-column table that reflows is not a periodic table. The grid keeps a floor width, so the
+   tiles are squeezed no further than they stay readable, and the ends are masked so that a clipped
+   column reads as more to come rather than as a mistake.
+
+   No scroll affordance is added as a control. Every tile is a link, and focusing one scrolls it into
+   view, so a keyboard user already reaches the far end of the table by pressing the right arrow. */
+
+.ptable {
+  /* The tile's type and the grid's gap are measured against this, which is why the wrapper — not the
+     window — is what decides how big the type inside a tile gets. */
+  container: ptable / inline-size;
+  width: var(--ptable-width);
+
+  /* The table is centred on whatever contains it rather than on the window, by pulling it out by
+     half the difference between the two. Writing it this way rather than as a hand-tuned offset is
+     what makes it survive being nested: the demo on the style guide and the section on the home page
+     have different content widths, and both come out centred on the same line. */
+  margin-inline: calc((100% - var(--ptable-width)) / 2);
+}
+
+.ptable__grid {
+  display: grid;
+  grid-template-rows: repeat(7, auto) var(--ptable-gap-row) repeat(2, auto);
+  grid-template-columns: repeat(18, minmax(0, 1fr));
+  gap: var(--gap-table);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ptable__cell {
+  min-width: 0;
+}
+
+/* A grid whose keys are lit and whose other keys are pushed back. Two attribute writes on the grid
+   and one per match, and no tile's own state is disturbed — which is why this is a class pair
+   rather than a re-render. */
+.ptable__grid.is-isolating .ptable__cell {
+  opacity: var(--ptable-dim-opacity);
+  filter: saturate(var(--ptable-dim-saturate));
+}
+
+.ptable__grid.is-isolating .ptable__cell.is-match {
+  z-index: 2;
+  opacity: 1;
+  filter: none;
+}
+
+@media (max-width: 56rem) {
+  .ptable {
+    /* Below this the table stops choosing its own width and simply runs to both edges of the window,
+       because the difference between 96vw and 100vw is no longer worth a scroll region's worth of
+       scrolled-away content. */
+    width: var(--bleed-viewport);
+    margin-inline: calc((100% - var(--bleed-viewport)) / 2);
+    padding-inline: var(--ptable-bleed-pad);
+    padding-block-end: var(--sp-3);
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scrollbar-width: thin;
+    /* A soft edge on both ends: a column clipped by the scroller should look like the table
+       continues, not like the table is broken. */
+    mask-image: linear-gradient(
+      to right,
+      transparent 0,
+      var(--mask-opaque) var(--ptable-bleed-pad),
+      var(--mask-opaque) calc(100% - var(--ptable-bleed-pad)),
+      transparent 100%
+    );
+  }
+
+  .ptable__grid {
+    min-width: var(--ptable-min-width);
+  }
+}
+
+@media (max-width: 40rem) {
+  .ptable__grid {
+    /* Narrower than the desktop floor because at this width the names have been dropped and there
+       is less in each tile to keep readable. The element-tile stylesheet drops them, in response to
+       this container rather than to the window. */
+    min-width: var(--ptable-min-width-narrow);
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   The compact variant.
+
+   Written after the breakpoints on purpose: the rules above would otherwise apply to it, and a
+   diagram inside a 26rem panel would try to be 96vw wide and scroll. Filling its container and
+   dropping the floor is what the reference's miniature table does, and it is the right answer for a
+   table whose job is to say where one element sits rather than to be read.
+   --------------------------------------------------------------------------- */
+.ptable--compact {
+  width: 100%;
+  margin-inline: 0;
+}
+
+.ptable--compact .ptable__grid {
+  min-width: 0;
+  gap: var(--gap-table-compact);
+}

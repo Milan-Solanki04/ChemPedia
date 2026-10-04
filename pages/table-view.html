@@ -1,0 +1,41 @@
+<!--
+  The alternate table views: properties and states, orbitals, electronegativity, evolution.
+
+  A fragment, not a document: `tools/build.js` wraps this in the document skeleton, the masthead, the
+  contextual band and the footer.
+
+  Five markers, and this header contains none of them. A marker written inside a comment is still a
+  marker, and filling it puts the whole block into the comment as well.
+
+  The heading and the sentence under it are markers rather than copy because the four views are four
+  different questions and a sentence that explains a table of states does not explain a table of
+  discovery dates. The same goes for the block below the table: the timeline belongs to one view and
+  the note belongs to all four.
+
+  Everything between the legend and the table is identical on all four views, which is the point of
+  the family: one table, four colourings. What changes is the colour mode the build hands the page,
+  and nothing here knows or cares which one it was given.
+-->
+
+<section class="view-hero">
+  <div class="shell">
+    <h1><!-- heading --></h1>
+    <p class="lead"><!-- lede --></p>
+    <p class="view-hint">
+      Each chip names a colour and isolates it; the table keeps its eighteen columns and scrolls
+      sideways on a narrow screen.
+    </p>
+  </div>
+</section>
+
+<section class="view-table-section" aria-labelledby="view-legend">
+  <div class="shell">
+    <h2 class="visually-hidden" id="view-legend">Colour key</h2>
+    <!-- legend -->
+    <!-- table -->
+  </div>
+</section>
+
+<div class="shell">
+  <!-- extra -->
+</div>

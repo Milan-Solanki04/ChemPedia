@@ -1,0 +1,81 @@
+/* The previous / current / next strip.
+
+   Three equal parts across the top of an element page, so it reads as a position on a walk rather
+   than as two links with a label between them. The current element takes its middle without being a
+   link, which is what stops a reader clicking the element they are already on. */
+
+.strip {
+  border-block: var(--rule-hairline);
+}
+
+.strip__inner {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: center;
+  gap: var(--sp-3);
+  padding-block: var(--sp-3);
+}
+
+.strip__item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+  min-width: 0;
+}
+
+.strip__item--next {
+  text-align: end;
+  align-items: flex-end;
+}
+
+.strip__label {
+  color: var(--ink-faint);
+  font-size: var(--step--1);
+}
+
+.strip__link,
+.strip__current {
+  display: flex;
+  align-items: baseline;
+  gap: var(--sp-2);
+  min-width: 0;
+}
+
+.strip__item--next .strip__link {
+  flex-direction: row-reverse;
+}
+
+.strip__link {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.strip__link:hover .strip__name {
+  text-decoration: underline;
+  text-underline-offset: var(--underline-offset);
+}
+
+.strip__name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.strip__number {
+  flex: none;
+  color: var(--ink-faint);
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+}
+
+.strip__current {
+  justify-content: center;
+  color: var(--ink);
+  font-weight: var(--weight-medium);
+}
+
+.strip__current .strip__name {
+  text-decoration: underline;
+  text-decoration-color: var(--line-strong);
+  text-underline-offset: var(--underline-offset);
+}

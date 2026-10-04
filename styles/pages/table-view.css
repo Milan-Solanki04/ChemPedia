@@ -1,0 +1,98 @@
+/* The alternate table views.
+
+   Four pages that are one page with four colourings, so there is very little here: a hero, the space
+   between the legend and the table, and the two blocks the views add below it.
+
+   The hero is the reference's proportion — a heading, one paragraph, and nothing else — because
+   everything under it is the table, and a hero that grew would push the table down. The chips sit
+   directly above the grid with no panel around them, so they read as the table's key rather than as a
+   separate control that happens to be near it.
+
+   The view's own note goes below the table rather than above it. It is the reading the table gives —
+   the numbers the reader has just looked at, drawn together — so it belongs after them, at the
+   measure rather than across the page.
+
+   The timeline is a list of decades rather than a chart. Thirty decades of dates is a column of
+   figures, and a column a reader can scan is more use than a picture of the same thirty numbers. */
+
+.view-hero {
+  padding-block: var(--sp-6) var(--sp-5);
+  border-bottom: var(--rule-solid);
+}
+
+.view-hint {
+  margin-block-start: var(--sp-4);
+  max-width: var(--measure);
+  color: var(--ink-soft);
+  font-size: var(--step--1);
+}
+
+.view-table-section {
+  padding-block: var(--sp-5) var(--sp-6);
+}
+
+.view__note {
+  max-width: var(--measure);
+  margin-block: var(--sp-5) 0;
+  color: var(--ink-soft);
+  font-size: var(--step--1);
+}
+
+/* ---------------------------------------------------------------------------
+   The timeline.
+   --------------------------------------------------------------------------- */
+.timeline {
+  margin-block: var(--sp-6) var(--sp-7);
+}
+
+.timeline__hint {
+  max-width: var(--measure);
+  margin-block-start: var(--sp-3);
+  color: var(--ink-soft);
+  font-size: var(--step--1);
+}
+
+.timeline__list {
+  margin: var(--sp-4) 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: var(--rule-hairline);
+}
+
+/* The decade and its count are the two things a reader scans for, so they are two fixed columns and
+   the names take what is left. On a phone the names drop to their own line rather than being
+   squeezed into a column too narrow to read. */
+.timeline__row {
+  display: grid;
+  grid-template-columns: var(--width-timeline-decade) var(--width-timeline-count) minmax(0, 1fr);
+  gap: var(--sp-3);
+  align-items: baseline;
+  padding-block: var(--sp-2);
+  border-bottom: var(--rule-hairline);
+}
+
+.timeline__decade {
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.timeline__count {
+  color: var(--ink-faint);
+  font-variant-numeric: tabular-nums;
+  text-align: end;
+}
+
+.timeline__names {
+  color: var(--ink-soft);
+  font-size: var(--step--1);
+}
+
+@media (max-width: 40rem) {
+  .timeline__row {
+    grid-template-columns: var(--width-timeline-decade) var(--width-timeline-count);
+  }
+
+  .timeline__names {
+    grid-column: 1 / -1;
+  }
+}

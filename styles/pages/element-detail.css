@@ -1,0 +1,231 @@
+/* The element detail page.
+
+   Two columns below 72rem and one above it is not quite the right way round: the reading column comes
+   first and the measurements column second, so on a wide screen the prose is on the left where a
+   reader starts and the numbers are on the right where the eye finishes. The miniature table sits
+   above both, beside the hero tile, because it answers "where is this" and everything else on the
+   page answers "what is it".
+
+   The hero tile is the element's own group colour at the largest size on the site. It is the one place
+   a group fill is used as a field rather than a tint, which is why it is a page's own style and not a
+   component's. */
+
+.element {
+  padding-block-end: var(--sp-7);
+}
+
+/* The strip sits above the content column rather than inside it, so it carries the same width rule
+   the column has. Without this it would span the whole window while everything below it sat in a
+   1100px measure, and the two would not share a left edge. */
+.strip-slot {
+  margin-block-end: var(--sp-5);
+}
+
+.strip-slot > .strip {
+  width: min(100% - (2 * var(--pad-shell)), var(--shell));
+  margin-inline: auto;
+}
+
+.element__top {
+  margin-block-end: var(--sp-6);
+}
+
+/* ---------------------------------------------------------------------------
+   The miniature table and its caption.
+   --------------------------------------------------------------------------- */
+.element__mini {
+  /* The reference draws this at 638px, which lands its tiles at 33.5px — the same size as the real
+     table's, so the shape of the periodic table is legible rather than merely present. It is capped
+     at that width and left at the content edge rather than centred, so it shares a left edge with
+     the strip above it and the name below. */
+  width: min(100%, var(--width-mini-table));
+  margin: 0 0 var(--sp-6);
+  min-width: 0;
+}
+
+.element__mini-caption {
+  margin-block-start: var(--sp-2);
+  color: var(--ink-faint);
+  font-size: var(--step--1);
+}
+
+/* ---------------------------------------------------------------------------
+   The hero: a tile in the group's colour, then the name.
+   --------------------------------------------------------------------------- */
+.element__hero {
+  display: flex;
+  gap: var(--sp-5);
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.element__tile {
+  flex: none;
+  display: grid;
+  place-items: center;
+  gap: var(--sp-1);
+  width: var(--hero-tile-size);
+  height: var(--hero-tile-size);
+  border-radius: var(--radius-lg);
+  background: var(--fill);
+  color: var(--on-fill);
+  line-height: 1;
+}
+
+.element__tile-number {
+  align-self: start;
+  justify-self: end;
+  padding: var(--sp-2);
+  font-size: var(--step--1);
+  opacity: var(--tile-opacity-number);
+}
+
+.element__tile-symbol {
+  font-family: var(--font-display);
+  font-size: var(--hero-tile-symbol);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-tight);
+}
+
+.element__prose {
+  flex: 1 1 var(--basis-prose);
+  min-width: 0;
+}
+
+.element__name {
+  font-size: var(--step-3);
+  font-weight: var(--weight-body);
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--leading-tight);
+}
+
+.element__pronunciation {
+  margin-block-start: var(--sp-2);
+  color: var(--ink-soft);
+  font-size: var(--step--1);
+}
+
+.element__pronunciation-value {
+  font-family: var(--font-mono);
+  color: var(--ink);
+}
+
+.element__summary {
+  margin-block-start: var(--sp-3);
+}
+
+/* ---------------------------------------------------------------------------
+   The two columns: prose on the left, measurements on the right.
+   --------------------------------------------------------------------------- */
+.element__columns {
+  display: grid;
+  gap: var(--sp-6);
+}
+
+@media (min-width: 72rem) {
+  .element__columns {
+    grid-template-columns: minmax(0, 1fr) minmax(0, var(--width-measurements));
+    gap: var(--sp-7);
+    align-items: start;
+  }
+}
+
+.element__subheading {
+  margin-block: var(--sp-5) var(--sp-2);
+  font-size: var(--step-0);
+  font-weight: var(--weight-medium);
+  color: var(--ink);
+}
+
+.element__aside {
+  min-width: 0;
+}
+
+.element__shells {
+  margin: var(--sp-5) 0 0;
+}
+
+.element__shells-caption {
+  margin-block-start: var(--sp-2);
+  color: var(--ink-soft);
+  font-size: var(--step--1);
+}
+
+/* The discovery list. A definition list rather than a table, because every value here is a phrase
+   rather than a figure and a phrase set in a figure column reads as a number that was truncated. */
+.discovery {
+  margin-block-start: var(--sp-6);
+}
+
+.discovery__heading {
+  font-size: var(--step-1);
+  color: var(--ink);
+}
+
+.discovery__list {
+  margin-block-start: var(--sp-3);
+}
+
+.definition {
+  display: grid;
+  gap: var(--sp-1);
+  padding-block: var(--sp-3);
+  border-top: var(--rule-hairline);
+}
+
+.definition__label {
+  color: var(--ink-faint);
+  font-size: var(--step--1);
+}
+
+.definition__value {
+  max-width: var(--measure);
+}
+
+/* ---------------------------------------------------------------------------
+   The other members of the group.
+   --------------------------------------------------------------------------- */
+.element__group {
+  margin-block-start: var(--sp-6);
+}
+
+.group-tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--min-sibling-tile), 1fr));
+  gap: var(--sp-3);
+  margin-block-start: var(--sp-4);
+  padding: 0;
+  list-style: none;
+}
+
+.group-tiles__link {
+  display: grid;
+  gap: var(--sp-1);
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.group-tiles__link:hover .group-tiles__name {
+  text-decoration: underline;
+  text-underline-offset: var(--underline-offset);
+}
+
+/* Sibling names wrap rather than truncate. Twelve columns is the most the row holds at the widest
+   shell, which leaves roughly 5rem a name — enough for "Scandium" but not for "Molybdenum", and the
+   long names are exactly the ones a reader scanning the row is looking for. Two lines cost the row
+   some height and buy back every name. */
+.group-tiles__name {
+  font-size: var(--step--1);
+  line-height: var(--leading-tight);
+  overflow-wrap: break-word;
+}
+/* A glossary term mentioned in an element's own entry.
+
+   Underlined like any other link, and that is deliberate: a reader who sees a word underlined can
+   guess what it does without being told, and a term page reached from an element entry is a page they
+   did not know existed. What it must not do is look like a different kind of link from the ones
+   around it — hence no colour of its own and no icon, and the same underline offset as the rest of the
+   site. */
+.glossary-mention {
+  color: inherit;
+}

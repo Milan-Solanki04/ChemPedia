@@ -1,0 +1,25 @@
+<!--
+  ChemiPedia mark, drawn from primitives.
+
+  Two colours only, both values taken from the token layer in `source/styles/tokens.css`:
+  ink (#15403d) for the orbits and the nucleus, and the coral accent (#e57860, the noble-gas
+  fill) for the electrons. The ground is transparent, so the mark takes the colour of whatever
+  chrome it is placed on.
+
+  A standalone favicon cannot read CSS custom properties, so the values are written out here.
+  They are the only literal colour values in the project outside the token file, and they are
+  only duplicated because the format requires it.
+
+  The geometry is drawn on a 32-unit grid with a heavy stroke so that the mark still reads when
+  the browser renders it at 16 px.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="ChemiPedia">
+  <title>ChemiPedia</title>
+  <g fill="none" stroke="#15403d" stroke-width="1.8">
+    <ellipse cx="16" cy="16" rx="13" ry="6.5" transform="rotate(-30 16 16)" />
+    <ellipse cx="16" cy="16" rx="13" ry="6.5" transform="rotate(30 16 16)" />
+  </g>
+  <circle cx="16" cy="16" r="3.1" fill="#15403d" />
+  <circle cx="27.3" cy="9.5" r="2" fill="#e57860" />
+  <circle cx="4.7" cy="22.5" r="2" fill="#e57860" />
+</svg>

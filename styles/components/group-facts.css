@@ -1,0 +1,38 @@
+/* The four facts a group page states about itself.
+
+   Four short label-and-value pairs, set small, because they are facts a reader checks rather than a
+   paragraph they reads. Two columns on a phone — two pairs to a row fits, four does not — and four
+   from 56rem, which is where the page's hero is wide enough for them on one line.
+
+   The value is set larger than the label because it is the thing being read, and it wraps rather than
+   truncating: the noble gases' atomic-number span is `2 – 118`, and a fact that clipped itself would
+   be worse than a fact that took two lines. */.facts {
+  display: grid;
+  gap: var(--sp-4) var(--sp-6);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-block-start: var(--sp-5);
+}
+
+@media (min-width: 56rem) {
+  .facts {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.fact {
+  display: grid;
+  gap: var(--sp-1);
+  min-width: 0;
+}
+
+.fact__label {
+  color: var(--ink-faint);
+  font-size: var(--step--1);
+}
+
+.fact__value {
+  font-size: var(--step-1);
+  line-height: var(--leading-tight);
+  overflow-wrap: break-word;
+}
+

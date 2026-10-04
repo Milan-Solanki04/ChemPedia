@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ChemiPedia design system</title>
+<meta name="robots" content="noindex">
+
+<!--
+  The style guide.
+
+  Development only. It is not a route in the manifest and the build never renders it, so it is
+  absent from the built output, from the sitemap and from robots.txt. It exists so that the whole
+  design language can be seen on one screen, which is the fastest way to notice that a token is
+  wrong or a component is inconsistent.
+
+  It links the built stylesheets and imports the real component modules, so what it shows is what
+  the site renders rather than a copy that could drift.
+-->
+
+<link rel="icon" href="/assets/brand/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/styles/tokens.css">
+<link rel="stylesheet" href="/styles/base.css">
+<link rel="stylesheet" href="/styles/layout.css">
+<link rel="stylesheet" href="/styles/components/wordmark.css">
+<link rel="stylesheet" href="/styles/components/search-field.css">
+<link rel="stylesheet" href="/styles/components/site-header.css">
+<link rel="stylesheet" href="/styles/components/submenu.css">
+<link rel="stylesheet" href="/styles/components/site-footer.css">
+<link rel="stylesheet" href="/styles/components/element-tile.css">
+<link rel="stylesheet" href="/styles/components/legend-chips.css">
+<link rel="stylesheet" href="/styles/components/periodic-table.css">
+
+<style>
+  /* Style-guide-only layout. Values still come from the token layer. */
+  .guide { padding-block: var(--sp-6) var(--sp-9); }
+  .guide__note { color: var(--ink-soft); }
+  .swatches { display: grid; gap: var(--sp-3); grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr)); }
+  .swatch { border: var(--rule-hairline); border-radius: var(--radius); overflow: hidden; }
+  .swatch__chip { height: var(--sp-7); border-bottom: var(--rule-hairline); }
+  .swatch__meta { padding: var(--sp-2) var(--sp-3); font-size: var(--step--1); color: var(--ink-soft); }
+  .swatch__name { color: var(--ink); font-family: var(--font-mono); }
+  .scale { list-style: none; padding: 0; display: grid; gap: var(--sp-3); }
+  /* Wraps, because the largest step on the scale is wider than a phone's content column. */
+  .scale__row { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--sp-4); }
+  .scale__key { flex: none; width: 6rem; font-family: var(--font-mono); font-size: var(--step--1); color: var(--ink-faint); }
+  .space { display: grid; gap: var(--sp-2); list-style: none; padding: 0; }
+  .space__row { display: flex; align-items: center; gap: var(--sp-4); font-family: var(--font-mono); font-size: var(--step--1); }
+  .space__bar { height: var(--sp-3); background: var(--ink); }
+  .shape-row { display: flex; gap: var(--sp-5); flex-wrap: wrap; }
+  .shape { width: var(--sp-8); height: var(--sp-8); background: var(--surface-sunk); border: var(--rule-solid); }
+  .demo { border: var(--rule-dotted); border-radius: var(--radius); overflow: hidden; margin-block-end: var(--sp-5); }
+  .demo__label { font-family: var(--font-mono); font-size: var(--step--1); color: var(--ink-faint); padding: var(--sp-2) var(--sp-3); border-bottom: var(--rule-hairline); }
+  .guide__section { margin-block-start: var(--sp-7); }
+  .demo__body { padding: var(--sp-4); }
+  .demo__caption { color: var(--ink-soft); font-size: var(--step--1); margin-block-end: var(--sp-3); }
+  .demo__legend { margin-block-end: var(--sp-4); }
+  /* The compact table at the width the design reference shows its own at, so the demo is
+     representative rather than an artificially cramped one. */
+  .demo--mini { max-width: 40rem; }
+  /* The table steps outside the content column, so its demo must not clip: `overflow: hidden` here
+     would hide the first and last columns and make a correct table look broken. */
+  .demo--bleed { overflow: visible; }
+</style>
+</head>
+<body>
+<main>
+<div class="shell guide">
+  <h1>ChemiPedia design system</h1>
+
+  <p class="lead guide__note">
+    Development only. Never built, never deployed, and not linked from any page.
+  </p>
+
+  <section class="guide__section section">
+    <h2 class="section__title">Surfaces, ink and lines</h2>
+    <div class="swatches">
+      <div class="swatch"><div class="swatch__chip" style="background: var(--bg)"></div><p class="swatch__meta"><span class="swatch__name">--bg</span> page</p></div>
+      <div class="swatch"><div class="swatch__chip" style="background: var(--surface)"></div><p class="swatch__meta"><span class="swatch__name">--surface</span> raised</p></div>
+      <div class="swatch"><div class="swatch__chip" style="background: var(--surface-sunk)"></div><p class="swatch__meta"><span class="swatch__name">--surface-sunk</span> inset</p></div>
+      <div class="swatch"><div class="swatch__chip" style="background: var(--ink)"></div><p class="swatch__meta"><span class="swatch__name">--ink</span> headings and rules</p></div>
+      <div class="swatch"><div class="swatch__chip" style="background: var(--ink-body)"></div><p class="swatch__meta"><span class="swatch__name">--ink-body</span> body copy</p></div>
+      <div class="swatch"><div class="swatch__chip" style="background: var(--ink-soft)"></div><p class="swatch__meta"><span class="swatch__name">--ink-soft</span> secondary</p></div>
+      <div class="swatch"><div class="swatch__chip" style="background: var(--ink-faint)"></div><p class="swatch__meta"><span class="swatch__name">--ink-faint</span> captions</p></div>
+      <div class="swatch"><div class="swatch__chip" style="background: var(--line)"></div><p class="swatch__meta"><span class="swatch__name">--line</span> hairline</p></div>
+      <div class="swatch"><div class="swatch__chip" style="background: var(--line-strong)"></div><p class="swatch__meta"><span class="swatch__name">--line-strong</span> stronger hairline</p></div>
+    </div>
+  </section>
+
+  <section class="guide__section section">
+    <h2 class="section__title">Element group colours</h2>
+    <p>
+      Each fill is shown with the foreground the site would choose for it, and the contrast ratio
+      between them. Every pairing must reach WCAG AA for text; a ratio below 4.5 is a failure and
+      the number turns to tell you so.
+    </p>
+    <div class="swatches" id="group-colours"></div>
+  </section>
+
+  <section class="guide__section section">
+    <h2 class="section__title">Type scale</h2>
+    <ul class="scale">
+      <li class="scale__row"><span class="scale__key">--step-5</span><span style="font-size: var(--step-5); line-height: var(--leading-tight); color: var(--ink)">Oganesson</span></li>
+      <li class="scale__row"><span class="scale__key">--step-4</span><span style="font-size: var(--step-4); line-height: var(--leading-tight); color: var(--ink)">Oganesson</span></li>
+      <li class="scale__row"><span class="scale__key">--step-3</span><span style="font-size: var(--step-3); line-height: var(--leading-tight); color: var(--ink)">Oganesson</span></li>
+      <li class="scale__row"><span class="scale__key">--step-2</span><span style="font-size: var(--step-2); line-height: var(--leading-tight); color: var(--ink)">Oganesson</span></li>
+      <li class="scale__row"><span class="scale__key">--step-1</span><span style="font-size: var(--step-1)">Oganesson</span></li>
+      <li class="scale__row"><span class="scale__key">--step-0</span><span style="font-size: var(--step-0)">Oganesson</span></li>
+      <li class="scale__row"><span class="scale__key">--step--1</span><span style="font-size: var(--step--1)">Oganesson</span></li>
+    </ul>
+  </section>
+
+  <section class="guide__section section">
+    <h2 class="section__title">Spacing</h2>
+    <ul class="space">
+      <li class="space__row"><span class="scale__key">--sp-1</span><span class="space__bar" style="width: var(--sp-1)"></span>0.25rem</li>
+      <li class="space__row"><span class="scale__key">--sp-2</span><span class="space__bar" style="width: var(--sp-2)"></span>0.5rem</li>
+      <li class="space__row"><span class="scale__key">--sp-3</span><span class="space__bar" style="width: var(--sp-3)"></span>0.75rem</li>
+      <li class="space__row"><span class="scale__key">--sp-4</span><span class="space__bar" style="width: var(--sp-4)"></span>1rem</li>
+      <li class="space__row"><span class="scale__key">--sp-5</span><span class="space__bar" style="width: var(--sp-5)"></span>1.5rem</li>
+      <li class="space__row"><span class="scale__key">--sp-6</span><span class="space__bar" style="width: var(--sp-6)"></span>2rem</li>
+      <li class="space__row"><span class="scale__key">--sp-7</span><span class="space__bar" style="width: var(--sp-7)"></span>3rem</li>
+      <li class="space__row"><span class="scale__key">--sp-8</span><span class="space__bar" style="width: var(--sp-8)"></span>4rem</li>
+      <li class="space__row"><span class="scale__key">--sp-9</span><span class="space__bar" style="width: var(--sp-9)"></span>6rem</li>
+    </ul>
+  </section>
+
+  <section class="guide__section section">
+    <h2 class="section__title">Shape and rules</h2>
+    <div class="shape-row">
+      <div class="shape" style="border-radius: var(--radius)"></div>
+      <div class="shape" style="border-radius: var(--radius-lg)"></div>
+      <div class="shape" style="border-radius: var(--radius-pill)"></div>
+    </div>
+    <p style="margin-block-start: var(--sp-5)">
+      Near-square by default, larger only for a raised panel. The rule below is the project's
+      signature motif: 1px, dotted, in the ink colour.
+    </p>
+    <hr>
+  </section>
+
+  <section class="guide__section section">
+    <h2 class="section__title">Components</h2>
+    <p>
+      Rendered by the components the build uses, not by a copy of their markup. Tab through them:
+      focus lands on the search field, then the navigation, and the ring is always visible.
+    </p>
+    <div class="demo">
+      <p class="demo__label">site-header + submenu</p>
+      <div id="chrome-top"></div>
+    </div>
+    <div class="demo">
+      <p class="demo__label">site-footer</p>
+      <div id="chrome-footer"></div>
+    </div>
+    <div class="demo">
+      <p class="demo__label">wordmark</p>
+      <p style="padding: var(--sp-4)" id="wordmark-demo"></p>
+    </div>
+  </section>
+
+  <section class="guide__section section">
+    <h2 class="section__title">The periodic table</h2>
+    <p>
+      Rendered by the table component from the real element records, in each of its four colour
+      modes, and wired to the legend the way the site wires it. Tab into the first table and use the
+      arrow keys; hover or focus a chip and the group is picked out of the grid; press one and it
+      stays picked out until Escape.
+    </p>
+    <div id="table-modes"></div>
+    <div class="demo demo--mini" id="table-mini"></div>
+  </section>
+
+  <section class="guide__section section">
+    <h2 class="section__title">Motion</h2>
+    <p>
+      Short, decelerating, upward. Nothing runs longer than <span class="swatch__name">--dur-slow</span>,
+      and the whole layer collapses to nothing under a reduced-motion preference.
+    </p>
+  </section>
+</div>
+</main>
+
+<script type="module">
+import { readableForeground, contrastRatio, meetsAA, AA_TEXT } from "/scripts/lib/contrast.js";
+import { submenu as submenuBand } from "/scripts/components/submenu.js";
+import { siteFooter } from "/scripts/components/site-footer.js";
+import { siteHeader } from "/scripts/components/site-header.js";
+import { wordmark } from "/scripts/components/wordmark.js";
+import { legendChips } from "/scripts/components/legend-chips.js";
+import { periodicTable, wireTable } from "/scripts/components/periodic-table.js";
+import { createElementsRepository } from "/scripts/data/elements-repository.js";
+import { createCategoriesRepository } from "/scripts/data/categories-repository.js";
+import { createColourMode } from "/scripts/lib/colour-modes.js";
+import { domainOf, numericScale } from "/scripts/lib/colour-scale.js";
+import { footerColumns, isCurrent, primaryNavigation, submenus } from "/scripts/router/navigation.js";
+import { routes } from "/scripts/router/routes.js";
+
+  const tokens = getComputedStyle(document.documentElement);
+  const groupColours = [...document.styleSheets]
+    .flatMap((sheet) => [...sheet.cssRules])
+    .filter((rule) => rule.selectorText === ":root")
+    .flatMap((rule) => [...rule.style])
+    .filter((name) => name.startsWith("--g-"));
+
+  const container = document.querySelector("#group-colours");
+
+  for (const name of groupColours) {
+    const fill = tokens.getPropertyValue(name).trim();
+    const foreground = readableForeground(fill);
+    const ratio = contrastRatio(fill, foreground);
+    const passes = meetsAA(ratio);
+
+    const chip = document.createElement("div");
+    chip.className = "swatch__chip";
+    chip.style.background = `var(${name})`;
+    chip.style.color = foreground;
+    chip.style.display = "flex";
+    chip.style.alignItems = "center";
+    chip.style.justifyContent = "center";
+    chip.style.fontWeight = "var(--weight-bold)";
+    chip.textContent = "Aa";
+
+    const meta = document.createElement("p");
+    meta.className = "swatch__meta";
+    meta.innerHTML =
+      `<span class="swatch__name">${name}</span><br>` +
+      `${fill} &middot; ${foreground} &middot; ` +
+      `<span style="color: ${passes ? "var(--ink-soft)" : "#000"}">${ratio.toFixed(2)}:1</span>` +
+      `${passes ? "" : " below AA"}`;
+
+    const swatch = document.createElement("div");
+    swatch.className = "swatch";
+    swatch.append(chip, meta);
+    container.append(swatch);
+  }
+
+  // The chrome, rendered by the same components the build uses, for a page that does not exist so
+  // that nothing claims to be the current page except the demonstration submenu item.
+  const demoPath = "/periodic-table/orbitals/";
+
+  document.querySelector("#chrome-top").innerHTML =
+    siteHeader({ navigation: primaryNavigation(routes), currentPath: demoPath, isCurrent }) +
+    submenuBand({ submenu: submenus["table-views"], currentPath: demoPath, isCurrent });
+
+  document.querySelector("#chrome-footer").innerHTML = siteFooter({ columns: footerColumns });
+  document.querySelector("#wordmark-demo").innerHTML = wordmark({ link: false }) + " " + wordmark({ link: false, small: true });
+
+  // The table, in each of its four colour modes, from the shipped modules and the real data. This is
+  // the only page in the repository where the table engine can be looked at before a page family
+  // carries it, which is why it is here rather than left to the first home page that needs it.
+  const elements = await createElementsRepository();
+  const categories = await createCategoriesRepository();
+  const all = elements.all();
+
+  /**
+   * A fill and the foreground that reads on it, resolved from the token layer as the page's browser
+   * will resolve it — not restated here, and not computed by a second rule.
+   */
+  function pair(token) {
+    const fill = tokens.getPropertyValue(token).trim();
+
+    return { fill, onFill: readableForeground(fill) };
+  }
+
+  const ramp = [1, 2, 3, 4, 5, 6].map((step) => pair(`--ramp-${step}`));
+  const scale = numericScale({
+    domain: domainOf(all, "electronegativity"),
+    ramp: ramp.map(({ fill }) => fill),
+    unknown: tokens.getPropertyValue("--value-unknown").trim(),
+  });
+  const bins = scale.bins();
+
+  const modes = [
+    {
+      title: "group",
+      caption: "The default: one colour per element category, with the member count on the chip.",
+      mode: createColourMode({
+        mode: "group",
+        labels: Object.fromEntries(categories.all().map((category) => [category.slug, category.name])),
+        paint: (key) => pair(categories.bySlug(key).token),
+      }),
+    },
+    {
+      title: "block",
+      caption: "The orbital block each element fills last. This is where the table's shape comes from.",
+      mode: createColourMode({ mode: "block", paint: (key) => pair(`--g-${key}-block`) }),
+    },
+    {
+      title: "state",
+      caption: "State at 293 K. Two elements are liquid: bromine and mercury.",
+      mode: createColourMode({ mode: "state", paint: (key) => pair(`--state-${key}`) }),
+    },
+    {
+      title: "value",
+      caption: "A measurement: electronegativity, in six equal-width bins over the range the data spans.",
+      mode: createColourMode({
+        mode: "value",
+        field: "electronegativity",
+        scale,
+        paint: (key) => (key === "unknown" ? scale.colour(null) : bins[Number(key)]),
+      }),
+    },
+  ];
+
+  const modesHost = document.querySelector("#table-modes");
+
+  for (const { title, caption, mode } of modes) {
+    const block = document.createElement("div");
+
+    block.className = "demo demo--bleed";
+    block.innerHTML =
+      `<p class="demo__label">periodic-table &middot; ${title}</p>` +
+      `<div class="demo__body">` +
+      `<p class="demo__caption">${caption}</p>` +
+      `<div class="demo__legend">${legendChips({ entries: mode.keys(all) })}</div>` +
+      `${periodicTable({ elements: all, paint: mode.paint })}` +
+      `</div>`;
+
+    modesHost.append(block);
+    wireTable(block);
+  }
+
+  document.querySelector("#table-mini").innerHTML =
+    '<p class="demo__label">element-tile &middot; compact, with one element marked &middot; 40rem wide</p>' +
+    '<div class="demo__body">' +
+    periodicTable({ elements: all, paint: modes[0].mode.paint, variant: "compact", highlighted: "iron" }) +
+    "</div>";
+</script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+/* The about page's provenance table.
+
+   **Four columns of text will not fit a phone, and the table scrolls sideways rather than compressing.**
+   The alternative is a table whose cells wrap every phrase onto three lines, in which case the licence
+   — the thing this section exists to state — becomes the least readable thing on the page. A sideways
+   scroll is a smaller cost than an unreadable licence, and it is the same decision the temperature
+   page's reference-points table makes.
+
+   The host line under each dataset name is set smaller and faint because it is supplementary: the
+   dataset is the fact, the organisation that hosts it is a courtesy. */
+
+.sources {
+  overflow-x: auto;
+}
+
+.sources__table {
+  width: 100%;
+  min-width: 34rem;
+  border-collapse: collapse;
+  font-size: var(--step--1);
+}
+
+.sources__table th,
+.sources__table td {
+  padding: var(--sp-3);
+  border-block-end: var(--rule-hairline);
+  text-align: start;
+  vertical-align: top;
+  line-height: var(--leading-body);
+}
+
+.sources__table thead th {
+  border-block-end: var(--rule-solid);
+  color: var(--ink);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.sources__table tbody th {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+/* The count is centred and tabular so the column reads as a column rather than as four numbers of
+   different widths lined up by accident. */
+.sources__count {
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.sources__host {
+  display: block;
+  margin-block-end: var(--sp-1);
+  color: var(--ink-faint);
+}
+
+/* The prose row is the claim ADR-005 makes, so it is separated from the dataset rows above it rather
+   than looking like a fifth dataset. */
+.sources__prose th,
+.sources__prose td {
+  border-block-start: var(--rule-solid);
+}
+
+.sources__note {
+  max-width: 46rem;
+  margin-block-start: var(--sp-4);
+  color: var(--ink-soft);
+  font-size: var(--step--1);
+  line-height: var(--leading-prose);
+}
+
+.about-corrections {
+  padding-block: var(--sp-6) var(--sp-8);
+}

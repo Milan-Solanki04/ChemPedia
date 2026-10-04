@@ -1,0 +1,83 @@
+<!--
+  Contact.
+
+  A fragment, not a document: `tools/build.js` wraps this in the document skeleton, the masthead, the
+  contextual band and the footer.
+
+  **No module and no markers, because this page is entirely written copy** — which is the convention the
+  rest of the project keeps, and the reason it has no script at all. There is nothing here to compute and
+  nothing to wire: a page whose body is prose is a page whose template is its body.
+
+  What makes a contact page worth having, rather than a bare address, is that it says what to write
+  about and what happens next. A reader with a correction to make should not have to guess whether it is
+  wanted; a reader with something else should be able to tell quickly that it is not what this is for.
+  So the page sorts the three things people actually write about — corrections, data and licensing, and
+  everything else — and says plainly which of them is likely to be answerable here.
+
+  The address is a placeholder on an `example` domain, and the page says so rather than shipping a
+  `mailto:` that bounces. A contact form that silently fails is worse than an address that admits it is
+  not live yet.
+-->
+
+<section class="index-hero">
+  <div class="shell">
+    <h1>Contact</h1>
+    <p class="lead">
+      Corrections to the data are the most useful thing anyone can send. Everything else is welcome, and
+      most of it can be found somewhere on the site.
+    </p>
+  </div>
+</section>
+
+<section class="contact-section section" aria-labelledby="writing-heading">
+  <div class="shell prose">
+    <h2 class="section__title" id="writing-heading">What to write about</h2>
+
+    <h3>A figure that looks wrong</h3>
+    <p>
+      Say which element and which property, and give a source if you have one. Several values on this site
+      are genuinely disputed — the electronegativity of astatine is calculated rather than measured, and
+      some melting points are estimates from a compound rather than from the element — and where that is
+      the case the page says so. If you think a value is presented as settled when it should be marked as
+      uncertain, that is worth saying too.
+    </p>
+
+    <h3>Something on a page that reads badly</h3>
+    <p>
+      Every explanation here was written for this site, and a sentence that is unclear or wrong is a
+      defect rather than a matter of taste. Which page, and which sentence, is all the detail needed.
+    </p>
+
+    <h3>Reusing the data or the writing</h3>
+    <p>
+      The element data comes from openly licensed datasets and the explanations are ours, and the
+      <a href="/about/">about page</a> records which is which and under what licence. If you want to use
+      either, read that first; if your question is about permissions, that is what the answer is drawn from.
+    </p>
+
+    <h3>Something else</h3>
+    <p>
+      A bug in the table, a correction to the glossary, a suggestion for a term that is missing — all
+      welcome. What is not useful is a request for the site to be extended in a particular direction
+      without saying why, or an offer of reciprocal links.
+    </p>
+  </div>
+</section>
+
+<section class="contact-section section" aria-labelledby="address-heading">
+  <div class="shell prose">
+    <h2 class="section__title" id="address-heading">Where to write</h2>
+
+    <p>
+      <strong>This address is a placeholder.</strong> The site is built but not yet published at a real
+      domain, so mail sent here will not arrive. Saying so plainly is better than shipping an address that
+      silently bounces.
+    </p>
+
+    <p>
+      Until it is live, the most useful thing you can do with a correction is to note it against the
+      repository: every page on this site is generated from files in it, and the data and the prose are
+      both plain text that can be read without running anything.
+    </p>
+  </div>
+</section>
